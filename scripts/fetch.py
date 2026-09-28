@@ -310,8 +310,8 @@ https://raw.githubusercontent.com/{GITHUB_REPO}/{BRANCH}/output/clash.yaml
             <h2>📊 数据源状态</h2>
             <table>
                 <tr><th>来源</th><th>状态</th></tr>
-                {''.join(f'<tr><td>{u[:50]}...</td><td class="success">✓ OK</td></tr>' for u in [l.strip() for l in sources_file.read_text(encoding="utf8").splitlines() if l.strip() and not l.startswith('#') and u not in failed_sources])}
-                {''.join(f'<tr><td>{u[:50]}...</td><td class="error">✗ 失败</td></tr>' for u in failed_sources)}
+                ''' + ''.join([f'<tr><td>{url[:50]}...</td><td class="success">✓ OK</td></tr>' for url in [line.strip() for line in sources_file.read_text(encoding="utf8").splitlines() if line.strip() and not line.startswith('#')] if url not in failed_sources]) + '''
+                ''' + ''.join([f'<tr><td>{url[:50]}...</td><td class="error">✗ 失败</td></tr>' for url in failed_sources]) + '''
             </table>
         </div>
         
@@ -325,12 +325,12 @@ https://raw.githubusercontent.com/{GITHUB_REPO}/{BRANCH}/output/clash.yaml
     logger.info(f"Saved report to {report_path}")
     
     # 输出摘要
-    print(f"\n{'='*50}")
-    print(f"📦 抓取完成")
-    print(f"   可用节点: {len(unique_proxies)} 个")
-    print(f"   完整配置: output/clash.yaml")
-    print(f"   Provider: output/providers.yaml")
-    print(f"{'='*50}")
+    print("\n" + "="*50)
+    print("抓取完成")
+    print(f"可用节点: {len(unique_proxies)} 个")
+    print("完整配置: output/clash.yaml")
+    print("Provider: output/providers.yaml")
+    print("="*50)
 
 if __name__ == "__main__":
     main()
