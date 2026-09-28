@@ -22,5 +22,4 @@ dist/
 .DS_Store
 Thumbs.db
 
-# 不再忽略 output，需要提交到 GitHub
-# output/
+# output 目录需要提交到 GitHub，不要忽略

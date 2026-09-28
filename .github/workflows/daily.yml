@@ -47,17 +47,20 @@ jobs:
 
       - name: Commit and push if changed
         run: |
-          git add output/clash.yaml output/report.html
+          git add output/
           if git diff --cached --quiet; then
             echo "No changes to commit"
           else
-            git commit -m "🔄 Auto-update nodes: ${{ steps.fetch.outputs.proxy_count }} proxies ($(date +%Y-%m-%d))"
+            git commit -m "🔄 Auto-update nodes: ${{ steps.fetch.outputs.proxy_count }} proxies ($(date +%Y-%m-%d %H:%M))"
             git push
           fi
 
       - name: Notify success
         if: success()
-        run: echo "✅ FreeNodeMailer completed. ${{ steps.fetch.outputs.proxy_count }} proxies pushed."
+        run: |
+          echo "✅ FreeNodeMailer completed successfully."
+          echo "Proxies: ${{ steps.fetch.outputs.proxy_count }}"
+          echo "Subscribe URL: https://raw.githubusercontent.com/${{ github.repository }}/main/output/clash.yaml"
 
       - name: Notify failure
         if: failure()
