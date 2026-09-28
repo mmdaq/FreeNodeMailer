@@ -15,8 +15,8 @@ Windows + GitHub Actions 免费 Clash 节点采集工具。
 
 ### 方式一：直接导入（推荐）
 
-1. Fork 本仓库
-2. 编辑 `config/github_repo.txt`，填入你的仓库名（如 `yourname/FreeNodeMailer`）
+1. Fork 本仓库（或直接使用原仓库）
+2. 仓库名已配置为 `mmdaq/FreeNodeMailer`
 3. 在 Actions 中手动运行一次 workflow，生成初始配置
 4. 下载 `output/clash.yaml` 直接导入 Clash/ClashX
 
@@ -25,7 +25,7 @@ Windows + GitHub Actions 免费 Clash 节点采集工具。
 在 Clash Meta 客户端中添加订阅：
 
 ```
-https://raw.githubusercontent.com/YOUR_USERNAME/FreeNodeMailer/main/output/clash.yaml
+https://raw.githubusercontent.com/mmdaq/FreeNodeMailer/main/output/clash.yaml
 ```
 
 客户端会自动识别订阅，每天 08:00 自动更新节点。

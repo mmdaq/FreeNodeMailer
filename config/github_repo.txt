@@ -1,1 +1,1 @@
-YOUR_USERNAME/FreeNodeMailer
+mmdaq/FreeNodeMailer
