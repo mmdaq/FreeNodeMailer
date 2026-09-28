@@ -1,0 +1,64 @@
+
+name: FreeNodeMailer
+
+on:
+  workflow_dispatch:
+  schedule:
+    # 每天北京时间 08:00 执行 (UTC 00:00)
+    - cron: "0 0 * * *"
+
+env:
+  PYTHONIOENCODING: utf-8
+  TZ: Asia/Shanghai
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          persist-credentials: 'true'
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: 'pip'
+          cache-dependency-path: 'requirements.txt'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Configure git
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+
+      - name: Run fetch script
+        id: fetch
+        run: |
+          python scripts/fetch.py
+          echo "proxy_count=$(grep -c 'server:' output/clash.yaml || echo 0)" >> $GITHUB_OUTPUT
+
+      - name: Commit and push if changed
+        run: |
+          git add output/clash.yaml output/report.html
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "🔄 Auto-update nodes: ${{ steps.fetch.outputs.proxy_count }} proxies ($(date +%Y-%m-%d))"
+            git push
+          fi
+
+      - name: Notify success
+        if: success()
+        run: echo "✅ FreeNodeMailer completed. ${{ steps.fetch.outputs.proxy_count }} proxies pushed."
+
+      - name: Notify failure
+        if: failure()
+        run: echo "❌ FreeNodeMailer failed. Check logs."

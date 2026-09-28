@@ -1,0 +1,15 @@
+# Clash 节点源列表
+# 每行一个 URL，以 # 开头的行会被忽略
+
+# 官方/知名源
+https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml
+https://raw.githubusercontent.com/zhangkaiitugithub/passcro/main/speednodes.yaml
+https://raw.githubusercontent.com/pepsionliam/v2ray_urls/main/clash.yaml
+https://raw.githubusercontent.com/riusksk/clash/main/clash.yaml
+https://raw.githubusercontent.com/anchtn/hiddify-clash-configs/main/sgfarm.yaml
+
+# 备用源
+https://raw.githubusercontent.com/aiboboxx/v2rayfree/main/clash.yaml
+https://raw.githubusercontent.com/mahdibnr/VPN-Free/master/clash.yaml
+https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.yml
+https://raw.githubusercontent.com/mfbpn/tg_freenode/main/clash.yaml
