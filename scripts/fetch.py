@@ -13,13 +13,17 @@ MAX_CONCURRENT = 50
 MAX_DELAY = 500  # 毫秒，超过此延迟的节点将被过滤
 
 proxies=[]
+failed_sources = []
+successful_sources = []
 for url in Path("config/sources.txt").read_text().splitlines():
     if not url: continue
     try:
         data=yaml.safe_load(requests.get(url,headers=HEADERS,timeout=20).text)
         proxies.extend(data.get("proxies",[]))
+        successful_sources.append(url)
     except Exception as e:
         logger.warning(f"Failed to fetch {url}: {e}")
+        failed_sources.append(url)
 
 # 去重
 seen=set(); out=[]
@@ -131,6 +135,8 @@ html = f"""<!DOCTYPE html>
   .delay-good {{ color: #27ae60; font-weight: bold; }}
   .delay-ok {{ color: #f39c12; }}
   .delay-bad {{ color: #e74c3c; }}
+  .success {{ color: #27ae60; font-weight: bold; }}
+  .error {{ color: #e74c3c; }}
   .footer {{ margin-top: 30px; padding-top: 15px; border-top: 1px solid #eee; font-size: 12px; color: #999; text-align: center; }}
   .code {{ background: #f4f4f4; padding: 15px; border-radius: 6px; font-family: monospace; overflow-x: auto; font-size: 13px; }}
 </style>
@@ -174,6 +180,19 @@ for region, nodes in sorted(regions.items()):
         port = p.get("port", "")
         delay_class = "delay-good" if delay < 200 else ("delay-ok" if delay < 500 else "delay-bad")
         html += f'    <tr><td>{name}</td><td>{ptype}</td><td class="{delay_class}">{delay:.0f} ms</td><td>{server}:{port}</td></tr>\n'
+
+html += f"""  </table>
+
+  <h2>📡 数据源状态</h2>
+  <table>
+    <tr><th>来源</th><th>状态</th></tr>
+"""
+for url in successful_sources:
+    short_url = url[:40] + "..." if len(url) > 40 else url
+    html += f'    <tr><td>{short_url}</td><td class="success">✓ OK</td></tr>\n'
+for url in failed_sources:
+    short_url = url[:40] + "..." if len(url) > 40 else url
+    html += f'    <tr><td>{short_url}</td><td class="error">✗ 失败</td></tr>\n'
 
 html += f"""  </table>
   
