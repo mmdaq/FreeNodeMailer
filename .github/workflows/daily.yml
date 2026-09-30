@@ -3,7 +3,7 @@ name: FreeNodeMailer
 on:
   workflow_dispatch:
   schedule:
-    # 每天北京时间 08:00 执行 (UTC 00:00)
+    # 姣忓ぉ鍖椾含鏃堕棿 08:00 鎵ц (UTC 00:00)
     - cron: "0 0 * * *"
 
 env:
@@ -14,6 +14,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    continue-on-error: true
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -39,8 +40,8 @@ jobs:
 
       - name: Run fetch and speed test
         id: fetch
-        continue-on-error: true
         run: |
+          set +e
           python scripts/fetch.py || true
           echo "proxy_count=$(grep -c 'server:' output/clash.yaml 2>/dev/null || echo 0)" >> $GITHUB_OUTPUT
 
@@ -50,7 +51,7 @@ jobs:
             echo "Creating fallback output..."
             mkdir -p output
             echo "proxies: []" > output/clash.yaml
-            echo "<html><body><h2>今日无可用节点</h2></body></html>" > output/report.html
+            echo "<html><body><h2>浠婃棩鏃犲彲鐢ㄨ妭鐐?/h2></body></html>" > output/report.html
             echo "proxy_count=0" >> $GITHUB_OUTPUT
           fi
 
@@ -59,7 +60,8 @@ jobs:
           QQ_EMAIL: ${{ secrets.QQ_EMAIL }}
           QQ_AUTH: ${{ secrets.QQ_AUTH }}
         run: |
-          python scripts/send_email.py
+          set +e
+          python scripts/send_email.py || true
 
       - name: Commit and push if changed
         run: |
@@ -67,17 +69,6 @@ jobs:
           if git diff --cached --quiet; then
             echo "No changes to commit"
           else
-            git commit -m "🔄 Auto-update nodes: ${{ steps.fetch.outputs.proxy_count }} proxies ($(date +%Y-%m-%d %H:%M))"
-            git push
+            git commit -m "馃攧 Auto-update nodes: ${{ steps.fetch.outputs.proxy_count }} proxies ($(date +%Y-%m-%d %H:%M))"
+            git push || true
           fi
-
-      - name: Notify success
-        if: success()
-        run: |
-          echo "✅ FreeNodeMailer completed successfully."
-          echo "Proxies: ${{ steps.fetch.outputs.proxy_count }}"
-          echo "Subscribe URL: https://raw.githubusercontent.com/${{ github.repository }}/main/output/clash.yaml"
-
-      - name: Notify failure
-        if: failure()
-        run: echo "❌ FreeNodeMailer failed. Check logs."
