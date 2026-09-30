@@ -1,0 +1,64 @@
+allow-lan: true
+log-level: info
+mixed-port: 7890
+mode: rule
+proxies: []
+proxy-groups:
+- name: 🚀 节点选择
+  proxies:
+  - ♻️ 自动选择
+  - 🇯🇵 日本
+  - 🇺🇸 美国
+  - 🇭🇰 香港
+  - 🇸🇬 新加坡
+  - 🇬🇧 英国
+  - 🇩🇪 德国
+  - 🇫🇷 法国
+  - 🇰🇷 韩国
+  - 🇹🇼 台湾
+  - 🇹🇭 泰国
+  - 🇨🇦 加拿大
+  - 🇦🇺 澳大利亚
+  - 🇳🇱 荷兰
+  - 🇮🇳 印度
+  - 🇧🇷 巴西
+  - 🇷🇺 俄罗斯
+  - 🌍 其他
+  type: select
+- interval: 300
+  name: ♻️ 自动选择
+  proxies:
+  - 🇯🇵 日本
+  - 🇺🇸 美国
+  - 🇭🇰 香港
+  - 🇸🇬 新加坡
+  - 🇬🇧 英国
+  - 🇩🇪 德国
+  - 🇫🇷 法国
+  - 🇰🇷 韩国
+  - 🇹🇼 台湾
+  - 🇹🇭 泰国
+  - 🇨🇦 加拿大
+  - 🇦🇺 澳大利亚
+  - 🇳🇱 荷兰
+  - 🇮🇳 印度
+  - 🇧🇷 巴西
+  - 🇷🇺 俄罗斯
+  - 🌍 其他
+  tolerance: 50
+  type: url-test
+  url: http://www.gstatic.com/generate_204
+- name: 🌐 全球代理
+  proxies:
+  - 🚀 节点选择
+  - DIRECT
+  type: select
+- name: 🐟 漏网之鱼
+  proxies:
+  - 🚀 节点选择
+  - 🌐 全球代理
+  - DIRECT
+  type: select
+rules:
+- GEODATA,cn,DIRECT
+- MATCH,🐟 漏网之鱼
