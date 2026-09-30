@@ -248,4 +248,4 @@ print(f"Output: {clash_file}")
 if available == 0:
     logger.warning("Warning: No proxies available!")
 else:
-    print(f"✅ All {available} proxies verified: delay <= {MAX_DELAY}ms")
+    print(f"[OK] All {available} proxies verified: delay <= {MAX_DELAY}ms")
