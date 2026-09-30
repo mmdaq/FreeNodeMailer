@@ -2,7 +2,344 @@ allow-lan: true
 log-level: info
 mixed-port: 7890
 mode: rule
-proxies: []
+proxies:
+- client-fingerprint: chrome
+  delay: 235.9
+  flow: xtls-rprx-vision
+  name: 🇸🇬 新加坡 | SGP 6
+  network: tcp
+  port: 443
+  reality-opts:
+    public-key: eAQrXEfedW5BrMMeOecf_M9tkNNqQIShlLOl2xg1cho
+    short-id: c75bbeb4b67fba71
+  server: agroup.sg3.ilovegairport.com
+  servername: ap-southeast-1.console.aws.amazon.com
+  tls: true
+  type: vless
+  udp: true
+  uuid: 129e26fe-cee2-4786-9261-b29668337829
+- client-fingerprint: edge
+  delay: 307.3
+  name: 🇸🇬 新加坡 | SGP 2
+  network: ws
+  port: 443
+  server: 5.223.51.84
+  servername: hk.152568.xyz
+  tls: true
+  type: vless
+  udp: true
+  uuid: 0250424c-ae75-4b6b-890f-3fe26fae36c3
+  ws-opts:
+    headers:
+      Host: hk.152568.xyz
+    path: /cdn/packages/runtime-core.tar.gz
+- delay: 345.2
+  name: 🇫🇷 法国 | FRA 5
+  network: ws
+  password: humanity
+  port: 443
+  server: 172.64.152.23
+  skip-cert-verify: true
+  sni: www.calmlunch.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.calmlunch.com
+    path: /assignment
+- delay: 363.1
+  name: 🇸🇬 新加坡 | SGP 8
+  network: ws
+  port: 8880
+  server: 162.159.43.187
+  tls: false
+  type: vless
+  udp: true
+  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  ws-opts:
+    headers:
+      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
+    path: /?ed=2560security=tls
+- alpn:
+  - h3
+  - h2
+  - http/1.1
+  delay: 378.1
+  name: 🇺🇸 美国 | USA
+  network: ws
+  password: humanity
+  port: 443
+  server: join-telegram-channel-tirexnet.trex.kdns.fr
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- alpn:
+  - http/1.1
+  delay: 386.5
+  name: 🇺🇸 美国 | USA 4
+  network: ws
+  password: humanity
+  port: 443
+  server: www.ignitelimit.com
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- delay: 403.8
+  name: 🇺🇸 美国 | USA 18
+  network: ws
+  password: humanity
+  port: 443
+  server: 104.17.111.3
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- client-fingerprint: chrome
+  delay: 412.2
+  name: 🇫🇷FR_8|3.4MB/s
+  network: ws
+  password: humanity
+  port: '443'
+  server: www.ignitelimit.com
+  skip-cert-verify: false
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/60.0.3112.113 Safari/537.36
+    path: /assignment
+- client-fingerprint: chrome
+  delay: 412.4
+  name: 🇫🇷FR_9|1.4MB/s
+  network: ws
+  password: humanity
+  port: '443'
+  server: 104.16.174.143
+  skip-cert-verify: false
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like
+        Gecko) Chrome/39.0.2171.95 Safari/537.36
+    path: /assignment
+- delay: 420.5
+  name: 🇺🇸 美国 | USA 9
+  network: ws
+  password: humanity
+  port: 443
+  server: 104.18.152.149
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- delay: 423.1
+  name: 🇺🇸 美国 | USA 2
+  network: ws
+  password: humanity
+  port: 443
+  server: 104.18.152.204
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- delay: 430.6
+  name: 🇺🇸 美国 | USA 5
+  network: ws
+  password: humanity
+  port: 443
+  server: 216.24.57.1
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- alpn:
+  - h2
+  client-fingerprint: chrome
+  delay: 431.6
+  name: 🇩🇪DE_1|3.4MB/s
+  network: xhttp
+  port: 443
+  server: 104.18.15.190
+  servername: buy.tgseenrobo.ir
+  tls: true
+  type: vless
+  udp: true
+  uuid: 9c781e88-7d5c-49ac-92b0-ef1ade8427aa
+  xhttp-opts:
+    host: buy.tgseenrobo.ir
+    mode: auto
+    path: /Bf8uiGqzIKgPlKjaGeRFXPM2
+- client-fingerprint: chrome
+  delay: 439.2
+  name: 🇫🇷FR_7|1.9MB/s
+  network: ws
+  password: humanity
+  port: '443'
+  server: 104.16.174.117
+  skip-cert-verify: false
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like
+        Gecko) Chrome/70.0.3538.102 Safari/537.36
+    path: /assignment
+- delay: 442.8
+  name: 🇮🇪IE_1|3.2MB/s
+  port: 443
+  server: 34.249.214.108
+  skip-cert-verify: true
+  tls: true
+  type: http
+- auth: gf1:gfhysteria2024
+  delay: 449.6
+  name: 🇺🇸 美国 | USA 8
+  password: gf1:gfhysteria2024
+  port: 443
+  server: 66.94.121.46
+  skip-cert-verify: true
+  sni: www.broadcom.com
+  type: hysteria2
+- delay: 450.5
+  name: 🇺🇸 美国 | USA 13
+  network: ws
+  password: humanity
+  port: 443
+  server: 104.17.148.22
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- delay: 451.7
+  name: 🇫🇷 法国 | FRA
+  network: ws
+  password: humanity
+  port: 443
+  server: 104.18.152.144
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- delay: 454.0
+  name: 🇺🇸 美国 | USA 16
+  network: ws
+  password: humanity
+  port: 443
+  server: render.com
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment#Telegram---PLANB_NET---PLANB_NET---PLANB_NET---PLANB_NET
+- client-fingerprint: chrome
+  delay: 463.2
+  name: 🇫🇷FR_4|1.2MB/s
+  network: ws
+  password: humanity
+  port: '443'
+  server: 104.16.73.213
+  skip-cert-verify: false
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/52.0.2743.116 Safari/537.36
+    path: /assignment
+- client-fingerprint: chrome
+  delay: 467.1
+  name: 🇫🇷FR_3|1.7MB/s
+  network: ws
+  password: humanity
+  port: '443'
+  server: 104.16.174.36
+  skip-cert-verify: false
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/64.0.3282.186 Safari/537.36
+    path: /assignment
+- delay: 471.2
+  name: 🇫🇷 法国 | FRA 4
+  network: ws
+  password: humanity
+  port: 443
+  server: 104.18.12.149
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- delay: 476.9
+  name: 🇧🇪BE_1|4.1MB/s
+  port: 7080
+  server: 78.110.197.210
+  type: http
+- client-fingerprint: chrome
+  delay: 496.8
+  name: 🇫🇷FR_5|2.1MB/s
+  network: ws
+  password: humanity
+  port: '443'
+  server: 104.19.229.21
+  skip-cert-verify: false
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      User-Agent: Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/62.0.3202.94 Safari/537.36
+    path: /assignment
 proxy-groups:
 - name: 🚀 节点选择
   proxies:
@@ -58,6 +395,45 @@ proxy-groups:
   - 🚀 节点选择
   - 🌐 全球代理
   - DIRECT
+  type: select
+- name: 🇸🇬 新加坡
+  proxies:
+  - 🇸🇬 新加坡 | SGP 6
+  - 🇸🇬 新加坡 | SGP 2
+  - 🇸🇬 新加坡 | SGP 8
+  type: select
+- name: 🇫🇷 法国
+  proxies:
+  - 🇫🇷 法国 | FRA 5
+  - 🇫🇷FR_8|3.4MB/s
+  - 🇫🇷FR_9|1.4MB/s
+  - 🇫🇷FR_7|1.9MB/s
+  - 🇫🇷 法国 | FRA
+  - 🇫🇷FR_4|1.2MB/s
+  - 🇫🇷FR_3|1.7MB/s
+  - 🇫🇷 法国 | FRA 4
+  - 🇫🇷FR_5|2.1MB/s
+  type: select
+- name: 🇺🇸 美国
+  proxies:
+  - 🇺🇸 美国 | USA
+  - 🇺🇸 美国 | USA 4
+  - 🇺🇸 美国 | USA 18
+  - 🇺🇸 美国 | USA 9
+  - 🇺🇸 美国 | USA 2
+  - 🇺🇸 美国 | USA 5
+  - 🇺🇸 美国 | USA 8
+  - 🇺🇸 美国 | USA 13
+  - 🇺🇸 美国 | USA 16
+  type: select
+- name: 🇩🇪 德国
+  proxies:
+  - 🇩🇪DE_1|3.4MB/s
+  type: select
+- name: 🌍 其他
+  proxies:
+  - 🇮🇪IE_1|3.2MB/s
+  - 🇧🇪BE_1|4.1MB/s
   type: select
 rules:
 - GEODATA,cn,DIRECT
