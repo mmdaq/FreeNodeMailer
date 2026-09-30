@@ -10,6 +10,7 @@ HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/
 SPEED_TEST_URL = "http://www.gstatic.com/generate_204"
 SPEED_TEST_TIMEOUT = 5
 MAX_CONCURRENT = 50
+MAX_DELAY = 500  # 毫秒，超过此延迟的节点将被过滤
 
 proxies=[]
 for url in Path("config/sources.txt").read_text().splitlines():
@@ -51,6 +52,12 @@ timed_proxies = []
 with ThreadPoolExecutor(max_workers=MAX_CONCURRENT) as executor:
     results = list(executor.map(test_speed, out))
     timed_proxies = [p for p in results if p.get("delay", -1) > 0]
+
+# 过滤延迟超过阈值的节点
+filtered_proxies = [p for p in timed_proxies if p.get("delay", 0) <= MAX_DELAY]
+if len(timed_proxies) != len(filtered_proxies):
+    logger.info(f"Filtered {len(timed_proxies) - len(filtered_proxies)} proxies with delay > {MAX_DELAY}ms")
+timed_proxies = filtered_proxies
 
 # 统计
 timed_proxies.sort(key=lambda x: x.get("delay", 9999))
@@ -180,6 +187,6 @@ html += f"""  </table>
 
 Path("output/report.html").write_text(html, encoding="utf8")
 
-print(f"Saved {len(timed_proxies)} proxies")
+print(f"Saved {len(timed_proxies)} proxies (delay <= {MAX_DELAY}ms)")
 print(f"Avg delay: {avg_delay:.1f}ms, Min delay: {min_delay:.1f}ms")
 print(f"Regions: {len(regions)}")
