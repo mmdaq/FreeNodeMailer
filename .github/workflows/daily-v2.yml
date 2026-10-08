@@ -1,19 +1,21 @@
-name: FreeNodeMailer v2 (真实测速版)
+name: FreeNodeMailer 每日节点推送
 
 # ============================================================
-# 这是重写版的每日工作流。
+# 每天北京时间 08:00 自动运行（UTC 00:00），也可在 Actions 页面手动触发。
 #
-# 注意：GitHub 只会自动调度「默认分支(main)」上的 schedule 工作流。
-# 在合并到 main 之前，本工作流只能通过 workflow_dispatch 手动运行。
-# 合并到 main 后，会每天 UTC 00:00（北京 08:00）自动运行。
+# 完整流程：
+#   离线自检 → 下载 mihomo 内核 → 下载 geodata → 配置格式校验
+#   → 抓取数据源 → 真实内核测速 → 生成带日期 yaml → 二次校验 → 发邮件
+#   → 提交结果回仓库（订阅链接用）
 #
-# 与仓库里旧的 daily.yml 互不冲突：两者产物文件名相同，
-# 但只有先合并到 main 的那个才会被 schedule 自动触发。
-# 合并前请先删除或停用旧的 daily.yml。
+# 必需 Secrets（Settings → Secrets and variables → Actions）：
+#   QQ_EMAIL  发件邮箱，例如 385096659@qq.com
+#   QQ_AUTH   QQ邮箱 SMTP 授权码（16 位，非登录密码）
+#   MAIL_TO   收件人（可选，缺省发给 QQ_EMAIL）
 # ============================================================
 on:
   schedule:
-    # 08:00 CST = 00:00 UTC
+    # GitHub cron 用 UTC。北京 08:00 = 00:00 UTC
     - cron: "0 0 * * *"
   workflow_dispatch:
     inputs:
@@ -30,7 +32,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: fnm-v2-daily
+  group: fnm-daily
   cancel-in-progress: false
 
 jobs:
@@ -42,8 +44,6 @@ jobs:
     steps:
       - name: 检出代码
         uses: actions/checkout@v4
-        with:
-          ref: feat/fnm-realtime-nodes
 
       - name: 安装 Python
         uses: actions/setup-python@v5
@@ -115,7 +115,7 @@ jobs:
           retention-days: 14
           if-no-files-found: warn
 
-      - name: 提交结果回分支（订阅链接用）
+      - name: 提交结果回仓库（订阅链接用）
         if: success()
         run: |
           git config user.name "github-actions[bot]"
@@ -131,4 +131,4 @@ jobs:
       - name: 失败提示
         if: failure()
         run: |
-          echo "::error title=FreeNodeMailer v2 运行失败::常见原因：数据源全挂 / QQ_AUTH 失效 / 内核或 geodata 下载失败 / 配置校验未通过"
+          echo "::error title=FreeNodeMailer 运行失败::常见原因：数据源全挂 / QQ_AUTH 失效 / 内核或 geodata 下载失败 / 配置校验未通过"
