@@ -1,0 +1,841 @@
+# FreeNodeMailer 每日可用节点 | 生成时间(北京时间) 2026-10-08 14:10:38
+mixed-port: 7890
+allow-lan: false
+bind-address: 127.0.0.1
+mode: rule
+log-level: info
+ipv6: true
+unified-delay: true
+tcp-concurrent: true
+find-process-mode: strict
+external-controller: 127.0.0.1:9097
+geodata-mode: true
+geodata-loader: standard
+geo-auto-update: true
+geo-update-interval: 168
+profile:
+  store-selected: true
+  store-fake-ip: true
+sniffer:
+  enable: true
+  sniff:
+    HTTP:
+      ports:
+      - 80
+      - 8080-8880
+      override-destination: true
+    TLS:
+      ports:
+      - 443
+      - 8443
+    QUIC:
+      ports:
+      - 443
+      - 8443
+  skip-domain:
+  - Mijia Cloud
+  - +.push.apple.com
+dns:
+  enable: true
+  listen: 127.0.0.1:1053
+  ipv6: true
+  respect-rules: true
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter:
+  - '*.lan'
+  - '*.local'
+  - +.msftconnecttest.com
+  - +.msftncsi.com
+  - localhost.ptlogin2.qq.com
+  - +.qq.com
+  - +.wechat.com
+  default-nameserver:
+  - 223.5.5.5
+  - 119.29.29.29
+  nameserver:
+  - https://223.5.5.5/dns-query
+  - https://1.12.12.12/dns-query
+  proxy-server-nameserver:
+  - https://223.5.5.5/dns-query
+  - 223.5.5.5
+  nameserver-policy:
+    geosite:cn,private:
+    - https://223.5.5.5/dns-query
+    - 223.5.5.5
+    geosite:geolocation-!cn:
+    - https://1.12.12.12/dns-query
+    - tls://8.8.8.8:853
+proxies:
+- name: A🟢🇨🇳res[🎞️📦]_dokng.com_0da15920
+  type: vmess
+  server: 112.132.215.108
+  port: 50002
+  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
+  alterId: 64
+  cipher: auto
+  tls: false
+  udp: true
+  network: tcp
+  skip-cert-verify: false
+  client-fingerprint: chrome
+- name: EPODONIOS ·1401
+  type: vless
+  server: sin-a-01.auuas.com
+  port: 1891
+  uuid: 81c4547b-e5d8-4af8-baf0-91c5c0c05a9b
+  tls: true
+  udp: true
+  reality-opts:
+    public-key: z6wAS22cWD7Sx0w9Ib5ya7JBL4rDs4qraPMYELTG0Ss
+    short-id: 8378f267
+  servername: www.npmjs.com
+  client-fingerprint: chrome
+  flow: xtls-rprx-vision
+- name: 🇸🇬 新加坡 | SGP 2 ·2
+  type: vless
+  server: 13.229.58.5
+  port: 443
+  uuid: 7e68e32f-8015-4f37-9082-70e8b0b58043
+  tls: true
+  udp: true
+  network: tcp
+  reality-opts:
+    public-key: PhOIlEfiYVUhkWKIfX_IOwJ6zz_Zk0QEj4sfcZyuShY
+    short-id: abcddb0c38896b8b
+  servername: blog.metawork.network
+  client-fingerprint: chrome
+  flow: xtls-rprx-vision
+- name: C🟠🇨🇳hos_dokng.com_d1a1fc7f
+  type: vmess
+  server: 39.108.113.127
+  port: 10086
+  uuid: fde10e39-48bb-4dcf-b3ba-71d711323a54
+  alterId: 0
+  cipher: auto
+  tls: false
+  udp: true
+  network: ws
+  ws-opts:
+    headers: {}
+    path: /
+  skip-cert-verify: false
+  alpn:
+  - ''
+  client-fingerprint: chrome
+- name: C🟠🇭🇰hos_dokng.com_533a58aa
+  type: vmess
+  server: goldcnmltyljgfwgov.vip52.wogcnmnnagfwgov.com
+  port: 11252
+  uuid: 605956ee-544d-308e-8b90-51e67c6ea8da
+  alterId: 2
+  cipher: auto
+  udp: true
+  client-fingerprint: chrome
+- name: 🇭🇰 香港 | HKG
+  type: anytls
+  server: o6uhrzkj.zf-mix.9999231.xyz
+  port: 1003
+  password: a7c5d30b-ce9b-4e34-b5cb-66f8308790ef
+  udp: true
+  skip-cert-verify: true
+  servername: hkfash.9999231.xyz
+  client-fingerprint: chrome
+- name: 🇺🇸 美国 | USA 7 ·2
+  type: anytls
+  server: anytls2.864106.xyz
+  port: 19000
+  password: github.com/Alvin9999-newpac/fanqiang
+  udp: true
+  skip-cert-verify: true
+  servername: anytls2.864106.xyz
+  client-fingerprint: chrome
+- name: 🇳🇱 荷兰 | NLD 2 ·2
+  type: vless
+  server: 185.170.211.189
+  port: 443
+  uuid: 267b3a79-81f2-42ac-a409-c23b05b6329d
+  tls: true
+  udp: true
+  network: grpc
+  grpc-opts:
+    grpc-mode: gun
+    grpc-service-name: api.v2.nl2e63a0c5
+  reality-opts:
+    public-key: eztZ1H-OkkHao6d4FhX8Q728qN1UIeFcYH2jObRq1gc
+    short-id: fbe9c012125d90d2
+  servername: nl2.bbobr.win
+  client-fingerprint: firefox
+- name: 🇺🇸 美国 | USA 8
+  type: anytls
+  server: 134.195.101.162
+  port: 21333
+  password: d7340868-b74c-455a-8ce0-17a52afa43b7
+  udp: true
+  skip-cert-verify: true
+  servername: apple.com
+  client-fingerprint: chrome
+- name: EPODONIOS ·402
+  type: trojan
+  server: 146.75.57.238
+  port: 443
+  password: mitivpn
+  tls: true
+  udp: true
+  network: ws
+  ws-opts:
+    path: /---@VPNine1---@VPNine1/---@VPNine1---@VPNine1/---@VPNine1---@VPNine1/NLSs---@VPNine1---@VPNine1/---@VPNine1---@VPNine1/---@VPNine1---@VPNine1
+    headers:
+      Host: mitivpn-4--vip.global.ssl.fastly.net
+  servername: ssl-mitivpn.fastly.com
+  skip-cert-verify: true
+  alpn:
+  - http/1.1
+  client-fingerprint: chrome
+- name: 🇫🇷_FR_法国_1
+  type: ss
+  server: 13.36.178.160
+  port: 443
+  cipher: aes-256-cfb
+  password: amazonskr05
+  udp: true
+  skip-cert-verify: true
+- name: C🟠🇩🇪hos[🎬🤖📺🎭]_dokng.com_c53b9a80
+  type: ss
+  server: 18.196.88.40
+  port: 443
+  cipher: aes-256-cfb
+  password: amazonskr05
+  udp: true
+- name: 🇫🇷 法国 | FRA
+  type: anytls
+  server: ip5.934618.xyz
+  port: 30099
+  password: github.com/Alvin9999-newpac/fanqiang
+  udp: true
+  skip-cert-verify: true
+  servername: ip5.934618.xyz
+  client-fingerprint: chrome
+- name: 🇸🇬 新加坡 | SGP 5
+  type: vless
+  server: 104.18.35.86
+  port: 2083
+  uuid: a1de0630-5786-48a0-84f6-dc6f2de10d6d
+  tls: true
+  udp: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: vlsovip.1d.mom
+  servername: vlsovip.1d.mom
+  client-fingerprint: unsafe
+- name: vless-1691310492
+  type: vless
+  server: s2318.okgg.top
+  port: 443
+  uuid: 30e52776-55ac-3cb4-8d36-e2910f07e2c3
+  tls: true
+  udp: true
+  network: tcp
+  servername: u695098uf24555c7s2316.gogocs.xyz
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  client-fingerprint: chrome
+- name: EPODONIOS ·2438
+  type: vless
+  server: piracy-android.video-streams.org
+  port: 443
+  uuid: fbef862a-2e17-45e4-b624-dc2ccaac9e10
+  tls: true
+  udp: true
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: piracy-android.video-streams.org
+  servername: piracy-android.video-streams.org
+  skip-cert-verify: true
+  alpn:
+  - http/1.1
+  client-fingerprint: chrome
+- name: 🇸🇬SG-47.128.80.222-5646
+  type: trojan
+  server: better-molly.rooster465.autos
+  port: 443
+  password: NQ26071394
+  tls: true
+  udp: true
+  client-fingerprint: chrome
+- name: vless-1688971543
+  type: vless
+  server: s2317.kukuss.top
+  port: 443
+  uuid: 30e52776-55ac-3cb4-8d36-e2910f07e2c3
+  tls: true
+  udp: true
+  network: tcp
+  servername: u695098uf24555c7s2316.gogocs.xyz
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  client-fingerprint: chrome
+- name: 🇩🇪 德国 | DEU
+  type: vless
+  server: van2.ragnarok-it.xyz
+  port: 8446
+  uuid: a61496c3-f256-4a36-8a52-8638b9cc900a
+  tls: true
+  udp: true
+  network: tcp
+  reality-opts:
+    public-key: Y6ZtoxCUW1qFIvLTNfbrsyfCDoIBaRsqGNtbF_mcAXM
+    short-id: 7bac4b112d30d1
+  servername: amd.com
+  client-fingerprint: edge
+  flow: xtls-rprx-vision
+- name: 🇨🇿 捷克 | CZE 2
+  type: hysteria2
+  server: cz.h2.cleanersaz.help
+  port: 443
+  password: c-E0lamG8OnEj9M_uh3oJPmIXqYIVGctO-NHELF1TmNYs7Jl
+  skip-cert-verify: true
+  auth: c-E0lamG8OnEj9M_uh3oJPmIXqYIVGctO-NHELF1TmNYs7Jl
+  servername: cz.h2.cleanersaz.help
+- name: 🇸🇬SG-47.131.200.28-5677
+  type: trojan
+  server: sure-humpback.rooster465.autos
+  port: 443
+  password: ND91608427
+  tls: true
+  udp: true
+  client-fingerprint: chrome
+- name: EPODONIOS ·1566
+  type: vless
+  server: 31.77.18.13
+  port: 8443
+  uuid: 961a77fd-fe35-4037-b541-e5dd056702bd
+  tls: true
+  udp: true
+  reality-opts:
+    public-key: L2voh7WsEg0a5w6Wt0S-1xO_pfR3-BxNlEE8LRzOnW4
+    short-id: 45cddb1a5cbc6c11
+  servername: www.cloudflare.com
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  flow: xtls-rprx-vision
+- name: 🇦🇪_阿拉伯联合酋长国_39
+  type: vless
+  server: 157.228.150.34
+  port: 443
+  uuid: df53b6c2-8005-475c-9eb9-74e1be785dc8
+  tls: true
+  udp: true
+  reality-opts:
+    public-key: NOw-idkk3OCn-N0IRS93leujH4ik-E749O2T5BYJQ0M
+    short-id: 3cef317b
+  servername: addons.mozilla.org
+  skip-cert-verify: true
+  client-fingerprint: randomized
+  flow: xtls-rprx-vision
+- name: 🇨🇭 瑞士 | CHE
+  type: anytls
+  server: 2nkc8d82.zf-mix.9999231.xyz
+  port: 1024
+  password: a7c5d30b-ce9b-4e34-b5cb-66f8308790ef
+  udp: true
+  skip-cert-verify: true
+  servername: ch-wy.9999231.xyz
+  client-fingerprint: chrome
+- name: ProxyPool | 🇨🇭 瑞士 | CHE
+  type: anytls
+  server: ksfz1g3r.zf-mix.9999231.xyz
+  port: 1024
+  password: 6cdc1a00-e9e7-4ef2-8d53-541688f9324c
+  udp: true
+  skip-cert-verify: true
+  servername: ch-wy.9999231.xyz
+  client-fingerprint: chrome
+- name: 🇸🇪 瑞典 | SWE 2
+  type: anytls
+  server: dvyapq16.zf-mix.9999231.xyz
+  port: 1020
+  password: a7c5d30b-ce9b-4e34-b5cb-66f8308790ef
+  udp: true
+  skip-cert-verify: true
+  servername: se-house.9999231.xyz
+  client-fingerprint: chrome
+- name: 🇳🇴 挪威 | NOR
+  type: anytls
+  server: jxwvps2b.zf-mix.9999231.xyz
+  port: 1028
+  password: a7c5d30b-ce9b-4e34-b5cb-66f8308790ef
+  udp: true
+  skip-cert-verify: true
+  servername: no-wy.9999231.xyz
+  client-fingerprint: chrome
+- name: 🇳🇴 挪威 | NOR ·2
+  type: anytls
+  server: mnbk5jge.zf-mix.9999231.xyz
+  port: 1028
+  password: a7c5d30b-ce9b-4e34-b5cb-66f8308790ef
+  udp: true
+  skip-cert-verify: true
+  servername: no-wy.9999231.xyz
+  client-fingerprint: chrome
+- name: 🇵🇱 波兰 | POL 2
+  type: anytls
+  server: q7mtpgxo.zf-mix.9999231.xyz
+  port: 1019
+  password: a7c5d30b-ce9b-4e34-b5cb-66f8308790ef
+  udp: true
+  skip-cert-verify: true
+  servername: pl-house.9999231.xyz
+  client-fingerprint: chrome
+- name: 🇰🇷KR-3.36.73.87-5664
+  type: trojan
+  server: merry-falcon.rooster465.autos
+  port: 443
+  password: PQ05174892
+  tls: true
+  udp: true
+  client-fingerprint: chrome
+- name: 🇸🇬 新加坡 | SGP
+  type: anytls
+  server: a9v11wc9.zf-mix.9999231.xyz
+  port: 1044
+  password: a7c5d30b-ce9b-4e34-b5cb-66f8308790ef
+  udp: true
+  skip-cert-verify: true
+  servername: sg-cc.9999231.xyz
+  client-fingerprint: chrome
+- name: 🇺🇸_US_美国_2
+  type: vmess
+  server: guanwang.awsno.com
+  port: 443
+  uuid: 6a89a215-22bf-4bd7-9642-b95b2e09583a
+  alterId: 0
+  cipher: auto
+  tls: true
+  udp: true
+  network: ws
+  ws-opts:
+    path: /hls/cctv5phd.m3u8
+    headers:
+      Host: guanwang.awsno.com
+  servername: guanwang.awsno.com
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: EPODONIOS ·1690
+  type: vless
+  server: 199.232.78.160
+  port: 443
+  uuid: XpnTeam-2
+  tls: true
+  udp: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: Appxdn.global.ssl.fastly.net
+  servername: Speedtest.net
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: 🇯🇵JP-18.182.8.36-5721
+  type: trojan
+  server: sincere-gelding.rooster465.autos
+  port: 443
+  password: ND91608427
+  tls: true
+  udp: true
+  client-fingerprint: chrome
+- name: vless-1699358977
+  type: vless
+  server: 79.108.225.112
+  port: 8443
+  uuid: c3369c07-f0d2-4a2c-97ab-0d3d47803912
+  tls: true
+  udp: true
+  network: tcp
+  reality-opts:
+    public-key: 1KY_jqa2yPLBEBa-3TG77zs4ak2zQLGul4eexxCueyI
+    short-id: ''
+  servername: github.com
+  client-fingerprint: firefox
+  flow: xtls-rprx-vision
+- name: 🔴🇯🇵[🎬🤖📺🔍]_github.com/Ruk1ng001_9d1d8f16
+  type: vmess
+  server: 3wdoup6-g01.jp02-e3-vm0.entry.fr0528.art
+  port: 11773
+  uuid: 1a9f857f-9a07-3a8c-a155-f9ab3c457343
+  alterId: 1
+  cipher: auto
+  tls: false
+  udp: true
+  network: tcp
+  skip-cert-verify: false
+  client-fingerprint: chrome
+- name: 🇲🇾 马来西亚 | MYS
+  type: vless
+  server: 157.228.160.166
+  port: 443
+  uuid: df53b6c2-8005-475c-9eb9-74e1be785dc8
+  tls: true
+  udp: true
+  network: tcp
+  reality-opts:
+    public-key: NOw-idkk3OCn-N0IRS93leujH4ik-E749O2T5BYJQ0M
+    short-id: 3cef317b
+  servername: addons.mozilla.org
+  client-fingerprint: randomized
+  flow: xtls-rprx-vision
+- name: 🇺🇸 美国 | USA 5 ·3
+  type: hysteria2
+  server: starlink-ft.251313.xyz
+  port: 443
+  password: https://xship.2fa.cat
+  udp: true
+  skip-cert-verify: true
+  auth: https://xship.2fa.cat
+  servername: xship.top
+- name: 🇰🇷KR-3.34.96.227-5641
+  type: trojan
+  server: musical-manatee.rooster465.autos
+  port: 443
+  password: CF68213490
+  tls: true
+  udp: true
+  client-fingerprint: chrome
+- name: 🇸🇬SG-13.212.77.193-5686
+  type: trojan
+  server: informed-stud.rooster465.autos
+  port: 443
+  password: CF68213490
+  tls: true
+  udp: true
+  client-fingerprint: chrome
+- name: A🟢🇮🇩res[🎬🤖📺🎭]_dokng.com_846bc9e5
+  type: anytls
+  server: f3mlugfv.zf-mix.9999231.xyz
+  port: 1015
+  password: a7c5d30b-ce9b-4e34-b5cb-66f8308790ef
+  udp: true
+  skip-cert-verify: true
+  servername: id-house.9999231.xyz
+  client-fingerprint: chrome
+proxy-groups:
+- name: ♻️ 自动选择
+  type: url-test
+  proxies: &id001
+  - A🟢🇨🇳res[🎞️📦]_dokng.com_0da15920
+  - EPODONIOS ·1401
+  - 🇸🇬 新加坡 | SGP 2 ·2
+  - C🟠🇨🇳hos_dokng.com_d1a1fc7f
+  - C🟠🇭🇰hos_dokng.com_533a58aa
+  - 🇭🇰 香港 | HKG
+  - 🇺🇸 美国 | USA 7 ·2
+  - 🇳🇱 荷兰 | NLD 2 ·2
+  - 🇺🇸 美国 | USA 8
+  - EPODONIOS ·402
+  - 🇫🇷_FR_法国_1
+  - C🟠🇩🇪hos[🎬🤖📺🎭]_dokng.com_c53b9a80
+  - 🇫🇷 法国 | FRA
+  - 🇸🇬 新加坡 | SGP 5
+  - vless-1691310492
+  - EPODONIOS ·2438
+  - 🇸🇬SG-47.128.80.222-5646
+  - vless-1688971543
+  - 🇩🇪 德国 | DEU
+  - 🇨🇿 捷克 | CZE 2
+  - 🇸🇬SG-47.131.200.28-5677
+  - EPODONIOS ·1566
+  - 🇦🇪_阿拉伯联合酋长国_39
+  - 🇨🇭 瑞士 | CHE
+  - ProxyPool | 🇨🇭 瑞士 | CHE
+  - 🇸🇪 瑞典 | SWE 2
+  - 🇳🇴 挪威 | NOR
+  - 🇳🇴 挪威 | NOR ·2
+  - 🇵🇱 波兰 | POL 2
+  - 🇰🇷KR-3.36.73.87-5664
+  - 🇸🇬 新加坡 | SGP
+  - 🇺🇸_US_美国_2
+  - EPODONIOS ·1690
+  - 🇯🇵JP-18.182.8.36-5721
+  - vless-1699358977
+  - 🔴🇯🇵[🎬🤖📺🔍]_github.com/Ruk1ng001_9d1d8f16
+  - 🇲🇾 马来西亚 | MYS
+  - 🇺🇸 美国 | USA 5 ·3
+  - 🇰🇷KR-3.34.96.227-5641
+  - 🇸🇬SG-13.212.77.193-5686
+  - A🟢🇮🇩res[🎬🤖📺🎭]_dokng.com_846bc9e5
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+  lazy: false
+- name: 🔁 故障转移
+  type: fallback
+  proxies: *id001
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+- name: 🚀 节点选择
+  type: select
+  proxies:
+  - DIRECT
+  - ♻️ 自动选择
+  - 🔁 故障转移
+  - 🏳️ 其他
+  - 🇸🇬 新加坡
+  - 🇭🇰 香港
+  - 🇺🇸 美国
+  - 🇳🇱 荷兰
+  - 🇫🇷 法国
+  - 🇩🇪 德国
+  - 🇨🇿 捷克
+  - 🇦🇪 阿联酋
+  - 🇨🇭 瑞士
+  - 🇸🇪 瑞典
+  - 🇳🇴 挪威
+  - 🇵🇱 波兰
+  - 🇰🇷 韩国
+  - 🇯🇵 日本
+  - 🇲🇾 马来西亚
+  - 🇮🇩 印尼
+  - A🟢🇨🇳res[🎞️📦]_dokng.com_0da15920
+  - EPODONIOS ·1401
+  - 🇸🇬 新加坡 | SGP 2 ·2
+  - C🟠🇨🇳hos_dokng.com_d1a1fc7f
+  - C🟠🇭🇰hos_dokng.com_533a58aa
+  - 🇭🇰 香港 | HKG
+  - 🇺🇸 美国 | USA 7 ·2
+  - 🇳🇱 荷兰 | NLD 2 ·2
+  - 🇺🇸 美国 | USA 8
+  - EPODONIOS ·402
+  - 🇫🇷_FR_法国_1
+  - C🟠🇩🇪hos[🎬🤖📺🎭]_dokng.com_c53b9a80
+  - 🇫🇷 法国 | FRA
+  - 🇸🇬 新加坡 | SGP 5
+  - vless-1691310492
+  - EPODONIOS ·2438
+  - 🇸🇬SG-47.128.80.222-5646
+  - vless-1688971543
+  - 🇩🇪 德国 | DEU
+  - 🇨🇿 捷克 | CZE 2
+  - 🇸🇬SG-47.131.200.28-5677
+  - EPODONIOS ·1566
+  - 🇦🇪_阿拉伯联合酋长国_39
+  - 🇨🇭 瑞士 | CHE
+  - ProxyPool | 🇨🇭 瑞士 | CHE
+  - 🇸🇪 瑞典 | SWE 2
+  - 🇳🇴 挪威 | NOR
+  - 🇳🇴 挪威 | NOR ·2
+  - 🇵🇱 波兰 | POL 2
+  - 🇰🇷KR-3.36.73.87-5664
+  - 🇸🇬 新加坡 | SGP
+  - 🇺🇸_US_美国_2
+  - EPODONIOS ·1690
+  - 🇯🇵JP-18.182.8.36-5721
+  - vless-1699358977
+  - 🔴🇯🇵[🎬🤖📺🔍]_github.com/Ruk1ng001_9d1d8f16
+  - 🇲🇾 马来西亚 | MYS
+  - 🇺🇸 美国 | USA 5 ·3
+  - 🇰🇷KR-3.34.96.227-5641
+  - 🇸🇬SG-13.212.77.193-5686
+  - A🟢🇮🇩res[🎬🤖📺🎭]_dokng.com_846bc9e5
+- name: 🏳️ 其他
+  type: url-test
+  proxies:
+  - A🟢🇨🇳res[🎞️📦]_dokng.com_0da15920
+  - EPODONIOS ·1401
+  - C🟠🇨🇳hos_dokng.com_d1a1fc7f
+  - EPODONIOS ·402
+  - vless-1691310492
+  - EPODONIOS ·2438
+  - vless-1688971543
+  - EPODONIOS ·1566
+  - EPODONIOS ·1690
+  - vless-1699358977
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+- name: 🇸🇬 新加坡
+  type: url-test
+  proxies:
+  - 🇸🇬 新加坡 | SGP 2 ·2
+  - 🇸🇬 新加坡 | SGP 5
+  - 🇸🇬SG-47.128.80.222-5646
+  - 🇸🇬SG-47.131.200.28-5677
+  - 🇸🇬 新加坡 | SGP
+  - 🇸🇬SG-13.212.77.193-5686
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+- name: 🇭🇰 香港
+  type: url-test
+  proxies:
+  - C🟠🇭🇰hos_dokng.com_533a58aa
+  - 🇭🇰 香港 | HKG
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+- name: 🇺🇸 美国
+  type: url-test
+  proxies:
+  - 🇺🇸 美国 | USA 7 ·2
+  - 🇺🇸 美国 | USA 8
+  - 🇺🇸_US_美国_2
+  - 🇺🇸 美国 | USA 5 ·3
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+- name: 🇳🇱 荷兰
+  type: url-test
+  proxies:
+  - 🇳🇱 荷兰 | NLD 2 ·2
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+- name: 🇫🇷 法国
+  type: url-test
+  proxies:
+  - 🇫🇷_FR_法国_1
+  - 🇫🇷 法国 | FRA
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+- name: 🇩🇪 德国
+  type: url-test
+  proxies:
+  - C🟠🇩🇪hos[🎬🤖📺🎭]_dokng.com_c53b9a80
+  - 🇩🇪 德国 | DEU
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+- name: 🇨🇿 捷克
+  type: url-test
+  proxies:
+  - 🇨🇿 捷克 | CZE 2
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+- name: 🇦🇪 阿联酋
+  type: url-test
+  proxies:
+  - 🇦🇪_阿拉伯联合酋长国_39
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+- name: 🇨🇭 瑞士
+  type: url-test
+  proxies:
+  - 🇨🇭 瑞士 | CHE
+  - ProxyPool | 🇨🇭 瑞士 | CHE
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+- name: 🇸🇪 瑞典
+  type: url-test
+  proxies:
+  - 🇸🇪 瑞典 | SWE 2
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+- name: 🇳🇴 挪威
+  type: url-test
+  proxies:
+  - 🇳🇴 挪威 | NOR
+  - 🇳🇴 挪威 | NOR ·2
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+- name: 🇵🇱 波兰
+  type: url-test
+  proxies:
+  - 🇵🇱 波兰 | POL 2
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+- name: 🇰🇷 韩国
+  type: url-test
+  proxies:
+  - 🇰🇷KR-3.36.73.87-5664
+  - 🇰🇷KR-3.34.96.227-5641
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+- name: 🇯🇵 日本
+  type: url-test
+  proxies:
+  - 🇯🇵JP-18.182.8.36-5721
+  - 🔴🇯🇵[🎬🤖📺🔍]_github.com/Ruk1ng001_9d1d8f16
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+- name: 🇲🇾 马来西亚
+  type: url-test
+  proxies:
+  - 🇲🇾 马来西亚 | MYS
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+- name: 🇮🇩 印尼
+  type: url-test
+  proxies:
+  - A🟢🇮🇩res[🎬🤖📺🎭]_dokng.com_846bc9e5
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+- name: 🌍 国外媒体
+  type: select
+  proxies:
+  - 🚀 节点选择
+  - ♻️ 自动选择
+  - 🔁 故障转移
+- name: 🤖 AI服务
+  type: select
+  proxies:
+  - 🚀 节点选择
+  - ♻️ 自动选择
+  - 🔁 故障转移
+- name: 📲 电报消息
+  type: select
+  proxies:
+  - 🚀 节点选择
+  - ♻️ 自动选择
+  - 🔁 故障转移
+- name: 🎯 全球直连
+  type: select
+  proxies:
+  - DIRECT
+  - 🚀 节点选择
+- name: 🛑 广告拦截
+  type: select
+  proxies:
+  - REJECT
+  - DIRECT
+- name: 🐟 漏网之鱼
+  type: select
+  proxies:
+  - 🚀 节点选择
+  - DIRECT
+rules:
+- GEOSITE,category-ads-all,🛑 广告拦截
+- GEOIP,private,DIRECT,no-resolve
+- GEOSITE,private,DIRECT
+- GEOSITE,cn,DIRECT
+- GEOIP,cn,DIRECT
+- GEOSITE,openai,🤖 AI服务
+- GEOSITE,anthropic,🤖 AI服务
+- GEOSITE,google-gemini,🤖 AI服务
+- GEOSITE,category-ai-chat-!cn,🤖 AI服务
+- GEOSITE,youtube,🌍 国外媒体
+- GEOSITE,netflix,🌍 国外媒体
+- GEOSITE,disney,🌍 国外媒体
+- GEOSITE,hbo,🌍 国外媒体
+- GEOSITE,spotify,🌍 国外媒体
+- GEOSITE,bilibili,🎯 全球直连
+- GEOSITE,telegram,📲 电报消息
+- GEOSITE,twitter,🚀 节点选择
+- GEOSITE,google,🚀 节点选择
+- GEOSITE,github,🚀 节点选择
+- GEOSITE,geolocation-!cn,🚀 节点选择
+- GEOIP,telegram,📲 电报消息,no-resolve
+- MATCH,🐟 漏网之鱼

@@ -2,7 +2,8 @@
 .env
 
 # ---- 运行产物 ----
-output/
+# 注意：output/ 需要提交到仓库（订阅链接要用），
+# 其内部用自己的 .gitignore 覆盖此规则，见 output/.gitignore
 logs/
 .cache/
 data/

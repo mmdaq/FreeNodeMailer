@@ -1,0 +1,4 @@
+# 本目录是 FreeNodeMailer 的交付产物，需要提交到仓库，
+# 这样订阅链接（raw/jsDelivr 指向 output/clash.yaml）才能长期有效。
+# 它包含的只是公开免费节点，不含任何密钥。
+!*

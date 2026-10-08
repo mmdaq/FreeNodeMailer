@@ -228,7 +228,9 @@ python scripts\git_publish_api.py main  # github.com 被墙时用 API 发布提�
 
 ---
 
-## 六、实测数据（2026-10-08，本机）
+## 六、实测数据
+
+### 6.1 本机实测（2026-10-08 14:10，Windows）
 
 | 指标 | 数值 |
 |------|------|
@@ -245,13 +247,29 @@ python scripts\git_publish_api.py main  # github.com 被墙时用 API 发布提�
 | 单次运行总耗时 | 约 10 分钟 |
 | 邮件 | ✅ 已成功送达 385096659@qq.com（118KB，2 个附件） |
 
-**各协议可用率参考**（300 样本/协议）：http 37%、socks5 30%、anytls 32%、
-hysteria 100%(仅 2 个)、ss 4.8%、hysteria2 3.9%、vless 3.0%、trojan 0.6%、vmess 0.3%。
+### 6.2 GitHub Actions 云端实测（2026-10-08 06:30 UTC，Ubuntu）
 
-**结论**：免费节点天然是「大量失效 + 少量可用」。
-`http`/`socks5` 明文代理可用率虚高但质量与安全性差，默认由
-`select.exclude_insecure: true` 排除；真正用于翻墙的加密协议可用率约 1%~5%。
-本项目靠真实测速保证「进了 yaml 的节点在 Clash Verge 里确实能用」。
+| 指标 | 数值 |
+|------|------|
+| 数据源 | 20 个，全部成功（服务器在国外，**无需镜像链，0.6 秒抓完**） |
+| 原始节点记录 | 18948 条 → 去重 9831 |
+| TCP 预筛 | 4886/9831 可达（25 秒，明显优于国内） |
+| 内核实测可用 | **1019 个（10.4%）** |
+| 明文代理排除 | 370 个 |
+| **最终入选** | **169 个节点** |
+| 协议分布 | vless 83 / ss 32 / vmess 22 / anytls 16 / trojan 14 / hysteria2 2 |
+| 延迟分布 | <100ms 76 个，100-200ms 58 个，200-350ms 27 个，350-500ms 8 个 |
+| 总耗时 | 261 秒 |
+| 邮件 | ✅ 已发送（345KB，2 个附件） |
+| 工作流 | 全部 11 个步骤 success |
+
+**结论**：
+1. **云端（国外服务器）可用率是国内的 7 倍**（10.4% vs 1.4%），
+   所以云端推送的节点质量明显更好——这也是双保险的价值所在。
+2. 免费节点天然是「大量失效 + 少量可用」。`http`/`socks5` 明文代理可用率虚高
+   （本机实测 30%~37%）但质量与安全性差，默认由
+   `select.exclude_insecure: true` 排除；真正用于翻墙的加密协议可用率约 1%~10%。
+3. 本项目靠**真实内核测速**保证「进了 yaml 的节点在 Clash Verge 里确实能用」。
 
 ---
 
@@ -324,6 +342,9 @@ curl -X POST \
 
 ### 9.3 订阅链接（云端每天提交后自动更新）
 
+`output/` 已纳入版本管理（其内部 `output/.gitignore` 覆盖了根 `.gitignore` 的忽略规则），
+且工作流会每天把新生成的配置提交回 `main`，因此订阅链接长期有效：
+
 ```
 https://raw.githubusercontent.com/mmdaq/FreeNodeMailer/main/output/clash.yaml
 
@@ -331,7 +352,15 @@ https://raw.githubusercontent.com/mmdaq/FreeNodeMailer/main/output/clash.yaml
 https://cdn.jsdelivr.net/gh/mmdaq/FreeNodeMailer@main/output/clash.yaml
 ```
 
-> jsDelivr 对频繁更新的文件有缓存，若发现内容滞后属正常现象，可在 URL 后加 `?t=日期` 绕过。
+带日期的当日配置同样可访问：
+
+```
+https://cdn.jsdelivr.net/gh/mmdaq/FreeNodeMailer@main/output/20261008clash.yaml
+```
+
+> `output/` 里只有公开免费节点，不含任何密钥，可以安全提交。
+> 若你不想公开节点列表，可把 `output/` 重新加入 `.gitignore`，
+> 订阅链接随之失效，但邮件推送不受影响（产物也可从 Actions 页面下载）。
 
 ### 9.4 ⚠️ 本机 git push 被墙（重要）
 

@@ -1,11 +1,13 @@
-﻿# 统一换行符，避免 Windows/Linux 交叉提交时产生噪声 diff
+# Normalize line endings so Windows/Linux cross-commits stay clean.
+# NOTE: .gitattributes does NOT support non-ASCII comments -- keep this file ASCII-only,
+# otherwise git reports "<comment> is not a valid attribute name".
 * text=auto eol=lf
 
-# Windows 脚本保持可用（cmd / powershell 都兼容 LF，但显式声明更清晰）
-*.bat  text eol=crlf
-*.ps1  text eol=crlf
+# Windows scripts: keep CRLF for best compatibility with cmd.exe / PowerShell 5.1
+*.bat text eol=crlf
+*.ps1 text eol=crlf
 
-# 二进制
+# Binary payloads: never touch line endings
 *.exe binary
 *.dat binary
 *.mmdb binary
