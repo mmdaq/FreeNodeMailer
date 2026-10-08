@@ -5,28 +5,30 @@
 
 **默认推送时间：每天 08:00（北京时间）**
 **默认收件邮箱：385096659@qq.com**
-**支持部署：本机 Windows 任务计划 / GitHub Actions（二选一或同时）**
+**部署方式：本地 Windows 任务计划 + GitHub Actions 云端（双保险，均已配置）**
 
 ---
 
 ## 一、它到底做了什么
 
 ```
-19 个公开数据源
+20 个公开数据源
       │  ① 抓取（原地址 + jsDelivr + GitHub API 三级镜像链，失败回退本地缓存）
       ▼
-6900+ 条节点记录
+~19000 条节点记录
       │  ② 解析归一化（Clash YAML / base64 订阅 / v2ray 分享链接 → 统一格式）
       │  ③ 去重（同服务器同凭据只留字段最全的）
       ▼
-~3900 个唯一节点
-      │  ④ 预校验：把候选节点整体交给 `mihomo -t`，剔除内核不兼容的节点
+~9800 个唯一节点
+      │  ④ 预校验：分批交给 `mihomo -t`，剔除内核不兼容的节点
       ▼
-1200 个候选（可配置上限）
-      │  ⑤ 真实内核测速：起一个 mihomo 实例，对每个节点发真实 HTTP 请求
-      │     （完整协议握手 + generate_204），失败节点自动放宽超时复测 2 轮
+~9800 个候选
+      │  ⑤ 真实内核测速：
+      │     阶段A TCP 预筛（400 并发，秒级淘汰死主机）
+      │     阶段B 起 mihomo 实例，对存活节点发真实 HTTP 请求
+      │            （完整协议握手 + generate_204），失败节点放宽超时复测 3 轮
       ▼
-延迟 ≤ 500ms 的可用节点
+延迟 ≤ 500ms 的可用节点（实测约 130~160 个）
       │  ⑥ 生成 YAML：按地区分组、url-test 自动选择、fallback 故障转移、
       │     广告拦截 / AI / 流媒体 / 电报 分流规则
       ▼
@@ -45,6 +47,9 @@ UUID/密码错误、被 Cloudflare 黑洞、协议参数不匹配……
 只用 socket 连一下端口 → 会推给你一堆连不上的垃圾节点。
 本项目让 **Mihomo 内核（Clash Verge 同款）** 真正跑完协议握手并发出 HTTP 请求，
 只有内核报告 `delay > 0` 的节点才算「可用」。**测通即代表 Clash Verge 里能用。**
+
+> 实测数据（2026-10-08）：18962 条记录 → 去重 9806 → TCP 预筛存活 1541
+> → 内核实测可用 142 → 剔除明文代理后入选 **41 个节点**，全程约 10 分钟。
 
 ---
 
@@ -238,33 +243,40 @@ FNM_MIN_NODES / FNM_FETCH_CONCURRENCY / FNM_MAIL_TO / FNM_CORE_PATH
 
 ---
 
-## 七、GitHub Actions 部署（电脑不用开机）
+## 七、GitHub Actions 云端部署（已启用）
 
-`.github/workflows/daily.yml` 已配好：
+`.github/workflows/daily-v2.yml` 已配置并实测运行：
 
 - **触发**：每天 UTC 00:00 = **北京时间 08:00**；也支持手动 `workflow_dispatch`
-- **流程**：装依赖 → 准备 geodata → 跑 `main.py` → 上传产物 → 提交 output 回仓库
-- **邮件密钥**：在仓库 **Settings → Secrets and variables → Actions** 添加
+- **流程**：离线自检 → 下载 mihomo 内核 → 下载 geodata → 内核级配置格式校验
+  → 抓取 → 测速 → 生成 → 二次校验 → 发邮件 → 提交 output 回仓库
+- **邮件密钥**（Settings → Secrets and variables → Actions）
 
 | Secret | 值 |
 |--------|-----|
 | `QQ_EMAIL` | `385096659@qq.com` |
-| `QQ_AUTH` | 你的 16 位授权码 |
-| `MAIL_TO` | `385096659@qq.com`（可省略，默认发给 QQ_EMAIL） |
+| `QQ_AUTH` | 16 位授权码 |
+| `MAIL_TO` | 可选，缺省发给 `QQ_EMAIL` |
 
-部署步骤：
+### 本机 git push 被墙怎么办
 
-```bash
-git init
-git add .
-git commit -m "init FreeNodeMailer"
-git branch -M main
-git remote add origin https://github.com/<你的用户名>/FreeNodeMailer.git
-git push -u origin main
+本机 `github.com:443` 经常被重置，`git push` 会失败，但 `api.github.com` 可用。
+用仓库自带的脚本发布：
+
+```powershell
+python scripts\git_publish_api.py main          # 常规更新
+python scripts\git_publish_api.py main --force  # 强制覆盖
 ```
 
-> Actions 上的运行环境是 Ubuntu，`tester.py` 会自动下载 Linux 版 mihomo 内核。
-> Actions 服务器在国外，raw.githubusercontent.com 直连没问题。
+### 订阅链接
+
+```
+https://raw.githubusercontent.com/mmdaq/FreeNodeMailer/main/output/clash.yaml
+# 国内建议用 jsDelivr 镜像：
+https://cdn.jsdelivr.net/gh/mmdaq/FreeNodeMailer@main/output/clash.yaml
+```
+
+> GitHub 只自动调度**默认分支(main)** 上的 schedule 工作流；本仓库已完成切换。
 
 ---
 

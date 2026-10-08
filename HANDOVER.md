@@ -1,9 +1,10 @@
 # FreeNodeMailer 项目交接文档
 
 > **更新日期**：2026-10-08
-> **仓库**：`https://github.com/mmdaq/FreeNodeMailer`（需自行创建，见 §9）
+> **GitHub 仓库**：<https://github.com/mmdaq/FreeNodeMailer>（**已推送，main 分支已切换为本次重写版**）
 > **本地路径**：`F:\deepseek harness\DSH_project\FreeNodeMailer`
 > **订阅邮箱**：385096659@qq.com
+> **当前状态**：✅ 本地已实测跑通并成功发信；✅ 云端 Actions 已配置并手动验证
 
 ---
 
@@ -11,34 +12,38 @@
 
 ### 1.1 一句话说明
 
-每天早晨 **08:00（北京时间）**自动从 19 个公开数据源抓取免费节点，
+每天早晨 **08:00（北京时间）**自动从 20 个公开数据源抓取约 1.9 万条节点记录，
 用**真实 Mihomo 内核**（Clash Verge 同款）逐节点实测延迟，
 过滤出真正可用的节点，生成**带日期的 `.yaml`** 附件发送到指定邮箱，
-并在发信前用内核把配置**完整校验一遍**，确保导入 Clash Verge 一定能用。
+并在发信前用内核把配置**完整校验两遍**，确保导入 Clash Verge 一定能用。
 
 ### 1.2 完成度
 
 | 需求 | 状态 | 实现位置 |
 |------|------|---------|
-| 每日早晨 8 点推送 | ✅ | `scripts/register_task.ps1`（本地）/ `.github/workflows/daily.yml`（云端，cron `0 0 * * *`） |
-| 从网络 / GitHub 获取节点 | ✅ | `scripts/fetcher.py`，19 个源 + 三级镜像链 |
+| 每日早晨 8 点推送 | ✅ 双保险 | 本地：`scripts/register_task.ps1`（任务 `FreeNodeMailer-DailyPush`，已注册）；云端：`.github/workflows/daily-v2.yml`（cron `0 0 * * *`） |
+| 从网络 / GitHub 获取节点 | ✅ | `scripts/fetcher.py`，20 个源 + 三级镜像链 |
 | 经过测速的可用节点 | ✅ | `scripts/tester.py`，真实内核 HTTP 实测 |
-| 稳定节点 | ✅ | 多轮复测 + 延迟阈值 + 单主机限流 |
-| 邮件发送到 385096659@qq.com | ✅ | `scripts/mailer.py`（QQ SMTP SSL） |
+| 稳定节点 | ✅ | 4 轮复测 + 延迟阈值 + 单主机限流 |
+| 邮件发送到 385096659@qq.com | ✅ 已实测收到 | `scripts/mailer.py`（QQ SMTP SSL） |
 | 附带可直接导入 Clash Verge 的带日期 .yaml | ✅ | `output/2026MMDDclash.yaml` |
-| .yaml 本身也要经过检测 | ✅ | ① `mihomo -t` 语法/字段校验 ② 启动内核确认每个节点真被加载 |
+| .yaml 本身也要经过检测 | ✅ 两遍 | ① `mihomo -t` 语法/字段校验 ② 启动内核确认每个节点真被加载 |
 
-### 1.3 相比原交接文档的改进
+### 1.3 本次重做修复的关键缺陷
 
-原文档描述的版本**在本机不存在**，且其中的关键设计有致命缺陷。本次重做并修复：
+原仓库（`main` 分支旧实现）存在**致命缺陷，一直在给用户发空配置**：
 
-| 原设计 | 问题 | 现在的做法 |
-|--------|------|-----------|
-| 只用 `raw.githubusercontent.com` | 国内直接超时，抓不到任何节点 | **三级镜像链**：原地址 → jsDelivr → GitHub API(base64)，失败回退本地缓存 |
-| `MAX_DELAY=500` + 并发线程池测速（实为 TCP 探测） | TCP 通 ≠ 能用，会推一堆死节点 | **真实内核测速**：起 mihomo，跑完整协议握手 + 真实 HTTP 请求 |
-| 生成后直接发邮件 | 一个字段不兼容的节点会让整份配置加载失败 | **两道校验**：候选预校验 + 交付 YAML 二次校验，不过不发信 |
-| 固定 2 个数据源 | 源失效就推空配置 | 19 个源 + 单源失败缓存回退 + 源状态上报到邮件 |
-| 节点名可含 `#` | YAML 里 `#` 是注释符，会导致解析异常/重名 fatal | 名称净化 + 全局唯一化（`scripts/parser.py: sanitize_name / unique_names`） |
+| 原设计 | 实际问题 | 现在的做法 |
+|--------|---------|-----------|
+| 只用 `raw.githubusercontent.com` | 国内网络直接超时，抓不到任何节点 | **三级镜像链**：原地址 → jsDelivr → GitHub API(base64)，失败回退本地缓存 |
+| 只有 TCP 可达判断（`scripts/fetch.py`） | TCP 通 ≠ 能用，且实测产出为 `proxies: []` | **真实内核测速**：起 mihomo，跑完整协议握手 + 真实 HTTP 请求 |
+| 生成后直接发邮件 | 任何一个字段不兼容的节点都会让整份配置加载失败 | **两道校验**：候选预校验 + 交付 YAML 二次校验，不过则不发信 |
+| 仅 2 个数据源 | 源失效即推空配置 | 20 个源 + 单源失败缓存回退 + 源状态上报到邮件 |
+| 节点名可含 `#` | YAML 里 `#` 是注释符；重名会让 mihomo **fatal** | 名称净化 + 全局唯一化（`parser.sanitize_name / unique_names`） |
+| 写了 `global-client-fingerprint` | 新版 mihomo **已移除该字段**，会导致配置加载失败 | 改为按节点写 `client-fingerprint`，并有黑名单回归测试 |
+
+**实测证据**：旧 `main` 分支的 `output/clash.yaml` 中 `proxies:` 为 `[]`（空）；
+本次重写版实测产出 **41 个经内核验证可用的节点**，并已成功发送到 385096659@qq.com。
 
 ---
 
@@ -46,12 +51,13 @@
 
 ```
 FreeNodeMailer/
-├── .github/workflows/daily.yml   # GitHub Actions 每日 08:00（UTC 00:00）
+├── .github/workflows/daily-v2.yml # GitHub Actions 每日 08:00（UTC 00:00）
 ├── config/
-│   ├── sources.txt               # 19 个数据源（URL|显示名）
+│   ├── sources.txt               # 20 个数据源（URL|显示名）
 │   └── settings.yaml             # 全部运行参数
 ├── scripts/
 │   ├── main.py                   # 主流程 + CLI（run / doctor / verify-mail）
+│   ├── runner.py                 # 定时任务入口（强制 UTF-8，兜底异常）
 │   ├── fetcher.py                # 抓取：镜像链 / 重试 / 缓存回退
 │   ├── parser.py                 # 解析归一化：Clash YAML / base64 / 分享链接
 │   ├── tester.py                 # 真实内核测速 + 预校验 + YAML 校验
@@ -59,7 +65,10 @@ FreeNodeMailer/
 │   ├── report.py                 # HTML 邮件报告
 │   ├── mailer.py                 # QQ SMTP 发信
 │   ├── util.py                   # 配置 / 日志 / 路径
-│   ├── selftest.py               # 40 项离线自检（改代码后必跑）
+│   ├── selftest.py               # 43 项离线自检（改代码后必跑）
+│   ├── config_check.py           # 内核级配置格式校验（生成物必须可导入）
+│   ├── git_publish_api.py        # github.com 被墙时用 API 发布提交
+│   ├── git_push_via_api.py       # API 发布的底层实现
 │   └── register_task.ps1         # Windows 任务计划注册
 ├── output/                       # 生成结果
 │   ├── 20261008clash.yaml        # 带日期配置（邮件主附件）
@@ -73,9 +82,10 @@ FreeNodeMailer/
 │   └── sources/                  # 每个源最后一次成功内容
 ├── run.bat                       # 定时任务入口
 ├── run-now.bat                   # 手动运行（调试）
-├── .env / .env.example           # 邮箱授权码
+├── .env / .env.example           # 邮箱授权码（.env 已配置，且被 git 忽略）
 ├── requirements.txt              # requests + PyYAML
-└── README.md                     # 使用手册（比本文档更详细）
+├── README.md                     # 使用手册
+└── HANDOVER.md                   # 本文档
 ```
 
 ---
@@ -200,16 +210,21 @@ powershell -ExecutionPolicy Bypass -File scripts\register_task.ps1 -Unregister
 ```powershell
 cd "F:\deepseek harness\DSH_project\FreeNodeMailer"
 
-python scripts\main.py --doctor        # 环境自检（依赖/内核/geodata/数据源/邮箱）
-python scripts\main.py --verify-mail   # 发一封测试邮件
-python scripts\main.py --dry-run       # 完整跑一遍但不发邮件
-python scripts\main.py                 # 正式：生成 + 校验 + 发邮件
-python scripts\main.py --limit 300     # 只用 300 个候选测速（调试提速）
-python scripts\main.py --max-delay 300 # 临时改阈值
-python scripts\selftest.py             # 40 项离线自检（改代码后必跑）
+python scripts\main.py --doctor         # 环境自检（依赖/内核/geodata/数据源/邮箱）
+python scripts\main.py --verify-mail    # 发一封测试邮件
+python scripts\main.py --dry-run        # 完整跑一遍但不发邮件
+python scripts\main.py                  # 正式：生成 + 校验 + 发邮件
+python scripts\main.py --limit 300      # 只用 300 个候选测速（调试提速）
+python scripts\main.py --max-delay 300  # 临时改阈值
+python scripts\selftest.py              # 43 项离线自检（改代码后必跑）
+python scripts\config_check.py          # 内核级配置格式校验（生成物必须可导入）
+python scripts\git_publish_api.py main  # github.com 被墙时用 API 发布提交
 ```
 
-或直接双击 `run-now.bat`。
+或直接双击 `run-now.bat`（带窗口，方便看日志）。
+
+> 定时任务内部走的是 `run.bat` → `scripts\runner.py`（强制 UTF-8，
+> 避免中文日志在 cmd 重定向下乱码，并兜底记录异常与退出码）。
 
 ---
 
@@ -217,18 +232,26 @@ python scripts\selftest.py             # 40 项离线自检（改代码后必跑
 
 | 指标 | 数值 |
 |------|------|
-| 数据源 | 19 个，全部成功 |
-| 抓取耗时 | 20s ~ 220s（视镜像通道而定） |
-| 原始节点记录 | ~6900 条 |
-| 去重后 | ~3900 个（唯一主机 ~3650） |
-| 实测可用率 | **3%~6%**（1511 样本 → 161 可用） |
-| 明文代理可用率 | http 37% / socks5 30%（质量参差，默认排除） |
-| 加密协议可用率 | ss 4.8% / vless 3.0% / hysteria2 3.9% / vmess 0.3% |
-| 延迟分布 | 63ms ~ 200ms 为主 |
-| 单次运行总耗时 | 约 10~20 分钟 |
+| 数据源 | 20 个，全部成功 |
+| 抓取耗时 | 20s ~ 240s（视镜像通道而定） |
+| 原始节点记录 | 18962 条 |
+| 去重后 | 9806 个 |
+| 预校验剔除 | 18 个内核不兼容节点（35 次内核调用，约 6 秒） |
+| TCP 预筛 | 1541/9806 可达（55 秒） |
+| 内核实测可用 | 142 个（1.4%） |
+| 明文代理排除 | 101 个（http/socks5，默认排除） |
+| **最终入选** | **41 个节点**（延迟均 ≤ 500ms，最低 63ms） |
+| 协议分布 | vless 13 / anytls 12 / trojan 7 / vmess 5 / ss 2 / hysteria2 2 |
+| 单次运行总耗时 | 约 10 分钟 |
+| 邮件 | ✅ 已成功送达 385096659@qq.com（118KB，2 个附件） |
 
-**结论**：免费节点天然是「大量失效 + 少量可用」，本项目靠真实测速保证
-「进了 yaml 的节点在 Clash Verge 里确实能用」。
+**各协议可用率参考**（300 样本/协议）：http 37%、socks5 30%、anytls 32%、
+hysteria 100%(仅 2 个)、ss 4.8%、hysteria2 3.9%、vless 3.0%、trojan 0.6%、vmess 0.3%。
+
+**结论**：免费节点天然是「大量失效 + 少量可用」。
+`http`/`socks5` 明文代理可用率虚高但质量与安全性差，默认由
+`select.exclude_insecure: true` 排除；真正用于翻墙的加密协议可用率约 1%~5%。
+本项目靠真实测速保证「进了 yaml 的节点在 Clash Verge 里确实能用」。
 
 ---
 
@@ -271,34 +294,61 @@ Get-ScheduledTaskInfo -TaskName FreeNodeMailer-DailyPush | Format-List
 
 ---
 
-## 九、部署到 GitHub（可选，电脑不用开机）
+## 九、GitHub 云端部署（已启用）
 
-1. 在 GitHub 建一个仓库（例如 `FreeNodeMailer`），**私有仓库也可以**
-2. 配置 Secrets：`QQ_EMAIL` / `QQ_AUTH` / `MAIL_TO`
-3. 本地首次推送：
+### 9.1 当前状态
+
+| 项目 | 值 |
+|------|-----|
+| 仓库 | <https://github.com/mmdaq/FreeNodeMailer>（public） |
+| 默认分支 | `main`（已强制切换为本次重写版，旧实现已移除） |
+| 工作流 | `.github/workflows/daily-v2.yml`（旧的 `daily.yml` 已删除，避免两个流程抢同一批文件） |
+| 触发 | 每天 UTC 00:00 = **北京 08:00**；也支持 Actions 页面手动触发 |
+| Secrets | `QQ_EMAIL`、`QQ_AUTH`（`MAIL_TO` 未设置，代码会回落到 `QQ_EMAIL`/settings.yaml 的 `mail.to`） |
+
+> ⚠️ `QQ_AUTH` 这个 Secret 是 2026-09-26 设置的。本次本地实测用的授权码可以正常发信；
+> 若以后换授权码，请同步更新：Settings → Secrets and variables → Actions → `QQ_AUTH`。
+
+### 9.2 手动触发一次（验证用）
 
 ```bash
-cd "F:\deepseek harness\DSH_project\FreeNodeMailer"
-git init
-git add .
-git commit -m "init FreeNodeMailer"
-git branch -M main
-git remote add origin https://github.com/<你的用户名>/FreeNodeMailer.git
-git push -u origin main
+# 需要带 repo+workflow 权限的 token
+curl -X POST \
+  -H "Authorization: Bearer <TOKEN>" \
+  -H "Accept: application/vnd.github+json" \
+  https://api.github.com/repos/mmdaq/FreeNodeMailer/actions/workflows/daily-v2.yml/dispatches \
+  -d '{"ref":"main","inputs":{"dry_run":"false","limit":"0"}}'
 ```
 
-4. 到 Actions 页面确认 `FreeNodeMailer 每日节点推送` 已启用，可手动 Run workflow 试跑
-5. 之后每天 UTC 00:00（北京 08:00）自动运行，并把结果提交回仓库 `output/`
+或直接网页：Actions → 「FreeNodeMailer 每日节点推送」→ Run workflow。
 
-订阅链接（推送成功后可用）：
+### 9.3 订阅链接（云端每天提交后自动更新）
 
 ```
-https://raw.githubusercontent.com/<用户名>/<仓库>/main/output/clash.yaml
-# 国内建议用镜像：
-https://cdn.jsdelivr.net/gh/<用户名>/<仓库>@main/output/clash.yaml
+https://raw.githubusercontent.com/mmdaq/FreeNodeMailer/main/output/clash.yaml
+
+# 国内直连 raw 常超时，建议用 jsDelivr：
+https://cdn.jsdelivr.net/gh/mmdaq/FreeNodeMailer@main/output/clash.yaml
 ```
 
-> 注意：`.env` 在 `.gitignore` 里，不会被推上去；Actions 用 Secrets 注入。
+> jsDelivr 对频繁更新的文件有缓存，若发现内容滞后属正常现象，可在 URL 后加 `?t=日期` 绕过。
+
+### 9.4 ⚠️ 本机 git push 被墙（重要）
+
+本机到 `github.com:443` 经常被重置（`Recv failure: Connection was reset`），
+而 `api.github.com` 一直可用。因此**本机不要依赖 `git push`**，改用：
+
+```powershell
+python scripts\git_publish_api.py main          # 常规更新
+python scripts\git_publish_api.py main --force  # 强制覆盖
+```
+
+该脚本用 GitHub Git Data API 上传变化的文件并更新 ref，效果与 push 相同。
+凭据从 `git credential store` 读取（token 属主 `mmdaq`，权限 `repo` + `workflow`），
+不会打印或落盘明文。
+
+> 说明：API 生成的远端 commit SHA 与本地会不同（GitHub 写入自己的 committer 时间戳），
+> **文件内容完全一致**。这属正常现象，不影响使用。
 
 ---
 
@@ -315,16 +365,23 @@ https://cdn.jsdelivr.net/gh/<用户名>/<仓库>@main/output/clash.yaml
 
 ## 十一、开发注意事项
 
-1. **改完代码必须跑** `python scripts\selftest.py`（40 项，覆盖解析/去重/命名/配置生成）
+1. **改完代码必须跑** `python scripts\selftest.py`（43 项，覆盖解析/去重/命名/配置生成）
+   和 `python scripts\config_check.py`（内核级校验，确认生成物能真正导入）
 2. 新增节点协议支持时，注意同步更新：
-   - `parser.SUPPORTED_BY_MIHOMO`（内核支持的协议）
+   - `parser.SUPPORTED_BY_MIHOMO`（内核支持的协议白名单）
    - `parser.normalize_proxy`（字段归一化）
+   - `parser.SCHEME_MAP`（分享链接 scheme）
 3. **不要**在节点名里保留 `#`（YAML 注释符）；名称唯一性由
    `parser.unique_names` 统一保证，mihomo 遇重名会直接 fatal
-4. 调 `global-client-fingerprint` 这类字段要小心：**新版 mihomo 已移除**，
-   写了会导致内核启动失败（本项目踩过这个坑）
+4. 配置字段有版本风险：**`global-client-fingerprint` 已被新版 mihomo 移除**，
+   写了会导致配置加载失败。`yaml_builder.REMOVED_CONFIG_KEYS` +
+   `selftest` 里有回归测试防止再犯；类似被移除的字段请一并加入黑名单
 5. 中文 Windows 下读内核输出必须按字节读再逐个尝试 utf-8/gbk 解码，
-   直接 `text=True` 会因 GBK 解码失败抛异常（已修复）
+   直接 `subprocess.run(text=True)` 会因 GBK 解码失败抛异常（已修复）
+6. `.ps1` 脚本要存成 **UTF-8 with BOM**，否则 Windows PowerShell 5.1
+   会按 ANSI 解码导致语法错误；`.bat` 尽量纯 ASCII
+7. `.env` 已在 `.gitignore` 中，**永远不要**提交；仓库历史上 `master` 分支
+   曾提交过一个 `.env`（其中 `QQ_AUTH` 为空，未泄露密钥），如需可自行清理
 
 ---
 
