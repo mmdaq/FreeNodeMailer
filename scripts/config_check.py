@@ -18,7 +18,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import yaml  # noqa: E402
 
-from util import GEO_DIR, LOG, OUTPUT_DIR, ensure_dirs, load_settings, setup_logging  # noqa: E402
+from util import GEO_DIR, LOG, ensure_dirs, load_settings, setup_logging  # noqa: E402
 from tester import (  # noqa: E402
     GEO_FILES, MihomoCore, NodeResult, build_probe_config, ensure_core, ensure_geo,
     free_port, geo_paths, test_config_file,
@@ -75,7 +75,9 @@ def main() -> int:
         return 1
 
     text = yaml_builder.config_to_yaml(dict(cfg))
-    target = OUTPUT_DIR / "config_check.yaml"
+    # 写到临时目录而不是 output/，避免污染交付产物
+    _tmpdir = Path(tempfile.mkdtemp(prefix="fnm_cc_out_"))
+    target = _tmpdir / "config_check.yaml"
     target.write_text(text, encoding="utf-8")
     print(f"[2] 生成校验用配置     : {target} ({len(text)} 字节, {len(cfg['proxies'])} 节点)")
     if "global-client-fingerprint" in text:

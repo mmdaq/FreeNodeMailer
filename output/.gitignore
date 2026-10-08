@@ -1,4 +1,6 @@
 # 本目录是 FreeNodeMailer 的交付产物，需要提交到仓库，
-# 这样订阅链接（raw/jsDelivr 指向 output/clash.yaml）才能长期有效。
+# 这样订阅链接（raw/gh-proxy 指向 output/clash.yaml）才能长期有效。
 # 它包含的只是公开免费节点，不含任何密钥。
 !*
+# 但 config_check.py 的临时校验产物不属于交付物，排除掉
+config_check.yaml
