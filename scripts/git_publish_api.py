@@ -1,6 +1,14 @@
-"""临时：把本地 HEAD 强制发布到远端分支（github.com 直连被墙时用 API）。
+"""把本地 HEAD 发布到远端分支（github.com 的 443 直连被墙时用 GitHub API 兜底）。
 
-用法：python scripts/_publish.py <branch> [--force]
+背景：本机到 github.com:443 经常被重置，`git push` 会失败，但
+api.github.com 一直可用。本脚本用 Git Data API 上传「变化的文件」，
+再更新分支 ref，达到与 `git push` 相同的效果（内容一致；
+远端 SHA 会因为 committer 时间戳不同而略有差异，属正常现象）。
+
+用法：
+  python scripts/git_publish_api.py main            # 常规更新（要求快进）
+  python scripts/git_publish_api.py main --force    # 强制覆盖（例如整仓替换）
+  python scripts/git_publish_api.py <branch>        # 发布到其他分支
 """
 import sys
 from pathlib import Path
