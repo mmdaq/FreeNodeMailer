@@ -4,7 +4,48 @@
 > **GitHub 仓库**：<https://github.com/mmdaq/FreeNodeMailer>（**已推送，main 分支已切换为本次重写版**）
 > **本地路径**：`F:\deepseek harness\DSH_project\FreeNodeMailer`
 > **订阅邮箱**：385096659@qq.com
-> **当前状态**：✅ 本地已实测跑通并成功发信；✅ 云端 Actions 已配置并手动验证
+> **当前状态**：✅ 本地实测跑通并发信成功；✅ 云端 Actions 实测跑通（11 步全绿）并发信成功；
+> ✅ 本地 + 云端两路 08:00 定时均已生效
+
+---
+
+## 零、接手速查（先看这里）
+
+### 0.1 现在到底是什么状态（已生效，无需再做任何事）
+
+| 项 | 状态 |
+|----|------|
+| 本地定时任务 `FreeNodeMailer-DailyPush` | 已注册，**下次运行 2026-10-09 08:00** |
+| 云端工作流 `FreeNodeMailer 每日节点推送` | 已启用，**每天 08:00（北京）自动跑** |
+| 邮箱授权码 | 已写入 `.env`（本地）与 GitHub Secrets（云端），均实测可发信 |
+| 今日成果 | 本地生成 41 节点、云端生成 169 节点，两封邮件均已送达 385096659@qq.com |
+| 订阅链接 | 已生效，见 §9.3 |
+
+### 0.2 想手动跑一次
+
+```powershell
+cd "F:\deepseek harness\DSH_project\FreeNodeMailer"
+run-now.bat                       # 完整流程 + 发邮件（带窗口看日志）
+python scripts\main.py --dry-run  # 只生成不发信
+python scripts\main.py --doctor   # 环境自检
+```
+
+### 0.3 出问题先看哪里
+
+```powershell
+Get-Content logs\fnm.log -Tail 80            # 主流程日志
+Get-Content logs\runner.out.log -Tail 40     # 定时任务入口日志
+Get-ScheduledTaskInfo -TaskName FreeNodeMailer-DailyPush | Format-List
+```
+云端日志：<https://github.com/mmdaq/FreeNodeMailer/actions>
+
+### 0.4 三个最容易踩的坑（务必先读）
+
+1. **本机 `git push` 不通**（`github.com:443` 被重置）→ 用
+   `python scripts\git_publish_api.py main` 发布，见 §9.4。
+2. **不要用 jsDelivr 做订阅链接**（缓存不刷新，会一直给旧内容）→ 用 §9.3 的 gh-proxy 链接。
+3. **改完代码务必跑** `python scripts\selftest.py`（43 项）与
+   `python scripts\config_check.py`（内核级校验），否则可能推出导入即失败的配置。
 
 ---
 
@@ -70,19 +111,21 @@ FreeNodeMailer/
 │   ├── git_publish_api.py        # github.com 被墙时用 API 发布提交
 │   ├── git_push_via_api.py       # API 发布的底层实现
 │   └── register_task.ps1         # Windows 任务计划注册
-├── output/                       # 生成结果
+├── output/                       # 生成结果（已纳入版本管理，供订阅链接使用）
+│   ├── .gitignore                # 覆盖根忽略规则，允许提交本目录
 │   ├── 20261008clash.yaml        # 带日期配置（邮件主附件）
 │   ├── clash.yaml                # 订阅用配置
 │   ├── report.html               # HTML 报告
 │   └── last_run.json             # 本次运行统计
 ├── logs/                         # fnm.log（按天轮转 30 天）+ runner.out.log
-├── .cache/
+├── .cache/                       # 内核 / geodata / 源缓存（不提交）
 │   ├── core/mihomo.exe           # 内核（自动复用 D:\Clash Verge 的）
 │   ├── geo/                      # geoip.metadb / geosite.dat
 │   └── sources/                  # 每个源最后一次成功内容
 ├── run.bat                       # 定时任务入口
 ├── run-now.bat                   # 手动运行（调试）
 ├── .env / .env.example           # 邮箱授权码（.env 已配置，且被 git 忽略）
+├── .gitignore / .gitattributes   # 忽略规则 / 换行符规则（.gitattributes 必须纯 ASCII）
 ├── requirements.txt              # requests + PyYAML
 ├── README.md                     # 使用手册
 └── HANDOVER.md                   # 本文档
@@ -132,11 +175,16 @@ FreeNodeMailer/
 **为什么必须有**：mihomo 只要遇到一个节点字段错误，**整份配置都加载失败**，
 用户导入 Clash Verge 就会直接报错。所以：
 
-1. **候选预校验**：把所有候选节点塞进临时配置跑 `mihomo -t`；
-   失败则从报错文本里定位问题节点（`proxy N:` 下标 / 节点名）定点剔除，最多重试 12 次；
+1. **候选预校验**：把候选节点**分批**（默认 400 个/批）交给 `mihomo -t` 校验；
+   某批失败则从报错文本定位问题节点（`proxy N:` 下标 / 节点名）定点剔除；
+   定位不到就二分递归缩小范围。最后再对全部保留节点做一次整体复检（防跨批重名冲突）。
+   实测 9831 个候选只用了 **35 次内核调用、约 6 秒**。
 2. **交付二次校验**：对最终 `2026MMDDclash.yaml` 跑 `mihomo -t`，
    再启动一次内核，逐条确认配置里的每个节点真的出现在 `/proxies` 里；
    任一环节失败 → 记录日志 + **不发邮件**（避免推送坏配置）。
+
+> 校验判定会同时看退出码和输出内容：内核在 `level=error`/`parse config error`
+> 时即使 exit=0 也判定为**失败**（这个坑真实踩过，见 §1.3）。
 
 ### 3.4 配置内容（`yaml_builder.py`）
 
@@ -160,7 +208,7 @@ FreeNodeMailer/
 | 延迟阈值 | `test.max_delay` | 500 ms |
 | 明文代理排除 | `select.exclude_insecure` | true（排除 http/socks5） |
 | 单地区上限 | `select.max_per_region` | 40 |
-| 单主机上限 | `select.max_per_server` | 2（避免一台服务器占满配置） |
+| 单主机上限 | `select.max_per_server` | 3（避免一台服务器占满配置） |
 | 总节点上限 | `select.max_nodes` | 200 |
 
 ---
@@ -390,14 +438,27 @@ python scripts\git_publish_api.py main --force  # 强制覆盖
 
 ---
 
-## 十、后续可优化项
+## 十、后续可优化项与已知事项
 
-- [ ] 增加更多优质数据源（`config/sources.txt` 直接加行即可）
-- [ ] 节点质量评分：连续多日可用 + 延迟稳定性加权排序
+### 10.1 待优化
+
+- [ ] 节点质量评分：连续多日可用 + 延迟稳定性加权排序（可配合 §10.2 的 history）
+- [ ] 记录历史可用率到 `.cache/history.json`，优先测历史成功节点，进一步压缩耗时
 - [ ] 端口/协议维度去重，减少同主机重复测试
 - [ ] 支持多收件人分组推送（不同人不同阈值）
 - [ ] 加入 Telegram / 企业微信 通知渠道
-- [ ] 把「历史可用率」写进 `.cache/history.json`，优先测历史成功节点
+- [ ] 增加更多优质数据源（`config/sources.txt` 直接加行即可）
+- [ ] 统计「地区组」覆盖率，对节点过少的地区做数据源定向补充
+
+### 10.2 已知事项（非缺陷，接手时需知道）
+
+| 事项 | 说明 | 建议 |
+|------|------|------|
+| 仓库仍有 `master` 分支 | 是旧版本残留（含一个 `QQ_AUTH` 为空的 `.env`，**未泄露密钥**） | 不影响运行；如需整洁可在 GitHub 上删除该分支 |
+| GitHub Secret `MAIL_TO` 未设置 | 代码会自动回落到 `QQ_EMAIL` / `settings.yaml` 的 `mail.to`，功能正常 | 想发给多个地址时再补设 |
+| 云端 commit 与本地 SHA 不同 | API 发布时 GitHub 会写入自己的 committer 时间戳，**文件内容完全一致** | 正常现象；本地 `git log` 看到的 SHA 与远端不同不必惊慌 |
+| 每日免费节点数量波动大 | 云端实测 169 个，本机实测 41 个，源质量本身随日期浮动 | 属正常；`select.min_nodes` 起保护作用，太少就不发信 |
+| 定时触发可能延迟几分钟 | GitHub 的 schedule 在高峰期会排队 | 属正常；不影响当天送达 |
 
 ---
 
