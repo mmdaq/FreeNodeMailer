@@ -343,21 +343,30 @@ curl -X POST \
 ### 9.3 订阅链接（云端每天提交后自动更新）
 
 `output/` 已纳入版本管理（其内部 `output/.gitignore` 覆盖了根 `.gitignore` 的忽略规则），
-且工作流会每天把新生成的配置提交回 `main`，因此订阅链接长期有效：
+且工作流会每天把新生成的配置提交回 `main`，因此订阅链接长期有效。
+
+**推荐用的链接（国内实测可正常拉取最新内容，2026-10-08 验证）：**
 
 ```
+# 1) gh-proxy.com 加速（国内直连可用，带 GitHub 实时内容）
+https://gh-proxy.com/https://raw.githubusercontent.com/mmdaq/FreeNodeMailer/main/output/clash.yaml
+
+# 2) ghfast.top 加速（备用）
+https://ghfast.top/https://raw.githubusercontent.com/mmdaq/FreeNodeMailer/main/output/clash.yaml
+
+# 3) 原始地址（需能访问 GitHub）
 https://raw.githubusercontent.com/mmdaq/FreeNodeMailer/main/output/clash.yaml
-
-# 国内直连 raw 常超时，建议用 jsDelivr：
-https://cdn.jsdelivr.net/gh/mmdaq/FreeNodeMailer@main/output/clash.yaml
 ```
 
-带日期的当日配置同样可访问：
+带日期的当日配置同理：
 
 ```
-https://cdn.jsdelivr.net/gh/mmdaq/FreeNodeMailer@main/output/20261008clash.yaml
+https://gh-proxy.com/https://raw.githubusercontent.com/mmdaq/FreeNodeMailer/main/output/20261008clash.yaml
 ```
 
+> ⚠️ **不要用 `cdn.jsdelivr.net` 做订阅**：实测它对 `@main` 的缓存可能长时间不刷新
+> （本次验证时它返回的仍是旧的 1240 字节空配置）。它只适合拉取不常变的内容。
+>
 > `output/` 里只有公开免费节点，不含任何密钥，可以安全提交。
 > 若你不想公开节点列表，可把 `output/` 重新加入 `.gitignore`，
 > 订阅链接随之失效，但邮件推送不受影响（产物也可从 Actions 页面下载）。

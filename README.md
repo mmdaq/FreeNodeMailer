@@ -275,12 +275,20 @@ python scripts\git_publish_api.py main --force  # 强制覆盖
 
 ### 订阅链接
 
+`output/` 已纳入版本管理，工作流每天会把最新配置提交回 `main`：
+
 ```
+# 国内推荐（gh-proxy 加速，实测可拉到最新内容）
+https://gh-proxy.com/https://raw.githubusercontent.com/mmdaq/FreeNodeMailer/main/output/clash.yaml
+
+# 备用
+https://ghfast.top/https://raw.githubusercontent.com/mmdaq/FreeNodeMailer/main/output/clash.yaml
 https://raw.githubusercontent.com/mmdaq/FreeNodeMailer/main/output/clash.yaml
-# 国内建议用 jsDelivr 镜像：
-https://cdn.jsdelivr.net/gh/mmdaq/FreeNodeMailer@main/output/clash.yaml
 ```
 
+> ⚠️ 不要用 `cdn.jsdelivr.net` 做订阅：实测它对 `@main` 的缓存可能长时间不刷新，
+> 会一直返回旧内容。它只适合拉取不变的文件。
+>
 > GitHub 只自动调度**默认分支(main)** 上的 schedule 工作流；本仓库已完成切换。
 
 ---
