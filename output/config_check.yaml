@@ -1,0 +1,300 @@
+# FreeNodeMailer 每日可用节点 | 生成时间(北京时间) 2026-10-08 06:46:48
+mixed-port: 7890
+allow-lan: false
+bind-address: 127.0.0.1
+mode: rule
+log-level: info
+ipv6: true
+unified-delay: true
+tcp-concurrent: true
+find-process-mode: strict
+external-controller: 127.0.0.1:9097
+geodata-mode: true
+geodata-loader: standard
+geo-auto-update: true
+geo-update-interval: 168
+profile:
+  store-selected: true
+  store-fake-ip: true
+sniffer:
+  enable: true
+  sniff:
+    HTTP:
+      ports:
+      - 80
+      - 8080-8880
+      override-destination: true
+    TLS:
+      ports:
+      - 443
+      - 8443
+    QUIC:
+      ports:
+      - 443
+      - 8443
+  skip-domain:
+  - Mijia Cloud
+  - +.push.apple.com
+dns:
+  enable: true
+  listen: 127.0.0.1:1053
+  ipv6: true
+  respect-rules: true
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter:
+  - '*.lan'
+  - '*.local'
+  - +.msftconnecttest.com
+  - +.msftncsi.com
+  - localhost.ptlogin2.qq.com
+  - +.qq.com
+  - +.wechat.com
+  default-nameserver:
+  - 223.5.5.5
+  - 119.29.29.29
+  nameserver:
+  - https://223.5.5.5/dns-query
+  - https://1.12.12.12/dns-query
+  proxy-server-nameserver:
+  - https://223.5.5.5/dns-query
+  - 223.5.5.5
+  nameserver-policy:
+    geosite:cn,private:
+    - https://223.5.5.5/dns-query
+    - 223.5.5.5
+    geosite:geolocation-!cn:
+    - https://1.12.12.12/dns-query
+    - tls://8.8.8.8:853
+proxies:
+- name: 香港 vless reality
+  type: vless
+  server: 1.2.3.4
+  port: 443
+  uuid: d2519b5e-495e-462e-9703-bbf68011d2f3
+  tls: true
+  udp: true
+  servername: a.com
+  flow: xtls-rprx-vision
+  reality-opts:
+    public-key: 8ENbaQRCWZk-wewSrdHq1_rVjJY4CrxqXUo_5vZNdi4
+    short-id: b2b44805
+  client-fingerprint: chrome
+- name: 日本 vmess ws
+  type: vmess
+  server: 5.6.7.8
+  port: 443
+  uuid: abc-123
+  alterId: 0
+  cipher: auto
+  tls: true
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: b.com
+  client-fingerprint: chrome
+- name: 美国 trojan
+  type: trojan
+  server: 9.9.9.9
+  port: 443
+  password: pw
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: 新加坡 ss
+  type: ss
+  server: 10.0.0.1
+  port: 8388
+  cipher: aes-256-gcm
+  password: pw
+  udp: true
+- name: 韩国 hysteria2
+  type: hysteria2
+  server: 10.0.0.2
+  port: 8443
+  password: pw
+  skip-cert-verify: true
+- name: 德国 anytls
+  type: anytls
+  server: 10.0.0.3
+  port: 443
+  password: pw
+  tls: true
+  client-fingerprint: chrome
+- name: 台湾 grpc vmess
+  type: vmess
+  server: 10.0.0.4
+  port: 443
+  uuid: abc-456
+  alterId: 0
+  cipher: auto
+  tls: true
+  network: grpc
+  grpc-opts:
+    grpc-service-name: gs
+  client-fingerprint: chrome
+- name: 英国 ssr
+  type: ssr
+  server: 10.0.0.5
+  port: 8080
+  cipher: aes-256-cfb
+  password: pw
+  protocol: origin
+  obfs: plain
+proxy-groups:
+- name: ♻️ 自动选择
+  type: url-test
+  proxies: &id001
+  - 香港 vless reality
+  - 日本 vmess ws
+  - 美国 trojan
+  - 新加坡 ss
+  - 韩国 hysteria2
+  - 德国 anytls
+  - 台湾 grpc vmess
+  - 英国 ssr
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+  lazy: false
+- name: 🔁 故障转移
+  type: fallback
+  proxies: *id001
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+- name: 🚀 节点选择
+  type: select
+  proxies:
+  - DIRECT
+  - ♻️ 自动选择
+  - 🔁 故障转移
+  - 🇭🇰 香港
+  - 🇯🇵 日本
+  - 🇺🇸 美国
+  - 🇸🇬 新加坡
+  - 🇰🇷 韩国
+  - 🇩🇪 德国
+  - 🇹🇼 台湾
+  - 🇬🇧 英国
+  - 香港 vless reality
+  - 日本 vmess ws
+  - 美国 trojan
+  - 新加坡 ss
+  - 韩国 hysteria2
+  - 德国 anytls
+  - 台湾 grpc vmess
+  - 英国 ssr
+- name: 🇭🇰 香港
+  type: url-test
+  proxies:
+  - 香港 vless reality
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+- name: 🇯🇵 日本
+  type: url-test
+  proxies:
+  - 日本 vmess ws
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+- name: 🇺🇸 美国
+  type: url-test
+  proxies:
+  - 美国 trojan
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+- name: 🇸🇬 新加坡
+  type: url-test
+  proxies:
+  - 新加坡 ss
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+- name: 🇰🇷 韩国
+  type: url-test
+  proxies:
+  - 韩国 hysteria2
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+- name: 🇩🇪 德国
+  type: url-test
+  proxies:
+  - 德国 anytls
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+- name: 🇹🇼 台湾
+  type: url-test
+  proxies:
+  - 台湾 grpc vmess
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+- name: 🇬🇧 英国
+  type: url-test
+  proxies:
+  - 英国 ssr
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+- name: 🌍 国外媒体
+  type: select
+  proxies:
+  - 🚀 节点选择
+  - ♻️ 自动选择
+  - 🔁 故障转移
+- name: 🤖 AI服务
+  type: select
+  proxies:
+  - 🚀 节点选择
+  - ♻️ 自动选择
+  - 🔁 故障转移
+- name: 📲 电报消息
+  type: select
+  proxies:
+  - 🚀 节点选择
+  - ♻️ 自动选择
+  - 🔁 故障转移
+- name: 🎯 全球直连
+  type: select
+  proxies:
+  - DIRECT
+  - 🚀 节点选择
+- name: 🛑 广告拦截
+  type: select
+  proxies:
+  - REJECT
+  - DIRECT
+- name: 🐟 漏网之鱼
+  type: select
+  proxies:
+  - 🚀 节点选择
+  - DIRECT
+rules:
+- GEOSITE,category-ads-all,🛑 广告拦截
+- GEOIP,private,DIRECT,no-resolve
+- GEOSITE,private,DIRECT
+- GEOSITE,cn,DIRECT
+- GEOIP,cn,DIRECT
+- GEOSITE,openai,🤖 AI服务
+- GEOSITE,anthropic,🤖 AI服务
+- GEOSITE,google-gemini,🤖 AI服务
+- GEOSITE,category-ai-chat-!cn,🤖 AI服务
+- GEOSITE,youtube,🌍 国外媒体
+- GEOSITE,netflix,🌍 国外媒体
+- GEOSITE,disney,🌍 国外媒体
+- GEOSITE,hbo,🌍 国外媒体
+- GEOSITE,spotify,🌍 国外媒体
+- GEOSITE,bilibili,🎯 全球直连
+- GEOSITE,telegram,📲 电报消息
+- GEOSITE,twitter,🚀 节点选择
+- GEOSITE,google,🚀 节点选择
+- GEOSITE,github,🚀 节点选择
+- GEOSITE,geolocation-!cn,🚀 节点选择
+- GEOIP,telegram,📲 电报消息,no-resolve
+- MATCH,🐟 漏网之鱼
