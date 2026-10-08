@@ -1,6 +1,20 @@
-node_modules/
+# ---- 密钥（不要提交）----
 .env
-__pycache__/
-*.pyc
+
+# ---- 运行产物 ----
 output/
-.DS_Store
+logs/
+.cache/
+data/
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+
+# ---- 临时 ----
+*.part
+*.tmp

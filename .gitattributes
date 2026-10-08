@@ -1,0 +1,12 @@
+﻿# 统一换行符，避免 Windows/Linux 交叉提交时产生噪声 diff
+* text=auto eol=lf
+
+# Windows 脚本保持可用（cmd / powershell 都兼容 LF，但显式声明更清晰）
+*.bat  text eol=crlf
+*.ps1  text eol=crlf
+
+# 二进制
+*.exe binary
+*.dat binary
+*.mmdb binary
+*.metadb binary

@@ -1,0 +1,134 @@
+name: FreeNodeMailer v2 (真实测速版)
+
+# ============================================================
+# 这是重写版的每日工作流。
+#
+# 注意：GitHub 只会自动调度「默认分支(main)」上的 schedule 工作流。
+# 在合并到 main 之前，本工作流只能通过 workflow_dispatch 手动运行。
+# 合并到 main 后，会每天 UTC 00:00（北京 08:00）自动运行。
+#
+# 与仓库里旧的 daily.yml 互不冲突：两者产物文件名相同，
+# 但只有先合并到 main 的那个才会被 schedule 自动触发。
+# 合并前请先删除或停用旧的 daily.yml。
+# ============================================================
+on:
+  schedule:
+    # 08:00 CST = 00:00 UTC
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: "限制测速节点数（0=自动）"
+        required: false
+        default: "0"
+      dry_run:
+        description: "只生成不发送（true/false）"
+        required: false
+        default: "false"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: fnm-v2-daily
+  cancel-in-progress: false
+
+jobs:
+  run:
+    name: 抓取 → 真实内核测速 → 校验 → 邮件
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+        with:
+          ref: feat/fnm-realtime-nodes
+
+      - name: 安装 Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: 安装依赖
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: 离线自检（解析/去重/命名/配置生成）
+        run: python scripts/selftest.py
+
+      - name: 准备 mihomo 内核（真实测速必需）
+        run: |
+          set -e
+          mkdir -p .cache/core
+          VER=$(curl -fsSL --retry 3 https://api.github.com/repos/MetaCubeX/mihomo/releases/latest \
+                | python -c "import sys,json;print(json.load(sys.stdin)['tag_name'])")
+          echo "mihomo $VER"
+          ASSET="mihomo-linux-amd64-compatible-${VER}.gz"
+          for M in "https://gh-proxy.com/https://github.com" "https://ghfast.top/https://github.com" "https://github.com"; do
+            if curl -fsSL --retry 2 --max-time 240 "$M/MetaCubeX/mihomo/releases/download/$VER/$ASSET" -o core.gz; then
+              echo "downloaded via $M"; break
+            fi
+          done
+          gzip -dc core.gz > .cache/core/mihomo
+          chmod +x .cache/core/mihomo
+          ./.cache/core/mihomo -v
+
+      - name: 准备 geodata（配置校验必需）
+        run: |
+          mkdir -p .cache/geo
+          for f in geoip.metadb geosite.dat geoip.dat Country.mmdb; do
+            curl -fsSL --retry 3 --max-time 240 \
+              "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/$f" \
+              -o ".cache/geo/$f" || echo "warn: $f 下载失败"
+          done
+          ls -la .cache/geo
+
+      - name: 内核级配置格式校验（生成物必须可被 Clash Verge 导入）
+        run: python scripts/config_check.py
+
+      - name: 运行主流程（抓取 → 测速 → 生成 → 校验 → 发邮件）
+        env:
+          QQ_EMAIL: ${{ secrets.QQ_EMAIL }}
+          QQ_AUTH: ${{ secrets.QQ_AUTH }}
+          MAIL_TO: ${{ secrets.MAIL_TO }}
+        run: |
+          ARGS="--json"
+          if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then ARGS="$ARGS --dry-run"; fi
+          if [ -n "${{ github.event.inputs.limit }}" ] && [ "${{ github.event.inputs.limit }}" != "0" ]; then
+            ARGS="$ARGS --limit ${{ github.event.inputs.limit }}"
+          fi
+          python scripts/main.py $ARGS
+
+      - name: 上传产物
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: fnm-v2-output-${{ github.run_id }}
+          path: |
+            output/*.yaml
+            output/report.html
+            output/last_run.json
+            logs/*.log
+          retention-days: 14
+          if-no-files-found: warn
+
+      - name: 提交结果回分支（订阅链接用）
+        if: success()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add output/*.yaml output/report.html output/last_run.json 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "无变更，跳过提交"
+          else
+            git commit -m "chore: 更新 $(TZ=Asia/Shanghai date +%Y-%m-%d) 可用节点配置"
+            git push
+          fi
+
+      - name: 失败提示
+        if: failure()
+        run: |
+          echo "::error title=FreeNodeMailer v2 运行失败::常见原因：数据源全挂 / QQ_AUTH 失效 / 内核或 geodata 下载失败 / 配置校验未通过"

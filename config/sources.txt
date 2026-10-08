@@ -1,2 +1,47 @@
-https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml
-https://raw.githubusercontent.com/zhangkaiitugithub/passcro/main/speednodes.yaml
+# ============================================================
+# FreeNodeMailer 数据源列表
+# ------------------------------------------------------------
+# 以 # 开头的行为注释。每行一个数据源 URL。
+# 支持写法：URL|显示名
+#
+# 抓取器会为每个 raw.githubusercontent.com 源自动构造「镜像改写链」，
+# 因此国内网络下 raw 不通也能取到内容：
+#   1) 原地址              raw.githubusercontent.com
+#   2) cdn.jsdelivr.net    jsDelivr CDN（国内快，实测首选通道）
+#   3) api.github.com      GitHub API（base64）
+#   4) fastly / gcore      jsDelivr 备用节点
+#
+# 抓取失败的源会自动回退到上一次成功抓取的本地缓存。
+# 某个源长期 404 的，直接注释掉即可，不影响整体运行。
+#
+# 想看每个源的真实产出：跑一次 main.py，日志里会逐源打印
+# [OK]/[FAIL] + 通道 + 字节数，邮件报告里也有完整表格。
+# ============================================================
+
+# ---- 大型聚合源（节点量最大，优先）----
+https://raw.githubusercontent.com/Epodonios/v2ray-configs/main/All_Configs_Sub.txt|Epodonios-v2ray-configs
+https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/sub/sub_merge.txt|mahdibland-V2RayAggregator
+https://raw.githubusercontent.com/Au1rxx/free-vpn-subscriptions/main/output/clash.yaml|Au1rxx-clash
+https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml|anaer-Sub
+
+# ---- Clash / Mihomo YAML 订阅 ----
+https://raw.githubusercontent.com/cysk003/freeSub/main/clash.yaml|cysk003-freeSub
+https://raw.githubusercontent.com/Ruk1ng001/freeSub/main/clash.yaml|Ruk1ng001-freeSub
+https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml|ermaozi-clash
+https://raw.githubusercontent.com/ts-sf/fly/main/clash|ts-sf-fly
+https://raw.githubusercontent.com/zhangkaiitugithub/passcro/main/speednodes.yaml|passcro-speednodes
+https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/Eternity.yml|mahdibland-Eternity
+https://raw.githubusercontent.com/ripaojiedian/freenode/main/clash|ripaojiedian-clash
+https://raw.githubusercontent.com/free18/v2ray/main/c.yaml|free18-c
+https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta-2.yaml|snakem982-proxypool
+https://raw.githubusercontent.com/ermaozi01/free_clash_vpn/main/subscribe/clash.yml|ermaozi01-clash
+
+# ---- 混合 / 聚合 ----
+https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.yml|NoMoreWalls-yml
+https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.txt|NoMoreWalls-list
+
+# ---- V2Ray / base64 订阅（抓取器自动识别并转换）----
+https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/v2ray.txt|ermaozi-v2ray
+https://raw.githubusercontent.com/Pawdroid/Free-servers/main/sub|Pawdroid-sub
+https://raw.githubusercontent.com/ripaojiedian/freenode/main/sub|ripaojiedian-sub
+https://raw.githubusercontent.com/freefq/free/master/v2|freefq-v2

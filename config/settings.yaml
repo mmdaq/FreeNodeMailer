@@ -1,0 +1,101 @@
+# ============================================================
+# FreeNodeMailer 运行参数
+# 所有脚本共用此文件；也可用环境变量覆盖（见 README）
+# ============================================================
+
+# ---- 抓取 ----
+fetch:
+  # 单次抓取源并发数
+  concurrency: 8
+  # 单源超时（秒）
+  timeout: 18
+  # 每个源失败重试次数
+  retries: 2
+  # 抓取整体最长耗时（秒），超时后使用已到手的部分
+  deadline: 420
+  # 完整 User-Agent（部分源会拦截默认 UA）
+  user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"
+  # 是否启用 GitHub 镜像改写链
+  use_mirrors: true
+
+# ---- 测速 / 可用性检测 ----
+test:
+  # 真实内核路径（留空则自动下载到 .cache/core/）
+  core_path: ""
+  # 自动下载内核
+  auto_download_core: true
+  # 内核测试并发（mihomo 同时测多少个节点）
+  concurrency: 64
+  # 测试地址：gstatic generate_204 最通用
+  url: "http://www.gstatic.com/generate_204"
+  # 判定"可用"的延迟阈值（毫秒）
+  max_delay: 500
+  # 第一轮单节点超时（毫秒）
+  timeout_ms: 3000
+  # 失败节点复测时的超时上限（毫秒）
+  retest_timeout_ms: 8000
+  # 失败节点复测轮数（免费节点冷启动失败很常见，复测能救回不少）
+  retest_rounds: 3
+  # 整个测速阶段的时限（秒，0=不限制）；到点后停止复测，已测到的结果照常用
+  test_budget: 900
+  # 阶段A：先用 TCP 预筛淘汰死主机（秒级完成，只影响耗时不影响判定）
+  tcp_precheck: true
+  # TCP 预筛超时（秒）
+  tcp_precheck_timeout: 1.5
+  # 复测成功的节点是否收录（true=只要测通就收录）
+  keep_retested: true
+  # 内核控制器起始端口（自动寻找空闲端口）
+  controller_port: 0
+  # 放开 IPv6（部分节点为 v6 only）
+  ipv6: true
+  # mihomo 日志级别
+  log_level: "warning"
+
+# ---- 节点筛选与排序 ----
+select:
+  # 最多写入最终 YAML 的节点数
+  max_nodes: 200
+  # 每个地区最多保留节点数
+  max_per_region: 40
+  # 同一主机(server)最多保留几个节点（避免整份配置被一台服务器占满）
+  max_per_server: 3
+  # 最少需要多少个可用节点，低于此值视为失败（避免推送空配置）
+  min_nodes: 5
+  # 是否排除明文代理（http / socks5，无加密）。
+  # 这类节点来自公开列表，明文传输不安全且质量参差，默认排除。
+  exclude_insecure: true
+  # 是否按延迟排序
+  sort_by_delay: true
+
+# ---- 订阅 YAML 生成 ----
+output:
+  # 主代理组名
+  main_group: "🚀 节点选择"
+  auto_group: "♻️ 自动选择"
+  fallback_group: "🔁 故障转移"
+  # 生成的分流规则集（geosite/geoip 名称，Clash Verge 可直接用）
+  enable_rules: true
+  # mixed-port 等客户端设置
+  mixed_port: 7890
+  allow_lan: false
+  mode: "rule"
+
+# ---- 邮件 ----
+mail:
+  smtp_host: "smtp.qq.com"
+  smtp_port: 465
+  use_ssl: true
+  # 收件人（逗号分隔）；发件人从 .env 的 QQ_EMAIL 读取
+  to: "385096659@qq.com"
+  subject_prefix: "【FreeNodeMailer】"
+  # 附件：带日期的 yaml + 纯订阅 yaml
+  attach_dated: true
+  attach_subscription: true
+  # 可用节点低于 min_nodes 时是否仍然发送（false=不发，避免垃圾邮件）
+  send_on_failure: false
+
+# ---- 日志 ----
+log:
+  dir: "logs"
+  level: "INFO"
+  keep_days: 30
