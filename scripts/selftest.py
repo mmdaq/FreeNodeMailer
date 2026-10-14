@@ -84,6 +84,17 @@ def test_share_links() -> None:
     check("拒绝非法主机名", parse_share_link("vless://uuid@not a host:443") is None)
     check("拒绝非法端口", parse_share_link("trojan://x@host.com:999999") is None)
 
+    # IPv6 相关回归测试（2026-10-14：裸 IPv6 曾导致 ValueError 崩溃）
+    # 裸 IPv6（无方括号）的 ss:// 链接：urlparse 会抛 ValueError，必须静默跳过
+    check("ss 裸 IPv6 不崩溃", parse_share_link(
+        "ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpwYXNzdz2Q@2001:db8::1:443") is None)
+    # 正确带方括号的 IPv6 链接：应正常解析
+    n = parse_share_link("ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpwYXNzd29yZA@@[2001:db8::1]:443#IPv6SS")
+    check("ss 方括号 IPv6 正常解析", bool(n) and n["server"] == "2001:db8::1" and n["port"] == 443)
+    # vless 裸 IPv6：extract_authority 能正确提取 host:port，属于合法链接
+    n = parse_share_link("vless://abc@2001:db8::1:443?xxx")
+    check("vless 裸 IPv6 正确解析", bool(n) and n["server"] == "2001:db8::1" and n["port"] == 443)
+
 
 def test_yaml_and_normalize() -> None:
     print("\n[2] Clash YAML 解析与归一化")

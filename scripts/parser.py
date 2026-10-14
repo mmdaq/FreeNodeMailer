@@ -262,7 +262,10 @@ def parse_share_link(link: str) -> Optional[Dict[str, Any]]:
         if ":" not in ui_plain or not hostpart:
             return None
         link = f"ss://{ui_plain}@{hostpart}{frag}"
-        u = urlparse(link)
+        try:
+            u = urlparse(link)
+        except ValueError:
+            return None
         q = ss_q
     else:
         try:
