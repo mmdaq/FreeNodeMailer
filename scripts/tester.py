@@ -631,16 +631,25 @@ def run_speed_test(nodes: List[Dict[str, Any]], settings: Dict[str, Any],
                          i + 2, len(failed), tmo)
                 round_of(failed, tmo, f"复测{i + 2}")
 
-            # 阈值过滤
+            # 阈值过滤 + 稳定性过滤
+            stability_min = int(test_cfg.get("stability_min_success", 2))
             for r in results.values():
                 if not r.ok or r.delay is None:
                     continue
+                # 1) 延迟阈值
                 if r.delay <= cap:
+                    pass  # 延迟达标，继续检查稳定性
+                elif keep_retested and len(r.delays) > 1 and min(r.delays) <= cap:
+                    pass  # 复测曾达标，保留最低延迟
+                else:
+                    r.error = f"延迟 {r.delay}ms 超过阈值 {cap}ms"
+                    r.delay = None
                     continue
-                if keep_retested and len(r.delays) > 1 and min(r.delays) <= cap:
-                    continue
-                r.error = f"延迟 {r.delay}ms 超过阈值 {cap}ms"
-                r.delay = None
+                # 2) 稳定性：若有多轮测试记录，至少需要 stability_min 次成功
+                success_count = sum(1 for d in r.delays if d is not None and d <= cap)
+                if r.rounds > 1 and success_count < stability_min:
+                    r.error = f"仅 {success_count}/{r.rounds} 轮成功（需≥{stability_min}）"
+                    r.delay = None
         finally:
             core.stop()
             LOG.debug("内核日志尾部：\n%s", core.tail_log(12))
