@@ -1,0 +1,3259 @@
+# FreeNodeMailer 每日可用节点 | 生成时间(北京时间) 2026-10-26 02:22:49
+mixed-port: 7890
+allow-lan: false
+bind-address: 127.0.0.1
+mode: rule
+log-level: info
+ipv6: true
+unified-delay: true
+tcp-concurrent: true
+find-process-mode: strict
+external-controller: 127.0.0.1:9097
+geodata-mode: true
+geodata-loader: standard
+geo-auto-update: true
+geo-update-interval: 168
+profile:
+  store-selected: true
+  store-fake-ip: true
+sniffer:
+  enable: true
+  sniff:
+    HTTP:
+      ports:
+      - 80
+      - 8080-8880
+      override-destination: true
+    TLS:
+      ports:
+      - 443
+      - 8443
+    QUIC:
+      ports:
+      - 443
+      - 8443
+  skip-domain:
+  - Mijia Cloud
+  - +.push.apple.com
+dns:
+  enable: true
+  listen: 127.0.0.1:1053
+  ipv6: true
+  respect-rules: true
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter:
+  - '*.lan'
+  - '*.local'
+  - +.msftconnecttest.com
+  - +.msftncsi.com
+  - localhost.ptlogin2.qq.com
+  - +.qq.com
+  - +.wechat.com
+  default-nameserver:
+  - 223.5.5.5
+  - 119.29.29.29
+  nameserver:
+  - https://223.5.5.5/dns-query
+  - https://1.12.12.12/dns-query
+  proxy-server-nameserver:
+  - https://223.5.5.5/dns-query
+  - 223.5.5.5
+  nameserver-policy:
+    geosite:cn,private:
+    - https://223.5.5.5/dns-query
+    - 223.5.5.5
+    geosite:geolocation-!cn:
+    - https://1.12.12.12/dns-query
+    - tls://8.8.8.8:853
+proxies:
+- name: shadowsocks-1827146131
+  type: ss
+  server: 156.146.38.169
+  port: 443
+  cipher: aes-128-gcm
+  password: shadowsocks
+  udp: true
+- name: shadowsocks-1827146556
+  type: ss
+  server: 156.146.38.167
+  port: 443
+  cipher: aes-128-gcm
+  password: shadowsocks
+  udp: true
+- name: vless-1876223242
+  type: vless
+  server: 195.211.98.43
+  port: 443
+  uuid: 1b4b11d5-4c2d-4533-9a55-636757cdee94
+  tls: true
+  udp: true
+  network: tcp
+  reality-opts:
+    public-key: xPnpkXu5qfwIArlHKvJsqKJnGdGbJK1tT2GzWMyLohA
+    short-id: 9c56fddf237e8eaf
+  servername: www.cloudflare.com
+  client-fingerprint: chrome
+  flow: xtls-rprx-vision
+- name: 🏳️_未知_312
+  type: vmess
+  server: 172.66.203.67
+  port: 443
+  uuid: 0cf6d970-3f1d-4aae-a989-92a8f76ae3db
+  alterId: 0
+  cipher: auto
+  tls: true
+  udp: true
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: vmess.lbw666.dpdns.org
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: 🇸🇬[www.v2nodes.com] vless-SG 2
+  type: vless
+  server: ccc.010304.xyz
+  port: 443
+  uuid: d342d11e-d224-4463-b982-532309285094
+  tls: true
+  network: ws
+  ws-opts:
+    path: /
+  servername: ccc.010304.xyz
+  client-fingerprint: chrome
+- name: EPODONIOS ·892
+  type: vless
+  server: 154.218.15.250
+  port: 2083
+  uuid: 40af9131-d540-448a-bc56-5bba147a1dc3
+  tls: true
+  udp: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: proxy-1cu.pages.dev
+  servername: proxy-1cu.pages.dev
+  client-fingerprint: chrome
+- name: 美国+CloudFlare节点 ·2
+  type: vless
+  server: 172.64.153.153
+  port: 443
+  uuid: d342d11e-d224-4463-b982-532309285094
+  tls: true
+  udp: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: ccc.010304.xyz
+  servername: ccc.010304.xyz
+  client-fingerprint: chrome
+- name: 🏳️_未知_453
+  type: vless
+  server: courses.mftplus.qzz.io
+  port: 2096
+  uuid: b9ede7a5-5b4b-4aee-ac37-2c307e587e47
+  tls: true
+  udp: true
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoidVkzQm1ROUg4dyIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0
+  servername: courses.mftplus.qzz.io
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: 🇯🇵[www.v2nodes.com] vless-JP
+  type: vless
+  server: 188.114.98.0
+  port: 443
+  uuid: 22424ee2-6fe3-42ca-9749-6d4c5a8acc82
+  tls: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: tn1r.eu.cc
+    path: /id-pusat
+  servername: tn1r.eu.cc
+  client-fingerprint: chrome
+- name: 🇯🇵[www.v2nodes.com] vless-JP-4
+  type: vless
+  server: kclx.eu.org
+  port: 443
+  uuid: 0575005f-0ba9-4d6d-85e0-4a6a8cbafc1b
+  tls: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: kclx.eu.org
+    path: /154.16.10.34-8080
+  servername: kclx.eu.org
+  client-fingerprint: chrome
+- name: 🏳️_未知_310
+  type: vmess
+  server: cf.877771.xyz
+  port: 443
+  uuid: 0cf6d970-3f1d-4aae-a989-92a8f76ae3db
+  alterId: 0
+  cipher: auto
+  tls: true
+  udp: true
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: vmess.lbw666.dpdns.org
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: 🇸🇬[www.v2nodes.com] vless-SG 6
+  type: vless
+  server: vl.cocopon.top
+  port: 2053
+  uuid: 44f06ad1-982c-4e03-849f-899c1c8dc14f
+  tls: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: vl.cocopon.top
+    path: /
+  servername: vl.cocopon.top
+  client-fingerprint: random
+- name: shadowsocks-1827147700
+  type: ss
+  server: 138.199.42.68
+  port: 8080
+  cipher: rc4-md5
+  password: 14fFPrbezE3HDZzsMOr6
+  udp: true
+- name: 🏁RELAY-104.21.7.133-1319
+  type: vmess
+  server: cf.0sm.com
+  port: 443
+  uuid: 0cf6d970-3f1d-4aae-a989-92a8f76ae3db
+  alterId: 0
+  cipher: auto
+  tls: true
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: vmess.lbw666.dpdns.org
+  servername: vmess.lbw666.dpdns.org
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: 🏳️_未知_317
+  type: vmess
+  server: 104.17.147.222
+  port: 80
+  uuid: 0cf6d970-3f1d-4aae-a989-92a8f76ae3db
+  alterId: 0
+  cipher: auto
+  tls: false
+  udp: true
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: vmess.lbw666.dpdns.org
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: 美国 038
+  type: vless
+  server: 104.18.35.86
+  port: 8080
+  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+  tls: false
+  udp: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: hhlfy.twiladaphne.ndjp.net
+    path: /sg-melbi
+  servername: hhlfy.twiladaphne.ndjp.net
+  client-fingerprint: chrome
+- name: 🇱🇹_立陶宛_235
+  type: vless
+  server: 89.117.112.30
+  port: 8880
+  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+  tls: false
+  udp: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: vms.lifetime11.workers.dev
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: 🇸🇬[www.v2nodes.com] vless-SG-9... 2
+  type: vless
+  server: 188.114.97.6
+  port: 443
+  uuid: b9ede7a5-5b4b-4aee-ac37-2c307e587e47
+  tls: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: courses.mftplus.qzz.io
+    path: /eyJqdW5rIjoidVkzQm1ROUg4dyIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0=
+  servername: courses.mftplus.qzz.io
+  client-fingerprint: unsafe
+- name: shadowsocks-1827146815
+  type: ss
+  server: 156.146.38.168
+  port: 443
+  cipher: aes-128-gcm
+  password: shadowsocks
+  udp: true
+- name: shadowsocks-1827146549
+  type: ss
+  server: 156.146.38.170
+  port: 443
+  cipher: aes-128-gcm
+  password: shadowsocks
+  udp: true
+- name: 🇨🇦CA-155.138.138.2-5355
+  type: trojan
+  server: ca.tronsg.com
+  port: 443
+  password: Trojan@82164024
+  tls: true
+  udp: true
+  client-fingerprint: chrome
+- name: 🏳️_未知_320
+  type: vmess
+  server: cf.0sm.com
+  port: 80
+  uuid: 0cf6d970-3f1d-4aae-a989-92a8f76ae3db
+  alterId: 0
+  cipher: auto
+  tls: false
+  udp: true
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: vmess.lbw666.dpdns.org
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: EPODONIOS ·361
+  type: trojan
+  server: 151.101.36.244
+  port: 443
+  password: mitivpn
+  tls: true
+  udp: true
+  network: ws
+  ws-opts:
+    path: /---@VPNine1---@VPNine1/---@VPNine1---@VPNine1/---@VPNine1---@VPNine1/NLSus---@VPNine1---@VPNine1/---@VPNine1---@VPNine1/---@VPNine1---@VPNine1
+    headers:
+      Host: mitivpn-mitivpn.ac.ir
+  servername: ns2.firefox.com
+  skip-cert-verify: true
+  alpn:
+  - http/1.1
+  client-fingerprint: chrome
+- name: 🇸🇬 新加坡 | SGP 1
+  type: vless
+  server: 104.18.35.86
+  port: 2082
+  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+  tls: false
+  udp: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: hhlfy.twiladaphne.ndjp.net
+    path: /fp
+  servername: hhlfy.twiladaphne.ndjp.net
+  client-fingerprint: chrome
+- name: 🏳️_未知_308
+  type: vmess
+  server: 104.21.7.133
+  port: 80
+  uuid: 0cf6d970-3f1d-4aae-a989-92a8f76ae3db
+  alterId: 0
+  cipher: auto
+  tls: false
+  udp: true
+  network: ws
+  ws-opts:
+    path: /ws?ed=2048
+    headers:
+      Host: vmess.lbw666.dpdns.org
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: 巴西 009
+  type: vless
+  server: 188.114.96.9
+  port: 443
+  uuid: 2e305ebe-f6e6-4689-b32f-cd04ab5ff541
+  tls: true
+  udp: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
+    path: /vl/9yvcoLdzdOXLUYfH7r5gwJhu1CHrj
+  servername: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  tfo: false
+- name: 🏳️_未知_224
+  type: vless
+  server: 8.35.211.73
+  port: 2087
+  uuid: 9f534ac4-3c58-4a16-8b74-13dff09a0cf1
+  tls: true
+  udp: true
+  network: ws
+  ws-opts:
+    path: /resource
+    headers:
+      Host: d39333476.pages.dev
+  servername: d39333476.pages.dev
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: 🏳️_未知_315
+  type: vmess
+  server: cf.090227.xyz
+  port: 443
+  uuid: 0cf6d970-3f1d-4aae-a989-92a8f76ae3db
+  alterId: 0
+  cipher: auto
+  tls: true
+  udp: true
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: vmess.lbw666.dpdns.org
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: 🇺🇸 美国 | USA 3 ·2
+  type: vless
+  server: 104.17.173.208
+  port: 443
+  uuid: 45ceaca9-30f4-4035-85b7-8f83493911d8
+  tls: true
+  udp: true
+  network: ws
+  ws-opts:
+    path: /proxyip=163.192.47.40,47.57.181.17,34.83.245.149,4.155.83.212,64.227.62.172,24.144.68.139,161.35.232.123,107.170.248.68
+    headers:
+      Host: tamoai.ccwu.cc
+  servername: tamoai.ccwu.cc
+  client-fingerprint: chrome
+- name: 🇨🇦_加拿大_216
+  type: vless
+  server: 23.227.39.30
+  port: 8880
+  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+  tls: false
+  udp: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: vms.lifetime17.workers.dev
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: 🏳️_未知_234
+  type: vmess
+  server: 104.17.136.198
+  port: 443
+  uuid: 0cf6d970-3f1d-4aae-a989-92a8f76ae3db
+  alterId: 0
+  cipher: auto
+  tls: true
+  udp: true
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: vmess.lbw666.dpdns.org
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: EPODONIOS ·366
+  type: trojan
+  server: 167.82.64.46
+  port: 443
+  password: mitivpn
+  tls: true
+  udp: true
+  network: ws
+  ws-opts:
+    path: /---@MetiVIP---@MetiVIP/---@MetiVIP---@MetiVIP/---@MetiVIP---@MetiVIP/des---@MetiVIP---@MetiVIP/---@MetiVIP---@@MetiVIP/---@@MetiVIP---@MetiVIP/---@MetiVIP---@MetiVIP/---@MetiVIP---@MetiVIP/---@MetiVIP---@MetiVIP/des---@MetiVIP---@MetiVIP/---@MetiVIP---@@MetiVIP/---@@MetiVIP---@MetiVIP
+    headers:
+      Host: mitivpn-mitivpn.ac.ir
+  servername: firefox.com
+  skip-cert-verify: true
+  alpn:
+  - http/1.1
+  client-fingerprint: chrome
+- name: 🏳️_未知_309
+  type: vmess
+  server: 172.64.229.21
+  port: 443
+  uuid: 0cf6d970-3f1d-4aae-a989-92a8f76ae3db
+  alterId: 0
+  cipher: auto
+  tls: true
+  udp: true
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: vmess.lbw666.dpdns.org
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: 美国+CloudFlare节点
+  type: vless
+  server: saas.sin.fan
+  port: 2053
+  uuid: 5d7b401c-78fa-4254-872e-6d42bf7e75ec
+  tls: true
+  udp: true
+  network: ws
+  ws-opts:
+    path: /wenku/comics
+    headers:
+      Host: vp4.1145678.xyz
+  servername: vp4.1145678.xyz
+  client-fingerprint: chrome
+- name: EPODONIOS ·2359
+  type: vless
+  server: 188.114.97.6
+  port: 443
+  uuid: fc60147e-76b8-4bc5-b691-90b2da79e3d2
+  tls: true
+  udp: true
+  network: ws
+  ws-opts:
+    path: /138.2.74.219-28616
+    headers:
+      Host: nautica-cff.kloningstrife002.workers.dev
+  servername: nautica-cff.kloningstrife002.workers.dev
+  client-fingerprint: unsafe
+- name: 🇺🇸US-37.19.198.160-0056
+  type: ss
+  server: 37.19.198.160
+  port: 443
+  cipher: aes-128-gcm
+  password: shadowsocks
+- name: shadowsocks-1827964140
+  type: ss
+  server: 138.197.141.58
+  port: 8080
+  cipher: rc4-md5
+  password: 14fFPrbezE3HDZzsMOr6
+  udp: true
+- name: shadowsocks-1827146051
+  type: ss
+  server: 37.19.198.243
+  port: 443
+  cipher: aes-128-gcm
+  password: shadowsocks
+  udp: true
+- name: shadowsocks-1827146742
+  type: ss
+  server: 37.19.198.244
+  port: 443
+  cipher: aes-128-gcm
+  password: shadowsocks
+  udp: true
+- name: hysteria2-1827145638
+  type: hysteria2
+  server: 129.213.91.185
+  port: 35013
+  password: 4291c983-c520-46ac-82cc-48f14bef573f
+  skip-cert-verify: true
+  servername: www.bing.com
+- name: vless-1828293979
+  type: vless
+  server: 169.40.42.163
+  port: 443
+  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
+  tls: true
+  udp: true
+  network: raw
+  reality-opts:
+    public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
+    short-id: c39cc7310a
+  servername: yahoo.com
+  client-fingerprint: ios
+  flow: xtls-rprx-vision
+- name: 🇸🇬[www.v2nodes.com] vless-SG 3
+  type: vless
+  server: 185.193.29.123
+  port: 443
+  uuid: 1d16c6e0-1bbe-435b-b661-90043fee999c
+  tls: true
+  udp: true
+  network: ws
+  ws-opts:
+    path: Telegram-WangCai2🇨🇳security=tls
+    headers:
+      Host: notls.lukongtou.eu.org
+  servername: notls.lukongtou.eu.org
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: trojan-1832868058
+  type: trojan
+  server: 66.23.203.21
+  port: 59689
+  password: ae7eb4dwyaz25pxwgq59
+  udp: true
+  skip-cert-verify: true
+  servername: 66.23.203.21
+  client-fingerprint: chrome
+- name: vless-1855707100
+  type: vless
+  server: 169.40.42.104
+  port: 443
+  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
+  tls: true
+  udp: true
+  network: tcp
+  reality-opts:
+    public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
+    short-id: c39cc7310a
+  servername: yahoo.com
+  client-fingerprint: edge
+  flow: xtls-rprx-vision
+- name: vless-1853345420
+  type: vless
+  server: 169.40.42.235
+  port: 443
+  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
+  tls: true
+  udp: true
+  network: tcp
+  reality-opts:
+    public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
+    short-id: c39cc7310a
+  servername: yahoo.com
+  client-fingerprint: random
+  flow: xtls-rprx-vision
+- name: vless-1828293927
+  type: vless
+  server: 169.40.42.168
+  port: 443
+  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
+  tls: true
+  udp: true
+  network: tcp
+  reality-opts:
+    public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
+    short-id: c39cc7310a
+  servername: yahoo.com
+  client-fingerprint: ios
+  flow: xtls-rprx-vision
+- name: vless-1827533156
+  type: vless
+  server: 169.40.42.90
+  port: 443
+  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
+  tls: true
+  udp: true
+  network: tcp
+  reality-opts:
+    public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
+    short-id: c39cc7310a
+  servername: yahoo.com
+  client-fingerprint: chrome
+  flow: xtls-rprx-vision
+- name: EPODONIOS ·1122
+  type: vless
+  server: 172.64.147.91
+  port: 443
+  uuid: 5dc15e15-f285-4a9d-959b-0e4fbdd77b63
+  tls: true
+  udp: true
+  network: ws
+  ws-opts:
+    path: /?ed
+    headers:
+      Host: powered-by-surena.configfarsi695fce27aa549.workers.dev
+  servername: powered-by-surena.configfarsi695fce27aa549.workers.dev
+  client-fingerprint: chrome
+- name: shadowsocks-1827147702
+  type: ss
+  server: 51.222.200.165
+  port: 5000
+  cipher: aes-256-gcm
+  password: Y6R9pAtvxxzmGC
+  udp: true
+- name: shadowsocks-1827146122
+  type: ss
+  server: 37.19.198.236
+  port: 443
+  cipher: aes-128-gcm
+  password: shadowsocks
+  udp: true
+- name: vless-1854108405
+  type: vless
+  server: 169.40.42.74
+  port: 443
+  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
+  tls: true
+  udp: true
+  network: tcp
+  reality-opts:
+    public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
+    short-id: c39cc7310a
+  servername: yahoo.com
+  client-fingerprint: firefox
+  flow: xtls-rprx-vision
+- name: 🇺🇸_美国_79
+  type: vless
+  server: 45.138.100.248
+  port: 10443
+  uuid: ae908ff5-f749-402c-af25-e6e9aef4d6bb
+  tls: false
+  udp: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: 🇸🇬[www.v2nodes.com] vless-SG
+  type: vless
+  server: 172.64.152.241
+  port: 443
+  uuid: d342d11e-d224-4463-b982-532309285094
+  tls: true
+  udp: true
+  network: ws
+  ws-opts:
+    path: /fpsecurity=tls
+    headers:
+      Host: ccc.010304.xyz
+  servername: ccc.010304.xyz
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: C🟠🇨🇦hos[🎬🤖📺🎭]_dokng.com_9569ed11
+  type: ss
+  server: 15.223.1.51
+  port: 443
+  cipher: aes-256-cfb
+  password: amazonskr05
+  udp: true
+- name: vless-1853501628
+  type: vless
+  server: 185.95.231.156
+  port: 443
+  uuid: 1f8cf47a-b66a-4916-979f-26edfcf44eea
+  tls: true
+  udp: true
+  network: tcp
+  reality-opts:
+    public-key: 8eXftARun6KH38UZhuqIfPR1VF2DLS9RMBZEnF5k6To
+    short-id: a3a578ab
+  servername: www.apple.com
+  client-fingerprint: chrome
+  flow: xtls-rprx-vision
+- name: vless-1884855076
+  type: vless
+  server: 45.138.100.248
+  port: 10444
+  uuid: ae908ff5-f749-402c-af25-e6e9aef4d6bb
+  tls: true
+  udp: true
+  network: tcp
+  reality-opts:
+    public-key: 0oTkcqwLTUNLnSOP-VUWErmy6usAIg-biBE6ioZO-Vo
+    short-id: 8debcf36f1cc69ff
+  servername: ads.x5.ru
+  client-fingerprint: chrome
+  flow: xtls-rprx-vision
+- name: shadowsocks-1827146529
+  type: ss
+  server: 198.98.53.130
+  port: 443
+  cipher: chacha20-ietf-poly1305
+  password: eDfN7SODQceIOmIAbtJJtK
+  udp: true
+- name: 🇨🇦_加拿大_72
+  type: vmess
+  server: 23.162.200.198
+  port: 18000
+  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  alterId: 0
+  cipher: auto
+  tls: false
+  udp: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: vless-1891858671
+  type: vless
+  server: 195.123.235.177
+  port: 443
+  uuid: 729dd5f2-f5ff-4070-8c10-863eceded0b1
+  tls: true
+  udp: true
+  network: tcp
+  reality-opts:
+    public-key: 5B83otQ5ZQwtBFhR7xzsGJRXflkFKRJpQguYbE5JWGI
+    short-id: c85d029f5e8eb393
+  servername: gateway.icloud.com
+  client-fingerprint: random
+  flow: xtls-rprx-vision
+- name: vless-1923902918
+  type: vless
+  server: us001.zestapp778.com
+  port: 54857
+  uuid: e9a8144e-5237-488a-afb1-9ca3d8d54c80
+  tls: true
+  udp: true
+  network: tcp
+  servername: us001.zestapp778.com
+  skip-cert-verify: false
+  client-fingerprint: chrome
+- name: 🇳🇱_荷兰_228
+  type: vless
+  server: 45.131.210.30
+  port: 8880
+  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+  tls: false
+  udp: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: vms.lifetime05.workers.dev
+  servername: vms.lifetime05.workers.dev
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: vless-1894628648
+  type: vless
+  server: 195.123.235.183
+  port: 443
+  uuid: c14ec728-3eca-4750-87fc-fd1e6aeb81d5
+  tls: true
+  udp: true
+  network: tcp#🍎94@oneclickvpnkeys
+  reality-opts:
+    public-key: H3R3BUAl7thrIZsznTbb-eRREIjQOH2f3WO0oTN7OGY
+    short-id: a0e2a6074c6456b0
+  servername: gateway.icloud.com
+  client-fingerprint: chrome
+  flow: xtls-rprx-vision
+- name: trojan-1853487426
+  type: trojan
+  server: 69.164.240.85
+  port: 50875
+  password: nwilryafgkyvuxauc8pz
+  udp: true
+  skip-cert-verify: true
+  servername: 69.164.240.85
+  client-fingerprint: chrome
+- name: 美国 291
+  type: vless
+  server: 172.64.155.209
+  port: 443
+  uuid: 64726966-0000-4000-8000-740000000000
+  tls: true
+  udp: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: parsa-panel-dy55x.railway1385-2a46.workers.dev
+    path: /drift
+  servername: parsa-panel-dy55x.railway1385-2a46.workers.dev
+  skip-cert-verify: false
+  tfo: false
+  client-fingerprint: chrome
+- name: 🇳🇱_荷兰_227
+  type: vless
+  server: 188.164.248.123
+  port: 8443
+  uuid: 7b102311-43fd-4e8f-877e-8090623c101d
+  tls: true
+  udp: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: vp21.cc.cd
+  servername: vp21.cc.cd
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: 🇺🇸_美国_326
+  type: vless
+  server: 69.48.201.136
+  port: 30016
+  uuid: 03dc60cb-a8d4-4226-93fe-0e6cbf77fe5a
+  tls: false
+  udp: true
+  network: ws
+  ws-opts:
+    path: /usserver
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: 🏳️_未知_225
+  type: vless
+  server: 172.67.79.160
+  port: 2087
+  uuid: a4a951b9-901d-4db8-8a7d-6df82c4b5c23
+  tls: true
+  udp: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: cvhpyn.pages.dev
+  servername: cvhpyn.pages.dev
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: 🇺🇸_美国_71
+  type: vmess
+  server: 67.220.85.46
+  port: 18000
+  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  alterId: 0
+  cipher: auto
+  tls: false
+  udp: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: 🇺🇸US_13|2.6MB/s
+  type: vless
+  server: 167.82.64.64
+  port: 443
+  uuid: f9a9aa1f-75fb-4490-9155-85567af7a0ff
+  tls: true
+  udp: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: copy_az_channel_NUFiLTER_17i.global.ssl.fastly.net.
+      User-Agent: Mozilla/5.0 (Linux; Android 8.0.0; FIG-LX3 Build/HUAWEIFIG-LX3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Mobile Safari/537.36
+    path: ''
+  servername: cdn.akamai.steamstatic.com
+  client-fingerprint: chrome
+  fingerprint: CD6E838B9BFE31CAB8B3D5C858B0D6223FE84ECE236C1FDB281BE93C302E1E6E
+- name: 🏳️_未知_316
+  type: vmess
+  server: 172.67.187.145
+  port: 80
+  uuid: 0cf6d970-3f1d-4aae-a989-92a8f76ae3db
+  alterId: 0
+  cipher: auto
+  tls: false
+  udp: true
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: vmess.lbw666.dpdns.org
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: 🇨🇦[www.v2nodes.com] ss-CA-1559
+  type: ss
+  server: 51.79.85.185
+  port: 8118
+  cipher: aes-256-gcm
+  password: cdBIDV42DCwnfIN
+- name: A🟢🇺🇸res[📺🔍]_dokng.com_72dc0f38
+  type: trojan
+  server: www.777061.xyz
+  port: 18603
+  password: lk59gDrTm2
+  servername: www.777061.xyz
+  client-fingerprint: chrome
+- name: ProxyPool | 🇺🇸 美国 | USA
+  type: vless
+  server: 104.17.182.41
+  port: 443
+  uuid: f6a015b4-4783-4f2a-a01b-39f281ba5d07
+  tls: true
+  udp: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: cf.5208877.xyz
+  servername: cf.5208877.xyz
+  client-fingerprint: chrome
+- name: 🇨🇦_加拿大_67
+  type: vmess
+  server: 134.195.196.211
+  port: 18000
+  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  alterId: 0
+  cipher: auto
+  tls: false
+  udp: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: 🇺🇸_美国_69
+  type: vmess
+  server: 38.110.1.246
+  port: 18000
+  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  alterId: 0
+  cipher: auto
+  tls: false
+  udp: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: 🇺🇸 美国 | USA 8
+  type: vless
+  server: 143.198.76.78
+  port: 443
+  uuid: d342d11e-d224-4463-b982-532309285094
+  tls: true
+  udp: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: ccc.010304.xyz
+    path: /
+  servername: ccc.010304.xyz
+  client-fingerprint: chrome
+- name: 🇺🇸_美国_68
+  type: vmess
+  server: 38.91.107.49
+  port: 18000
+  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  alterId: 0
+  cipher: auto
+  tls: false
+  udp: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: 🇺🇸_美国_57
+  type: vmess
+  server: 84.17.41.2
+  port: 18000
+  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  alterId: 0
+  cipher: auto
+  tls: false
+  udp: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: 🇺🇸US-216.105.168.18-0150
+  type: ss
+  server: 216.105.168.18
+  port: 443
+  cipher: chacha20-ietf-poly1305
+  password: hCCWOcIsK5wrFz4OX70rWf
+- name: 🇺🇸_美国_36
+  type: vmess
+  server: 169.197.142.22
+  port: 18000
+  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  alterId: 0
+  cipher: auto
+  tls: false
+  udp: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: D🔴🇺🇸hos[🎬🤖📺🎭]_dokng.com_b3d9f61f
+  type: ss
+  server: 104.128.72.119
+  port: 80
+  cipher: 2022-blake3-aes-128-gcm
+  password: YTE1ZWU4ZTEyZjc3YmEzZA==:NjRjZGI3OTgtZWUyMS00OA==
+  udp: true
+  plugin: gost-plugin
+  plugin-opts:
+    host: one.local
+    mode: websocket
+    mux: true
+    path: /ws
+    tls: false
+  udp-over-tcp: true
+- name: 🇨🇦[www.v2nodes.com] ss-CA-1545
+  type: ss
+  server: 51.79.64.198
+  port: 8119
+  cipher: aes-256-gcm
+  password: cdBIDV42DCwnfIN
+- name: 🇺🇸_美国_322
+  type: vmess
+  server: 129.146.77.248
+  port: 39495
+  uuid: f836c736-87fc-4fde-aabc-00857ecdff3e
+  alterId: 0
+  cipher: auto
+  tls: false
+  udp: true
+  network: ws
+  ws-opts:
+    path: /cctv13.m3u8
+    headers:
+      Host: 129.146.77.248
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: 🇨🇦CA-149.22.95.183-0103
+  type: ss
+  server: 149.22.95.183
+  port: 443
+  cipher: aes-128-gcm
+  password: shadowsocks
+- name: 🇺🇸_美国_219
+  type: vless
+  server: 128.241.25.127
+  port: 30036
+  uuid: eec9a459-86a9-461c-9a02-539287015eb0
+  tls: true
+  udp: true
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: 3t1yvbyla-rj740g.28m7r63dttya6gazmhoo.workers.dev
+  servername: 3t1yvbyla-rj740g.28m7r63dttya6gazmhoo.workers.dev
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: 🇺🇸US-15.204.247.206-0161
+  type: ss
+  server: 15.204.247.206
+  port: 4444
+  cipher: aes-256-gcm
+  password: pKEW8JPByTVTLtM
+- name: C🟠🇺🇸hos_dokng.com_878dc8bb
+  type: vmess
+  server: 47.88.79.34
+  port: 443
+  uuid: 9b31490d-190e-4ef1-af0a-7ccab3e7c3b5
+  alterId: 0
+  cipher: auto
+  tls: true
+  udp: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: rib9jxayoqjgn2kw.v.3dns.vip
+    path: /ws-vmess
+  servername: rib9jxayoqjgn2kw.v.3dns.vip
+  skip-cert-verify: false
+  client-fingerprint: chrome
+- name: 🇺🇸_US_美国
+  type: vmess
+  server: guanwang.awsno.com
+  port: 443
+  uuid: 6a89a215-22bf-4bd7-9642-b95b2e09583a
+  alterId: 0
+  cipher: auto
+  tls: true
+  udp: true
+  network: ws
+  ws-opts:
+    path: /hls/cctv5phd.m3u8
+    headers:
+      Host: guanwang.awsno.com
+  servername: guanwang.awsno.com
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: 🇺🇸_美国_306
+  type: vmess
+  server: us-23.hihu.net
+  port: 80
+  uuid: 8a9aaa70-ced9-11f1-b934-205c6d5f5d78
+  alterId: 0
+  cipher: auto
+  tls: false
+  udp: true
+  network: ws
+  ws-opts:
+    path: /870ao26f
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: 🇺🇸[www.v2nodes.com] ss-US-1603... 2
+  type: ss
+  server: 185.230.230.18
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: 🇬🇧_英国_209
+  type: vless
+  server: 51.38.71.147
+  port: 8443
+  uuid: c08f0056-7a6d-4931-813b-aaa3cdd00aed
+  tls: true
+  udp: true
+  servername: node-uk.connectsuite.org
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: 🇬🇧[www.v2nodes.com] ss-GB-1451
+  type: ss
+  server: 158.173.24.73
+  port: 443
+  cipher: aes-128-gcm
+  password: shadowsocks
+- name: C🟠🇫🇷hos[🎬🤖📺🎭]_dokng.com_24db847c
+  type: vless
+  server: 54.37.5.203
+  port: 8443
+  uuid: 8a1f8853-9a71-4ef2-a64c-4f0a94c2e14b
+  tls: true
+  udp: true
+  reality-opts:
+    public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
+    short-id: ''
+  servername: ozon.ru
+  client-fingerprint: firefox
+  flow: xtls-rprx-vision
+- name: 🇳🇱_荷兰_124
+  type: vless
+  server: 51.158.206.87
+  port: 23576
+  uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
+  tls: true
+  udp: true
+  reality-opts:
+    public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
+    short-id: '01'
+  servername: fuck.rkn
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  flow: xtls-rprx-vision
+- name: 🇺🇦_乌克兰_94
+  type: vless
+  server: staging.lastilhame.monster
+  port: 443
+  uuid: aded66f1-de12-4c3c-af9e-a21d6e7d9c96
+  tls: true
+  udp: true
+  reality-opts:
+    public-key: FjcEZNQ8t5E4R04_11T6ghsOutdqwKKrelkuadakoQg
+    short-id: 2a80364e93d9
+  servername: www.foxsports.com
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  flow: xtls-rprx-vision
+- name: 🇳🇱_荷兰_107
+  type: vless
+  server: 51.158.206.98
+  port: 23576
+  uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
+  tls: true
+  udp: true
+  reality-opts:
+    public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
+    short-id: '01'
+  servername: fuck.rkn
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  flow: xtls-rprx-vision
+- name: 🇫🇷_法国_357
+  type: vless
+  server: 138.124.70.41
+  port: 14430
+  uuid: 6cc745e3-4eb9-46c8-a4a1-85dee7b87edc
+  tls: false
+  udp: true
+  network: ws
+  ws-opts:
+    path: /vless
+  servername: 138.124.70.41
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: D🔴🇷🇺hos[✈️🔍]_dokng.com_894f0e73
+  type: vless
+  server: 113.30.154.207
+  port: 8443
+  uuid: ca926603-c678-4639-b726-a5b82d7e110c
+  tls: true
+  udp: true
+  network: tcp
+  reality-opts:
+    public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
+  servername: apple.com
+  sni: apple.com
+  skip-cert-verify: false
+  client-fingerprint: ios
+  flow: xtls-rprx-vision
+- name: 🇳🇱_荷兰_355
+  type: vless
+  server: 163.172.213.174
+  port: 80
+  uuid: e73df646-1f62-41bf-8c50-653497d603d0
+  tls: false
+  udp: true
+  network: ws
+  ws-opts:
+    path: /vless/
+  servername: SC-TheNetherlands2.09vpn.com
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: 🇳🇱NL-109.201.152.181-0116
+  type: ss
+  server: 109.201.152.181
+  port: 443
+  cipher: aes-128-cfb
+  password: shadowsocks
+- name: 🇬🇧GB-82.38.31.35-0142
+  type: ss
+  server: 82.38.31.35
+  port: 8080
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+- name: 🇬🇧_英国_145
+  type: vless
+  server: node-uk.connectsuite.org
+  port: 8443
+  uuid: c08f0056-7a6d-4931-813b-aaa3cdd00aed
+  tls: true
+  udp: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: 🇬🇧 英国 | GBR 3
+  type: vless
+  server: 51.89.231.124
+  port: 8443
+  uuid: 680e92ac-1688-49e0-af96-7327fbc30ce8
+  tls: true
+  udp: true
+  network: tcp
+  reality-opts:
+    public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
+  servername: ozon.ru
+  client-fingerprint: firefox
+  flow: xtls-rprx-vision
+- name: 🇳🇱_荷兰_171
+  type: vless
+  server: 152.70.58.201
+  port: 443
+  uuid: 8892e34a-339b-4526-b88d-cf68c516231c
+  tls: true
+  udp: true
+  reality-opts:
+    public-key: Hg_ivwbClYmR-SEHdoGgq4yEk6ltbjS5c4yiQRa4_28
+    short-id: 52c723e0fad49689
+  servername: www.nvidia.com
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  flow: xtls-rprx-vision
+- name: 🇺🇦[www.v2nodes.com] ss-UA-1603
+  type: ss
+  server: staging.lastilhame.monster
+  port: 49917
+  cipher: chacha20-ietf-poly1305
+  password: G9ZuLN5DE9qqouTZwYUcvYsDJx8gyL1nCu3N7yRZFjPmYKhzSi8GkpVuexmTHAz2uvcErKkex1K2ceR2GH3L444HRNnN1YpP
+- name: 🇳🇱NL-109.104.153.43-0224
+  type: ssr
+  server: 109.104.153.43
+  port: 33336
+  cipher: chacha20-ietf
+  password: dongtaiwang.com
+  protocol: auth_chain_a
+  obfs: tls1.2_ticket_auth
+- name: D🔴🇷🇺hos[🎬📺🎪✨]_dokng.com_b4f7d757
+  type: vless
+  server: 45.128.78.176
+  port: 443
+  uuid: 680e92ac-1688-49e0-af96-7327fbc30ce8
+  tls: true
+  udp: true
+  network: tcp
+  reality-opts:
+    public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
+  servername: ozon.ru
+  sni: ozon.ru
+  skip-cert-verify: false
+  client-fingerprint: firefox
+  flow: xtls-rprx-vision
+- name: 🇫🇷_法国_138
+  type: vless
+  server: connect.hondamotor.site
+  port: 10002
+  uuid: c6362720-0931-4b91-b187-d8ecf3149734
+  tls: false
+  udp: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: 🇬🇧GB-82.38.31.34-0144
+  type: ss
+  server: 82.38.31.34
+  port: 8080
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+- name: 🇬🇧GB-141.98.101.181-0119
+  type: ss
+  server: 141.98.101.181
+  port: 443
+  cipher: aes-128-gcm
+  password: shadowsocks
+- name: 🇨🇿_捷克_86
+  type: vless
+  server: server.slavkiti.monster
+  port: 443
+  uuid: 4d017db2-7655-4276-9557-e2ec25b04ee7
+  tls: true
+  udp: true
+  reality-opts:
+    public-key: J-dv-HrWfQ_IOoyutv0Kg-rO8QwoRwc02dS1dS_tblk
+    short-id: ee1716767f9b
+  servername: www.tradingview.com
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  flow: xtls-rprx-vision
+- name: 🇺🇸_美国_92
+  type: vless
+  server: gb2.murainternet.network
+  port: 443
+  uuid: afbd410e-1663-4f40-9d3b-df5117aa23ca
+  tls: true
+  udp: true
+  reality-opts:
+    public-key: fyfX-egDrRvXNW1Gt2P_8rH4jdupAcmhFLOCZCzCowo
+    short-id: fc36b4a584871aa5
+  servername: gb2.murainternet.network
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  flow: xtls-rprx-vision
+- name: A🟢🇹🇷res[📺🎪✨🎞️]_dokng.com_d237c504
+  type: vless
+  server: 193.160.140.119
+  port: 443
+  uuid: 680e92ac-1688-49e0-af96-7327fbc30ce8
+  tls: true
+  udp: true
+  network: tcp
+  reality-opts:
+    public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
+  servername: ozon.ru
+  sni: ozon.ru
+  skip-cert-verify: false
+  client-fingerprint: ios
+  flow: xtls-rprx-vision
+- name: 🇳🇱NL-193.29.139.151-0117
+  type: ss
+  server: 193.29.139.151
+  port: 8080
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+- name: 🇬🇧GB-82.38.31.180-0071
+  type: ss
+  server: 82.38.31.180
+  port: 8080
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+- name: 🇳🇱_荷兰_444
+  type: vless
+  server: sc-thenetherlands2.09vpn.com
+  port: 80
+  uuid: e73df646-1f62-41bf-8c50-653497d603d0
+  tls: false
+  udp: true
+  network: ws
+  ws-opts:
+    path: /vless/
+  servername: SC-TheNetherlands2.09vpn.com
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: 🇬🇧GB-82.38.31.10-0118
+  type: ss
+  server: 82.38.31.10
+  port: 8080
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+- name: 🇳🇱_荷兰_119
+  type: vless
+  server: sw.golangwikito.cfd
+  port: 443
+  uuid: f8d52ece-fad4-478d-875d-df6eed3befa7
+  tls: true
+  udp: true
+  reality-opts:
+    public-key: Kb8SsVPprs46BJSUNp5JvWLI-TFEiHmlBOXLQd37Glg
+    short-id: a1037b25dcef6aa7
+  servername: sw.golangwikito.cfd
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  flow: xtls-rprx-vision
+- name: 🇷🇺_俄罗斯_108
+  type: vless
+  server: 147.45.47.83
+  port: 443
+  uuid: 8a1f8853-9a71-4ef2-a64c-4f0a94c2e14b
+  tls: true
+  udp: true
+  reality-opts:
+    public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
+  servername: ozon.ru
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  flow: xtls-rprx-vision
+- name: 🇩🇪_德国_134
+  type: vless
+  server: ge-s-1.pythonmakemigreat.wiki
+  port: 443
+  uuid: f8d52ece-fad4-478d-875d-df6eed3befa7
+  tls: true
+  udp: true
+  reality-opts:
+    public-key: 5fkwwCKZzMsE6Eb_b3iqluu-1AWIfnYl-p0N3EL9Al8
+    short-id: 2c9a2790ad5900b2
+  servername: ge-s-1.pythonmakemigreat.wiki
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  flow: xtls-rprx-vision
+- name: A🟢🇹🇷res[📺🎪📦]_dokng.com_6aa93fc5
+  type: vless
+  server: 193.160.140.118
+  port: 443
+  uuid: 680e92ac-1688-49e0-af96-7327fbc30ce8
+  tls: true
+  udp: true
+  network: tcp
+  reality-opts:
+    public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
+  servername: ozon.ru
+  sni: ozon.ru
+  skip-cert-verify: false
+  client-fingerprint: edge
+  flow: xtls-rprx-vision
+- name: 🇬🇧GB-82.38.31.205-0075
+  type: ss
+  server: 82.38.31.205
+  port: 8080
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+- name: 🇳🇱NL-193.29.139.168-0093
+  type: ss
+  server: 193.29.139.168
+  port: 8080
+  cipher: chacha20-ietf-poly1305
+  password: QCXDxuDlTTMD7jtgHUjIoj
+- name: 🇬🇧GB-82.38.31.159-0122
+  type: ss
+  server: 82.38.31.159
+  port: 443
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+- name: 🇩🇪_德国_147
+  type: vless
+  server: 64.188.66.181
+  port: 443
+  uuid: f8d52ece-fad4-478d-875d-df6eed3befa7
+  tls: true
+  udp: true
+  reality-opts:
+    public-key: 5fkwwCKZzMsE6Eb_b3iqluu-1AWIfnYl-p0N3EL9Al8
+    short-id: 2c9a2790ad5900b2
+  servername: ge-s-1.pythonmakemigreat.wiki
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  flow: xtls-rprx-vision
+- name: 🇬🇧GB-82.38.31.192-0079
+  type: ss
+  server: 82.38.31.192
+  port: 8080
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+- name: 🇬🇧GB-82.38.31.194-0068
+  type: ss
+  server: 82.38.31.194
+  port: 8080
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+- name: 🇬🇧GB-82.38.31.176-0148
+  type: ss
+  server: 82.38.31.176
+  port: 8080
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+- name: 🇬🇧GB-82.38.31.179-0102
+  type: ss
+  server: 82.38.31.179
+  port: 8080
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+- name: 🇬🇧GB-82.38.31.217-0100
+  type: ss
+  server: 82.38.31.217
+  port: 8080
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+- name: 🇬🇧GB-82.38.31.155-0138
+  type: ss
+  server: 82.38.31.155
+  port: 8080
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+- name: 🇳🇱NL-193.29.139.147-0086
+  type: ss
+  server: 193.29.139.147
+  port: 8080
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+- name: 🇷🇺_俄罗斯_48
+  type: vless
+  server: 193.160.140.117
+  port: 8443
+  uuid: 57c87188-1056-4bd5-92f8-c7ca1fd19147
+  tls: true
+  udp: true
+  reality-opts:
+    public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
+  servername: apple.com
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  flow: xtls-rprx-vision
+- name: 🇬🇧GB-82.38.31.184-0073
+  type: ss
+  server: 82.38.31.184
+  port: 8080
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+- name: 🇳🇱NL-158.173.20.171-5209
+  type: ss
+  server: 158.173.20.171
+  port: 443
+  cipher: aes-128-gcm
+  password: shadowsocks
+- name: 🇬🇧GB-82.38.31.199-0165
+  type: ss
+  server: 82.38.31.199
+  port: 8080
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+- name: 美国 389
+  type: vless
+  server: 167.172.165.106
+  port: 2083
+  uuid: bba95b1f-f48c-454b-897b-a6c6bc307df1
+  tls: true
+  udp: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: edge.yzkvm.top
+    path: /
+  servername: edge.yzkvm.top
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  tfo: false
+- name: 🇬🇧GB-82.38.31.189-0095
+  type: ss
+  server: 82.38.31.189
+  port: 8080
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+- name: C🟠🇩🇪hos[🎬🤖📺🎭]_dokng.com_67f98718
+  type: vless
+  server: germanylanzrestik.site
+  port: 443
+  uuid: 50a87e21-f0e2-4b53-a787-91adfe748f63
+  tls: true
+  udp: true
+  network: tcp
+  reality-opts:
+    public-key: aHxzHc7w0r_8X8mdx1XCyg2ooRLjcOQMOuscdAQPrEo
+  servername: germanylanzrestik.site
+  sni: germanylanzrestik.site
+  skip-cert-verify: false
+  client-fingerprint: qq
+  flow: xtls-rprx-vision
+- name: 🇩🇪_德国_148
+  type: vmess
+  server: 31.76.11.83
+  port: 22366
+  uuid: 632cfa69-ae00-49d1-81e0-554979d1e9fa
+  alterId: 0
+  cipher: auto
+  tls: false
+  udp: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: 🇬🇧GB-82.38.31.210-0069
+  type: ss
+  server: 82.38.31.210
+  port: 8080
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+- name: 🇳🇱NL-193.29.139.223-0094
+  type: ss
+  server: 193.29.139.223
+  port: 8080
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+- name: 🇬🇧GB-82.38.31.181-0088
+  type: ss
+  server: 82.38.31.181
+  port: 8080
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+- name: 🇩🇪_德国_139
+  type: vless
+  server: 82.118.19.153
+  port: 443
+  uuid: adcaa148-7c66-4282-a81a-99ec8afa029d
+  tls: true
+  udp: true
+  reality-opts:
+    public-key: Tiuy8om5Lk0pWL95-8LaFFTwH0vbURVMoOkaW9xGaiE
+    short-id: 670ed9f350bd8ee0
+  servername: www.cloudflare.com
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  flow: xtls-rprx-vision
+- name: 🇩🇪_德国_154
+  type: vmess
+  server: 178.105.168.171
+  port: 2110
+  uuid: 06d4d001-4168-4876-9416-7caecf578f40
+  alterId: 0
+  cipher: auto
+  tls: false
+  udp: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: 🇩🇪_德国_449
+  type: vless
+  server: sino.bestsellers1.site
+  port: 2083
+  uuid: 7858128a-6b5e-4f86-9bff-52c1f1e6439d
+  tls: true
+  udp: true
+  network: ws
+  ws-opts:
+    path: /
+  servername: sino.bestsellers1.site
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: 🇳🇱_荷兰_95
+  type: vless
+  server: 94.237.46.104
+  port: 443
+  uuid: dac47070-c136-49f3-8ed2-32b68e710ea3
+  tls: false
+  udp: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: 🇩🇪 德国 | DEU 7
+  type: vmess
+  server: www.gptcloudai.com
+  port: 443
+  uuid: e70a5b70-f63c-4450-af8b-94990cdf80c0
+  alterId: 0
+  cipher: auto
+  tls: true
+  udp: true
+  network: ws
+  ws-opts:
+    path: /truth
+    headers:
+      Host: www.gptcloudai.com
+  servername: www.gptcloudai.com
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: 🇳🇱 荷兰 | NLD
+  type: vless
+  server: 77.239.102.129
+  port: 17232
+  uuid: afbd410e-1663-4f40-9d3b-df5117aa23ca
+  tls: true
+  udp: true
+  network: tcp
+  reality-opts:
+    public-key: OYFQrEB_Zt7kvR5OtebA3tzKEUQ57C8Pg16MXUg1A1g
+    short-id: 67aec74e00f0e90f
+  servername: 77.239.102.129.sslip.io
+  client-fingerprint: firefox
+  flow: xtls-rprx-vision
+- name: 🇷🇺 俄罗斯 | RUS 3
+  type: vless
+  server: 193.160.141.27
+  port: 443
+  uuid: fd0a5c32-afc0-4d57-b95a-ca6ec8f93e87
+  tls: true
+  udp: true
+  network: tcp
+  reality-opts:
+    public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
+  servername: abuse.ozon.ru
+  client-fingerprint: chrome
+  flow: xtls-rprx-vision
+- name: D🔴🇷🇺hos[📺🎪✨🎞️]_dokng.com_51efbe70
+  type: vless
+  server: 45.151.71.167
+  port: 443
+  uuid: 680e92ac-1688-49e0-af96-7327fbc30ce8
+  tls: true
+  udp: true
+  network: tcp
+  reality-opts:
+    public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
+  servername: abuse.ozon.ru
+  sni: abuse.ozon.ru
+  skip-cert-verify: false
+  client-fingerprint: firefox
+  flow: xtls-rprx-vision
+- name: 🇩🇪_德国_405
+  type: vless
+  server: ov-germany1.09vpn.com
+  port: 80
+  uuid: 7d74eae4-8a06-4306-a923-ad686f30bf26
+  tls: false
+  udp: true
+  network: ws
+  ws-opts:
+    path: /vless/
+  servername: OV-Germany1.09vpn.com
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: C🟠🇸🇪hos[🎬🤖📺🎭]_dokng.com_ff855081
+  type: vless
+  server: se13-node.rumedia-cdn.com
+  port: 2096
+  uuid: d1641bc6-3757-43db-815a-9b3f4d9b0d7e
+  tls: true
+  udp: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: st5ff8a.rumedia-cdn.com
+      User-Agent: Mozilla/5.0 (Linux; Android 8.0.0; ANE-LX3 Build/HUAWEIANE-LX3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Mobile Safari/537.36
+    path: /cdn/v3/live
+  servername: st5ff8a.rumedia-cdn.com
+  client-fingerprint: chrome
+- name: 🇬🇧_英国_150
+  type: vless
+  server: 196.247.163.10
+  port: 443
+  uuid: 30572b57-f5ab-4eb8-82d4-a24d399b99f6
+  tls: true
+  udp: true
+  reality-opts:
+    public-key: 5984Ah0pkfSVekU5xafQ1trZZN7MyNCJ-3KfCo-O6A4
+  servername: britainmh.eosvpn.com
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  flow: xtls-rprx-vision
+- name: 🇬🇧GB-82.38.31.212-0081
+  type: ss
+  server: 82.38.31.212
+  port: 8080
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+- name: 德国 058
+  type: vless
+  server: 46.101.253.244
+  port: 2083
+  uuid: bba95b1f-f48c-454b-897b-a6c6bc307df1
+  tls: true
+  udp: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: edge.yzkvm.top
+    path: /
+  servername: edge.yzkvm.top
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  tfo: false
+- name: 🇨🇭_瑞士_87
+  type: vless
+  server: 45.90.59.15
+  port: 443
+  uuid: 3950b45e-740d-4dca-ac95-505ec8534592
+  tls: true
+  udp: true
+  reality-opts:
+    public-key: P7S4UPFlQbmiBr4txyy8NZIMTrmO3UdxyH16WBU-YzY
+    short-id: 19253fae84102271
+  servername: www.cloudflare.com
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  flow: xtls-rprx-vision
+- name: 🇫🇷_法国_146
+  type: vless
+  server: 161.97.160.224
+  port: 443
+  uuid: b81b4d1b-7f20-48f1-82dc-d24bef898cab
+  tls: true
+  udp: true
+  reality-opts:
+    public-key: 33zaT3jHXjtynSQ0Ucw9bK92-XH2zolJmuIeZ1XyZB0
+    short-id: e6
+  servername: passport.yandex.ru
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  flow: xtls-rprx-vision
+- name: 🇩🇪_德国_163
+  type: vmess
+  server: lucas.ehsanazizi-speed-server.com
+  port: 2110
+  uuid: 06d4d001-4168-4876-9416-7caecf578f40
+  alterId: 0
+  cipher: auto
+  tls: false
+  udp: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: 🇩🇪_德国_151
+  type: vless
+  server: 144.31.215.196
+  port: 443
+  uuid: 558b26f6-061b-4079-9b84-ca13b3e90ae3
+  tls: true
+  udp: true
+  reality-opts:
+    public-key: jwLEnDwGROadL1ax-SrVC50sE5slaP7TbGQtBxkcTws
+    short-id: 8c9ab0f7b293f9ef
+  servername: c2.qwyak.ru
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  flow: xtls-rprx-vision
+- name: 🇯🇵[www.v2nodes.com] ss-JP-1598
+  type: ss
+  server: 191.223.221.53
+  port: 8388
+  cipher: aes-256-gcm
+  password: JuD6MNgtX3nVpCzFzXYVYjDTZ7nsmaTv
+- name: ProxyPool | 🇳🇱 荷兰 | NLD 3
+  type: vless
+  server: 77.239.102.129.sslip.io
+  port: 17232
+  uuid: afbd410e-1663-4f40-9d3b-df5117aa23ca
+  tls: true
+  udp: true
+  network: tcp
+  reality-opts:
+    public-key: OYFQrEB_Zt7kvR5OtebA3tzKEUQ57C8Pg16MXUg1A1g
+    short-id: 67aec74e00f0e90f
+  servername: 77.239.102.129.sslip.io
+  client-fingerprint: firefox
+  flow: xtls-rprx-vision
+- name: 🇫🇷_法国_127
+  type: vless
+  server: connect.wecantos.site
+  port: 10000
+  uuid: a05ecf37-c661-4247-ab09-4432cf0f3cc1
+  tls: false
+  udp: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: C🟠🇯🇵hos[🤖📺🎭🎪]_dokng.com_19904362
+  type: trojan
+  server: 45.32.52.173
+  port: 8886
+  password: e26a229d-e8f2-4ff9-8c7d-58a9d83ee437
+  udp: true
+  network: tcp
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  servername: 45.32.52.173
+- name: 印度 002
+  type: vless
+  server: 103.249.134.29
+  port: 443
+  uuid: 04c808e2-0b59-47b0-a54b-32fc7ef1c902
+  tls: true
+  udp: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: free.cndyw.ggff.net
+    path: pyip=bpb.yousef.isegaro.com
+  servername: free.cndyw.ggff.net
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  tfo: false
+- name: 🇷🇺_俄罗斯_104
+  type: vless
+  server: 45.151.71.158
+  port: 443
+  uuid: 8a1f8853-9a71-4ef2-a64c-4f0a94c2e14b
+  tls: true
+  udp: true
+  reality-opts:
+    public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
+  servername: ai.ozon.ru
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  flow: xtls-rprx-vision
+- name: 🇬🇧GB-82.38.31.218-0162
+  type: ss
+  server: 82.38.31.218
+  port: 8080
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+- name: 🇯🇵_日本_283
+  type: vmess
+  server: 168.138.43.75
+  port: 80
+  uuid: 11c3627f-31e8-4695-dfbd-34076e2f1f5d
+  alterId: 0
+  cipher: auto
+  tls: false
+  udp: true
+  network: ws
+  ws-opts:
+    path: /cctv13.m3u8
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: 🇯🇵_日本_328
+  type: vmess
+  server: 172.111.146.64
+  port: 80
+  uuid: 05b8c783-7f59-47f9-9923-06a465679f6a
+  alterId: 0
+  cipher: auto
+  tls: false
+  udp: true
+  network: ws
+  ws-opts:
+    path: /vmess/
+    headers:
+      Host: 172.111.146.64
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: 🇯🇵[www.v2nodes.com] vless-JP-1... 7
+  type: vless
+  server: 141.11.139.215
+  port: 443
+  uuid: d342d11e-d224-4463-b982-532309285094
+  tls: true
+  udp: true
+  network: ws
+  ws-opts:
+    path: /fp=chromesecurity=tls
+    headers:
+      Host: ccc.010304.xyz
+  servername: ccc.010304.xyz
+  client-fingerprint: chrome
+- name: 🇬🇧 英国 | GBR 2
+  type: vless
+  server: 45.151.71.150
+  port: 443
+  uuid: fd0a5c32-afc0-4d57-b95a-ca6ec8f93e87
+  tls: true
+  udp: true
+  network: tcp
+  reality-opts:
+    public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
+  servername: ai.ozon.ru
+  client-fingerprint: firefox
+  flow: xtls-rprx-vision
+- name: 🇯🇵_日本_16
+  type: vless
+  server: 152.69.195.67
+  port: 47878
+  uuid: eb8613e3-8393-4cff-a3ad-6501fd4adc63
+  tls: false
+  udp: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: 🇷🇺_俄罗斯_130
+  type: vless
+  server: 45.151.71.142
+  port: 443
+  uuid: 8a1f8853-9a71-4ef2-a64c-4f0a94c2e14b
+  tls: true
+  udp: true
+  reality-opts:
+    public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
+  servername: gb.ozon.ru
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  flow: xtls-rprx-vision
+- name: 🇦🇹 奥地利 | AUT
+  type: vless
+  server: au5.pad-sservice.lat
+  port: 8443
+  uuid: 2b0e5676-fb62-4bf0-9607-6e7818421e8e
+  tls: true
+  udp: true
+  network: ws
+  ws-opts:
+    path: /AU5W
+    headers:
+      Host: au5.pad-sservice.lat
+  servername: au5.pad-sservice.lat
+  client-fingerprint: chrome
+- name: 🇫🇷 法国 | FRA
+  type: vless
+  server: 213.152.165.201
+  port: 2092
+  uuid: 901cb432-3807-404a-9bb8-987814b000ca
+  tls: true
+  udp: true
+  network: tcp
+  reality-opts:
+    public-key: zeyIqmHylDrPbbtdG9BleBt0-fqKCHpZ0OZ9OY2_WUI
+    short-id: 716b7eba38125f3a
+  servername: www.apple.com
+  client-fingerprint: chrome
+  flow: xtls-rprx-vision
+- name: C🟠🇫🇷hos[🤖📺🎭🎪]_dokng.com_206791e2
+  type: vless
+  server: 45.151.71.159
+  port: 443
+  uuid: 680e92ac-1688-49e0-af96-7327fbc30ce8
+  tls: true
+  udp: true
+  network: tcp
+  reality-opts:
+    public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
+  servername: gb.ozon.ru
+  sni: gb.ozon.ru
+  skip-cert-verify: false
+  client-fingerprint: firefox
+  flow: xtls-rprx-vision
+- name: 🇬🇧 英国 | GBR
+  type: vless
+  server: 45.151.71.148
+  port: 443
+  uuid: 680e92ac-1688-49e0-af96-7327fbc30ce8
+  tls: true
+  udp: true
+  network: tcp
+  reality-opts:
+    public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
+  servername: gb.ozon.ru
+  client-fingerprint: firefox
+  flow: xtls-rprx-vision
+- name: 🇩🇪 德国 | DEU 4
+  type: vless
+  server: 45-149-147-213.sslip.io
+  port: 4443
+  uuid: 9b347a9b-d7a6-4b51-9890-eff62b832834
+  tls: true
+  udp: true
+  network: grpc
+  grpc-opts:
+    grpc-mode: gun
+    grpc-service-name: kobedin-server1-vless
+  servername: 45-149-147-213.sslip.io
+  alpn:
+  - h2
+  client-fingerprint: chrome
+- name: 🇬🇧GB-82.38.31.187-0097
+  type: ss
+  server: 82.38.31.187
+  port: 8080
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+- name: D🔴🇩🇪hos[🎬🤖📺🎭]_dokng.com_886105d9
+  type: vless
+  server: 213.152.165.200
+  port: 2094
+  uuid: c439a2b1-cef0-4560-b337-eff829991f74
+  tls: true
+  udp: true
+  network: tcp
+  reality-opts:
+    public-key: jHtC6ayzhkd_GVNF5TIGPu9iVpqUltBAQj1dpGJHwxs
+    short-id: 55986a94e2228791
+  servername: www.apple.com
+  sni: www.apple.com
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  flow: xtls-rprx-vision
+- name: ProxyPool | 🇸🇪 瑞典 | SWE
+  type: vless
+  server: 191.44.114.179
+  port: 2096
+  uuid: d1641bc6-3757-43db-815a-9b3f4d9b0d7e
+  tls: true
+  udp: true
+  network: ws
+  ws-opts:
+    path: /cdn/v3/live
+    headers:
+      Host: st33614.rumedia-cdn.com
+  servername: st33614.rumedia-cdn.com
+  client-fingerprint: firefox
+- name: 🇬🇧_英国_179
+  type: vless
+  server: 87.239.249.137
+  port: 443
+  uuid: 67eb6b17-7797-4ded-bf52-423c4c5f6cbd
+  tls: true
+  udp: true
+  reality-opts:
+    public-key: G7bpUPFSW28-oE6ff8qZac1_apU6PiJ-GHmi7tAPDSY
+    short-id: 91af08b1ce1f
+  servername: www.foxsports.com
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  flow: xtls-rprx-vision
+- name: 🇳🇱_荷兰_203
+  type: vless
+  server: 94.156.79.93
+  port: 443
+  uuid: d6752c6b-80ae-4a91-b446-bb330f7f8177
+  tls: true
+  udp: true
+  reality-opts:
+    public-key: _0fpFqEEuCso3B8K7AAcMjctwG_xfCxO2PdKzGd_-hg
+    short-id: 88a13cf2655c
+  servername: www.foxsports.com
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  flow: xtls-rprx-vision
+- name: 🇫🇮_芬兰_440
+  type: vless
+  server: 45.144.234.157
+  port: 14430
+  uuid: 59b0d30e-9b29-4fda-a35c-b2901ec32db7
+  tls: false
+  udp: true
+  network: ws
+  ws-opts:
+    path: /vless
+  servername: 45.144.234.157
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: C🟠🇫🇷hos[🎬🤖📺🎭]_dokng.com_a610b01a
+  type: vless
+  server: 213.152.165.203
+  port: 2092
+  uuid: 901cb432-3807-404a-9bb8-987814b000ca
+  tls: true
+  udp: true
+  network: tcp
+  reality-opts:
+    public-key: zeyIqmHylDrPbbtdG9BleBt0-fqKCHpZ0OZ9OY2_WUI
+    short-id: 716b7eba38125f3a
+  servername: www.apple.com
+  sni: www.apple.com
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  flow: xtls-rprx-vision
+- name: 🇳🇱_荷兰_155
+  type: vless
+  server: 108.61.164.217
+  port: 4443
+  uuid: 20dd9433-389e-4573-ba7b-689619cf13da
+  tls: true
+  udp: true
+  reality-opts:
+    public-key: k9srkQedwHsZGJP-R-GGwDOGok05gk23s8d4mtidMC4
+    short-id: 835391010667297d
+  servername: www.samsung.com
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  flow: xtls-rprx-vision
+- name: 🇬🇧_英国_165
+  type: vless
+  server: 107.181.151.128
+  port: 443
+  uuid: 88742d38-3f5c-4b9c-b256-7df5db8257ec
+  tls: true
+  udp: true
+  reality-opts:
+    public-key: zfsjt2A8ur0qHWIuCG7F9W4wZN3VTuL6fkTljC-9R0s
+    short-id: 8f79726c5002
+  servername: www.mozilla.org
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  flow: xtls-rprx-vision
+- name: A🟢🇺🇸res[🎬🤖📺🎭]_dokng.com_d2459b08
+  type: vless
+  server: 213.152.165.205
+  port: 2095
+  uuid: f3ac0d2c-4b86-4f53-8070-89f69daba8f5
+  tls: true
+  udp: true
+  network: tcp
+  reality-opts:
+    public-key: OKksVHWL5JepTv7if7Ta_L_7vn8OxW0INwV71HJM1jI
+    short-id: 3869d49a9a79e06a
+  servername: www.apple.com
+  sni: www.apple.com
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  flow: xtls-rprx-vision
+- name: A🟢🇺🇸res[🎬🤖📺🎭]_dokng.com_80c240f2
+  type: vless
+  server: 213.152.165.201
+  port: 2095
+  uuid: b38712cb-e4aa-4462-b7e3-df20508d2b39
+  tls: true
+  udp: true
+  network: tcp
+  reality-opts:
+    public-key: OKksVHWL5JepTv7if7Ta_L_7vn8OxW0INwV71HJM1jI
+    short-id: 3869d49a9a79e06a
+  servername: www.apple.com
+  sni: www.apple.com
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  flow: xtls-rprx-vision
+- name: 🇪🇸 西班牙 | ESP 3
+  type: vless
+  server: 213.152.165.203
+  port: 2095
+  uuid: b38712cb-e4aa-4462-b7e3-df20508d2b39
+  tls: true
+  udp: true
+  network: tcp
+  reality-opts:
+    public-key: OKksVHWL5JepTv7if7Ta_L_7vn8OxW0INwV71HJM1jI
+    short-id: 3869d49a9a79e06a
+  servername: www.apple.com
+  client-fingerprint: chrome
+  flow: xtls-rprx-vision
+- name: 🇷🇴[www.v2nodes.com] ss-RO-1298
+  type: ss
+  server: bogging-eyeteeth-fly.freesocks.work
+  port: 443
+  cipher: chacha20-ietf-poly1305
+  password: QFWzCw2uX9B9i6qAYeFBIE
+- name: A🟢🇺🇸res[🎬🤖📺🎭]_dokng.com_d3d77fe8
+  type: vless
+  server: 213.152.165.204
+  port: 2095
+  uuid: f3ac0d2c-4b86-4f53-8070-89f69daba8f5
+  tls: true
+  udp: true
+  network: tcp
+  reality-opts:
+    public-key: OKksVHWL5JepTv7if7Ta_L_7vn8OxW0INwV71HJM1jI
+    short-id: 3869d49a9a79e06a
+  servername: www.apple.com
+  sni: www.apple.com
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  flow: xtls-rprx-vision
+- name: 🇯🇵[www.v2nodes.com] vless-JP-1... 4
+  type: vless
+  server: 104.21.0.87
+  port: 443
+  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
+  tls: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: jp3.yohototo.top
+    path: /tyxyws
+  servername: jp3.yohototo.top
+  client-fingerprint: unsafe
+- name: 美国 136
+  type: vless
+  server: 50.7.28.211
+  port: 443
+  uuid: 0af34045-3d5e-4abe-bc8a-16e356daa214
+  tls: true
+  udp: true
+  network: xhttp
+  servername: api-v3-0af34045.vmagnum.win
+  skip-cert-verify: false
+  tfo: false
+  client-fingerprint: chrome
+- name: A🟢🇺🇸res[🎬🤖📺🎭]_dokng.com_268806b6
+  type: vless
+  server: 213.152.165.200
+  port: 2095
+  uuid: b38712cb-e4aa-4462-b7e3-df20508d2b39
+  tls: true
+  udp: true
+  network: tcp
+  reality-opts:
+    public-key: OKksVHWL5JepTv7if7Ta_L_7vn8OxW0INwV71HJM1jI
+    short-id: 3869d49a9a79e06a
+  servername: www.apple.com
+  sni: www.apple.com
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  flow: xtls-rprx-vision
+- name: 🇵🇱_波兰_199
+  type: vless
+  server: 5.22.221.127
+  port: 443
+  uuid: 44dfa3a7-f648-4587-819b-e653c0823f28
+  tls: false
+  udp: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: 🇹🇼 🇨🇳 台湾 | TWN 1
+  type: trojan
+  server: tjtw.m2k699.com
+  port: 24999
+  password: 29086912-33e4-4e06-ba2b-60f1a195864f
+  tls: true
+  udp: true
+  servername: www.itunes.com
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: 🇭🇰 香港 | HKG 6
+  type: trojan
+  server: tjflb.m2k699.com
+  port: 24999
+  password: 29086912-33e4-4e06-ba2b-60f1a195864f
+  tls: true
+  udp: true
+  servername: www.itunes.com
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: 🇭🇰 香港 | HKG 4
+  type: vmess
+  server: 47.243.153.153
+  port: 443
+  uuid: f23bb427-c1f9-4373-876c-2f43e9f790f3
+  alterId: 0
+  cipher: auto
+  tls: true
+  udp: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: i2psm3knof5qjjix.v.3dns.vip
+    path: /ws-vmess
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: 🇭🇰 香港 | HKG 1
+  type: vmess
+  server: 47.244.120.197
+  port: 44867
+  uuid: 845e6b08-2919-4290-ade0-5dc7dcea59ca
+  alterId: 0
+  cipher: auto
+  tls: false
+  udp: true
+  network: ws
+  ws-opts:
+    path: /arki
+  skip-cert-verify: true
+  alpn:
+  - ''
+  client-fingerprint: chrome
+proxy-groups:
+- name: ♻️ 自动选择
+  type: url-test
+  proxies: &id001
+  - shadowsocks-1827146131
+  - shadowsocks-1827146556
+  - vless-1876223242
+  - 🏳️_未知_312
+  - 🇸🇬[www.v2nodes.com] vless-SG 2
+  - EPODONIOS ·892
+  - 美国+CloudFlare节点 ·2
+  - 🏳️_未知_453
+  - 🇯🇵[www.v2nodes.com] vless-JP
+  - 🇯🇵[www.v2nodes.com] vless-JP-4
+  - 🏳️_未知_310
+  - 🇸🇬[www.v2nodes.com] vless-SG 6
+  - shadowsocks-1827147700
+  - 🏁RELAY-104.21.7.133-1319
+  - 🏳️_未知_317
+  - 美国 038
+  - 🇱🇹_立陶宛_235
+  - 🇸🇬[www.v2nodes.com] vless-SG-9... 2
+  - shadowsocks-1827146815
+  - shadowsocks-1827146549
+  - 🇨🇦CA-155.138.138.2-5355
+  - 🏳️_未知_320
+  - EPODONIOS ·361
+  - 🇸🇬 新加坡 | SGP 1
+  - 🏳️_未知_308
+  - 巴西 009
+  - 🏳️_未知_224
+  - 🏳️_未知_315
+  - 🇺🇸 美国 | USA 3 ·2
+  - 🇨🇦_加拿大_216
+  - 🏳️_未知_234
+  - EPODONIOS ·366
+  - 🏳️_未知_309
+  - 美国+CloudFlare节点
+  - EPODONIOS ·2359
+  - 🇺🇸US-37.19.198.160-0056
+  - shadowsocks-1827964140
+  - shadowsocks-1827146051
+  - shadowsocks-1827146742
+  - hysteria2-1827145638
+  - vless-1828293979
+  - 🇸🇬[www.v2nodes.com] vless-SG 3
+  - trojan-1832868058
+  - vless-1855707100
+  - vless-1853345420
+  - vless-1828293927
+  - vless-1827533156
+  - EPODONIOS ·1122
+  - shadowsocks-1827147702
+  - shadowsocks-1827146122
+  - vless-1854108405
+  - 🇺🇸_美国_79
+  - 🇸🇬[www.v2nodes.com] vless-SG
+  - C🟠🇨🇦hos[🎬🤖📺🎭]_dokng.com_9569ed11
+  - vless-1853501628
+  - vless-1884855076
+  - shadowsocks-1827146529
+  - 🇨🇦_加拿大_72
+  - vless-1891858671
+  - vless-1923902918
+  - 🇳🇱_荷兰_228
+  - vless-1894628648
+  - trojan-1853487426
+  - 美国 291
+  - 🇳🇱_荷兰_227
+  - 🇺🇸_美国_326
+  - 🏳️_未知_225
+  - 🇺🇸_美国_71
+  - 🇺🇸US_13|2.6MB/s
+  - 🏳️_未知_316
+  - 🇨🇦[www.v2nodes.com] ss-CA-1559
+  - A🟢🇺🇸res[📺🔍]_dokng.com_72dc0f38
+  - ProxyPool | 🇺🇸 美国 | USA
+  - 🇨🇦_加拿大_67
+  - 🇺🇸_美国_69
+  - 🇺🇸 美国 | USA 8
+  - 🇺🇸_美国_68
+  - 🇺🇸_美国_57
+  - 🇺🇸US-216.105.168.18-0150
+  - 🇺🇸_美国_36
+  - D🔴🇺🇸hos[🎬🤖📺🎭]_dokng.com_b3d9f61f
+  - 🇨🇦[www.v2nodes.com] ss-CA-1545
+  - 🇺🇸_美国_322
+  - 🇨🇦CA-149.22.95.183-0103
+  - 🇺🇸_美国_219
+  - 🇺🇸US-15.204.247.206-0161
+  - C🟠🇺🇸hos_dokng.com_878dc8bb
+  - 🇺🇸_US_美国
+  - 🇺🇸_美国_306
+  - 🇺🇸[www.v2nodes.com] ss-US-1603... 2
+  - 🇬🇧_英国_209
+  - 🇬🇧[www.v2nodes.com] ss-GB-1451
+  - C🟠🇫🇷hos[🎬🤖📺🎭]_dokng.com_24db847c
+  - 🇳🇱_荷兰_124
+  - 🇺🇦_乌克兰_94
+  - 🇳🇱_荷兰_107
+  - 🇫🇷_法国_357
+  - D🔴🇷🇺hos[✈️🔍]_dokng.com_894f0e73
+  - 🇳🇱_荷兰_355
+  - 🇳🇱NL-109.201.152.181-0116
+  - 🇬🇧GB-82.38.31.35-0142
+  - 🇬🇧_英国_145
+  - 🇬🇧 英国 | GBR 3
+  - 🇳🇱_荷兰_171
+  - 🇺🇦[www.v2nodes.com] ss-UA-1603
+  - 🇳🇱NL-109.104.153.43-0224
+  - D🔴🇷🇺hos[🎬📺🎪✨]_dokng.com_b4f7d757
+  - 🇫🇷_法国_138
+  - 🇬🇧GB-82.38.31.34-0144
+  - 🇬🇧GB-141.98.101.181-0119
+  - 🇨🇿_捷克_86
+  - 🇺🇸_美国_92
+  - A🟢🇹🇷res[📺🎪✨🎞️]_dokng.com_d237c504
+  - 🇳🇱NL-193.29.139.151-0117
+  - 🇬🇧GB-82.38.31.180-0071
+  - 🇳🇱_荷兰_444
+  - 🇬🇧GB-82.38.31.10-0118
+  - 🇳🇱_荷兰_119
+  - 🇷🇺_俄罗斯_108
+  - 🇩🇪_德国_134
+  - A🟢🇹🇷res[📺🎪📦]_dokng.com_6aa93fc5
+  - 🇬🇧GB-82.38.31.205-0075
+  - 🇳🇱NL-193.29.139.168-0093
+  - 🇬🇧GB-82.38.31.159-0122
+  - 🇩🇪_德国_147
+  - 🇬🇧GB-82.38.31.192-0079
+  - 🇬🇧GB-82.38.31.194-0068
+  - 🇬🇧GB-82.38.31.176-0148
+  - 🇬🇧GB-82.38.31.179-0102
+  - 🇬🇧GB-82.38.31.217-0100
+  - 🇬🇧GB-82.38.31.155-0138
+  - 🇳🇱NL-193.29.139.147-0086
+  - 🇷🇺_俄罗斯_48
+  - 🇬🇧GB-82.38.31.184-0073
+  - 🇳🇱NL-158.173.20.171-5209
+  - 🇬🇧GB-82.38.31.199-0165
+  - 美国 389
+  - 🇬🇧GB-82.38.31.189-0095
+  - C🟠🇩🇪hos[🎬🤖📺🎭]_dokng.com_67f98718
+  - 🇩🇪_德国_148
+  - 🇬🇧GB-82.38.31.210-0069
+  - 🇳🇱NL-193.29.139.223-0094
+  - 🇬🇧GB-82.38.31.181-0088
+  - 🇩🇪_德国_139
+  - 🇩🇪_德国_154
+  - 🇩🇪_德国_449
+  - 🇳🇱_荷兰_95
+  - 🇩🇪 德国 | DEU 7
+  - 🇳🇱 荷兰 | NLD
+  - 🇷🇺 俄罗斯 | RUS 3
+  - D🔴🇷🇺hos[📺🎪✨🎞️]_dokng.com_51efbe70
+  - 🇩🇪_德国_405
+  - C🟠🇸🇪hos[🎬🤖📺🎭]_dokng.com_ff855081
+  - 🇬🇧_英国_150
+  - 🇬🇧GB-82.38.31.212-0081
+  - 德国 058
+  - 🇨🇭_瑞士_87
+  - 🇫🇷_法国_146
+  - 🇩🇪_德国_163
+  - 🇩🇪_德国_151
+  - 🇯🇵[www.v2nodes.com] ss-JP-1598
+  - ProxyPool | 🇳🇱 荷兰 | NLD 3
+  - 🇫🇷_法国_127
+  - C🟠🇯🇵hos[🤖📺🎭🎪]_dokng.com_19904362
+  - 印度 002
+  - 🇷🇺_俄罗斯_104
+  - 🇬🇧GB-82.38.31.218-0162
+  - 🇯🇵_日本_283
+  - 🇯🇵_日本_328
+  - 🇯🇵[www.v2nodes.com] vless-JP-1... 7
+  - 🇬🇧 英国 | GBR 2
+  - 🇯🇵_日本_16
+  - 🇷🇺_俄罗斯_130
+  - 🇦🇹 奥地利 | AUT
+  - 🇫🇷 法国 | FRA
+  - C🟠🇫🇷hos[🤖📺🎭🎪]_dokng.com_206791e2
+  - 🇬🇧 英国 | GBR
+  - 🇩🇪 德国 | DEU 4
+  - 🇬🇧GB-82.38.31.187-0097
+  - D🔴🇩🇪hos[🎬🤖📺🎭]_dokng.com_886105d9
+  - ProxyPool | 🇸🇪 瑞典 | SWE
+  - 🇬🇧_英国_179
+  - 🇳🇱_荷兰_203
+  - 🇫🇮_芬兰_440
+  - C🟠🇫🇷hos[🎬🤖📺🎭]_dokng.com_a610b01a
+  - 🇳🇱_荷兰_155
+  - 🇬🇧_英国_165
+  - A🟢🇺🇸res[🎬🤖📺🎭]_dokng.com_d2459b08
+  - A🟢🇺🇸res[🎬🤖📺🎭]_dokng.com_80c240f2
+  - 🇪🇸 西班牙 | ESP 3
+  - 🇷🇴[www.v2nodes.com] ss-RO-1298
+  - A🟢🇺🇸res[🎬🤖📺🎭]_dokng.com_d3d77fe8
+  - 🇯🇵[www.v2nodes.com] vless-JP-1... 4
+  - 美国 136
+  - A🟢🇺🇸res[🎬🤖📺🎭]_dokng.com_268806b6
+  - 🇵🇱_波兰_199
+  - 🇹🇼 🇨🇳 台湾 | TWN 1
+  - 🇭🇰 香港 | HKG 6
+  - 🇭🇰 香港 | HKG 4
+  - 🇭🇰 香港 | HKG 1
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+  lazy: false
+- name: 🔁 故障转移
+  type: fallback
+  proxies: *id001
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+- name: 🚀 节点选择
+  type: select
+  proxies:
+  - DIRECT
+  - ♻️ 自动选择
+  - 🔁 故障转移
+  - 🏳️ 其他
+  - 🇸🇬 新加坡
+  - 🇺🇸 美国
+  - 🇯🇵 日本
+  - 🇨🇦 加拿大
+  - 🇧🇷 巴西
+  - 🇳🇱 荷兰
+  - 🇬🇧 英国
+  - 🇫🇷 法国
+  - 🇺🇦 乌克兰
+  - 🇷🇺 俄罗斯
+  - 🇨🇿 捷克
+  - 🇹🇷 土耳其
+  - 🇩🇪 德国
+  - 🇸🇪 瑞典
+  - 🇨🇭 瑞士
+  - 🇮🇳 印度
+  - 🇦🇹 奥地利
+  - 🇫🇮 芬兰
+  - 🇪🇸 西班牙
+  - 🇷🇴 罗马尼亚
+  - 🇵🇱 波兰
+  - 🇹🇼 台湾
+  - 🇭🇰 香港
+  - shadowsocks-1827146131
+  - shadowsocks-1827146556
+  - vless-1876223242
+  - 🏳️_未知_312
+  - 🇸🇬[www.v2nodes.com] vless-SG 2
+  - EPODONIOS ·892
+  - 美国+CloudFlare节点 ·2
+  - 🏳️_未知_453
+  - 🇯🇵[www.v2nodes.com] vless-JP
+  - 🇯🇵[www.v2nodes.com] vless-JP-4
+  - 🏳️_未知_310
+  - 🇸🇬[www.v2nodes.com] vless-SG 6
+  - shadowsocks-1827147700
+  - 🏁RELAY-104.21.7.133-1319
+  - 🏳️_未知_317
+  - 美国 038
+  - 🇱🇹_立陶宛_235
+  - 🇸🇬[www.v2nodes.com] vless-SG-9... 2
+  - shadowsocks-1827146815
+  - shadowsocks-1827146549
+  - 🇨🇦CA-155.138.138.2-5355
+  - 🏳️_未知_320
+  - EPODONIOS ·361
+  - 🇸🇬 新加坡 | SGP 1
+  - 🏳️_未知_308
+  - 巴西 009
+  - 🏳️_未知_224
+  - 🏳️_未知_315
+  - 🇺🇸 美国 | USA 3 ·2
+  - 🇨🇦_加拿大_216
+  - 🏳️_未知_234
+  - EPODONIOS ·366
+  - 🏳️_未知_309
+  - 美国+CloudFlare节点
+  - EPODONIOS ·2359
+  - 🇺🇸US-37.19.198.160-0056
+  - shadowsocks-1827964140
+  - shadowsocks-1827146051
+  - shadowsocks-1827146742
+  - hysteria2-1827145638
+  - vless-1828293979
+  - 🇸🇬[www.v2nodes.com] vless-SG 3
+  - trojan-1832868058
+  - vless-1855707100
+  - vless-1853345420
+  - vless-1828293927
+  - vless-1827533156
+  - EPODONIOS ·1122
+  - shadowsocks-1827147702
+  - shadowsocks-1827146122
+  - vless-1854108405
+  - 🇺🇸_美国_79
+  - 🇸🇬[www.v2nodes.com] vless-SG
+  - C🟠🇨🇦hos[🎬🤖📺🎭]_dokng.com_9569ed11
+  - vless-1853501628
+  - vless-1884855076
+  - shadowsocks-1827146529
+  - 🇨🇦_加拿大_72
+  - vless-1891858671
+  - vless-1923902918
+  - 🇳🇱_荷兰_228
+  - vless-1894628648
+  - trojan-1853487426
+  - 美国 291
+  - 🇳🇱_荷兰_227
+  - 🇺🇸_美国_326
+  - 🏳️_未知_225
+  - 🇺🇸_美国_71
+  - 🇺🇸US_13|2.6MB/s
+  - 🏳️_未知_316
+  - 🇨🇦[www.v2nodes.com] ss-CA-1559
+  - A🟢🇺🇸res[📺🔍]_dokng.com_72dc0f38
+  - ProxyPool | 🇺🇸 美国 | USA
+  - 🇨🇦_加拿大_67
+  - 🇺🇸_美国_69
+  - 🇺🇸 美国 | USA 8
+  - 🇺🇸_美国_68
+  - 🇺🇸_美国_57
+  - 🇺🇸US-216.105.168.18-0150
+  - 🇺🇸_美国_36
+  - D🔴🇺🇸hos[🎬🤖📺🎭]_dokng.com_b3d9f61f
+  - 🇨🇦[www.v2nodes.com] ss-CA-1545
+  - 🇺🇸_美国_322
+  - 🇨🇦CA-149.22.95.183-0103
+  - 🇺🇸_美国_219
+  - 🇺🇸US-15.204.247.206-0161
+  - C🟠🇺🇸hos_dokng.com_878dc8bb
+  - 🇺🇸_US_美国
+  - 🇺🇸_美国_306
+  - 🇺🇸[www.v2nodes.com] ss-US-1603... 2
+  - 🇬🇧_英国_209
+  - 🇬🇧[www.v2nodes.com] ss-GB-1451
+  - C🟠🇫🇷hos[🎬🤖📺🎭]_dokng.com_24db847c
+  - 🇳🇱_荷兰_124
+  - 🇺🇦_乌克兰_94
+  - 🇳🇱_荷兰_107
+  - 🇫🇷_法国_357
+  - D🔴🇷🇺hos[✈️🔍]_dokng.com_894f0e73
+  - 🇳🇱_荷兰_355
+  - 🇳🇱NL-109.201.152.181-0116
+  - 🇬🇧GB-82.38.31.35-0142
+  - 🇬🇧_英国_145
+  - 🇬🇧 英国 | GBR 3
+  - 🇳🇱_荷兰_171
+  - 🇺🇦[www.v2nodes.com] ss-UA-1603
+  - 🇳🇱NL-109.104.153.43-0224
+  - D🔴🇷🇺hos[🎬📺🎪✨]_dokng.com_b4f7d757
+  - 🇫🇷_法国_138
+  - 🇬🇧GB-82.38.31.34-0144
+  - 🇬🇧GB-141.98.101.181-0119
+  - 🇨🇿_捷克_86
+  - 🇺🇸_美国_92
+  - A🟢🇹🇷res[📺🎪✨🎞️]_dokng.com_d237c504
+  - 🇳🇱NL-193.29.139.151-0117
+  - 🇬🇧GB-82.38.31.180-0071
+  - 🇳🇱_荷兰_444
+  - 🇬🇧GB-82.38.31.10-0118
+  - 🇳🇱_荷兰_119
+  - 🇷🇺_俄罗斯_108
+  - 🇩🇪_德国_134
+  - A🟢🇹🇷res[📺🎪📦]_dokng.com_6aa93fc5
+  - 🇬🇧GB-82.38.31.205-0075
+  - 🇳🇱NL-193.29.139.168-0093
+  - 🇬🇧GB-82.38.31.159-0122
+  - 🇩🇪_德国_147
+  - 🇬🇧GB-82.38.31.192-0079
+  - 🇬🇧GB-82.38.31.194-0068
+  - 🇬🇧GB-82.38.31.176-0148
+  - 🇬🇧GB-82.38.31.179-0102
+  - 🇬🇧GB-82.38.31.217-0100
+  - 🇬🇧GB-82.38.31.155-0138
+  - 🇳🇱NL-193.29.139.147-0086
+  - 🇷🇺_俄罗斯_48
+  - 🇬🇧GB-82.38.31.184-0073
+  - 🇳🇱NL-158.173.20.171-5209
+  - 🇬🇧GB-82.38.31.199-0165
+  - 美国 389
+  - 🇬🇧GB-82.38.31.189-0095
+  - C🟠🇩🇪hos[🎬🤖📺🎭]_dokng.com_67f98718
+  - 🇩🇪_德国_148
+  - 🇬🇧GB-82.38.31.210-0069
+  - 🇳🇱NL-193.29.139.223-0094
+  - 🇬🇧GB-82.38.31.181-0088
+  - 🇩🇪_德国_139
+  - 🇩🇪_德国_154
+  - 🇩🇪_德国_449
+  - 🇳🇱_荷兰_95
+  - 🇩🇪 德国 | DEU 7
+  - 🇳🇱 荷兰 | NLD
+  - 🇷🇺 俄罗斯 | RUS 3
+  - D🔴🇷🇺hos[📺🎪✨🎞️]_dokng.com_51efbe70
+  - 🇩🇪_德国_405
+  - C🟠🇸🇪hos[🎬🤖📺🎭]_dokng.com_ff855081
+  - 🇬🇧_英国_150
+  - 🇬🇧GB-82.38.31.212-0081
+  - 德国 058
+  - 🇨🇭_瑞士_87
+  - 🇫🇷_法国_146
+  - 🇩🇪_德国_163
+  - 🇩🇪_德国_151
+  - 🇯🇵[www.v2nodes.com] ss-JP-1598
+  - ProxyPool | 🇳🇱 荷兰 | NLD 3
+  - 🇫🇷_法国_127
+  - C🟠🇯🇵hos[🤖📺🎭🎪]_dokng.com_19904362
+  - 印度 002
+  - 🇷🇺_俄罗斯_104
+  - 🇬🇧GB-82.38.31.218-0162
+  - 🇯🇵_日本_283
+  - 🇯🇵_日本_328
+  - 🇯🇵[www.v2nodes.com] vless-JP-1... 7
+  - 🇬🇧 英国 | GBR 2
+  - 🇯🇵_日本_16
+  - 🇷🇺_俄罗斯_130
+  - 🇦🇹 奥地利 | AUT
+  - 🇫🇷 法国 | FRA
+  - C🟠🇫🇷hos[🤖📺🎭🎪]_dokng.com_206791e2
+  - 🇬🇧 英国 | GBR
+  - 🇩🇪 德国 | DEU 4
+  - 🇬🇧GB-82.38.31.187-0097
+  - D🔴🇩🇪hos[🎬🤖📺🎭]_dokng.com_886105d9
+  - ProxyPool | 🇸🇪 瑞典 | SWE
+  - 🇬🇧_英国_179
+  - 🇳🇱_荷兰_203
+  - 🇫🇮_芬兰_440
+  - C🟠🇫🇷hos[🎬🤖📺🎭]_dokng.com_a610b01a
+  - 🇳🇱_荷兰_155
+  - 🇬🇧_英国_165
+  - A🟢🇺🇸res[🎬🤖📺🎭]_dokng.com_d2459b08
+  - A🟢🇺🇸res[🎬🤖📺🎭]_dokng.com_80c240f2
+  - 🇪🇸 西班牙 | ESP 3
+  - 🇷🇴[www.v2nodes.com] ss-RO-1298
+  - A🟢🇺🇸res[🎬🤖📺🎭]_dokng.com_d3d77fe8
+  - 🇯🇵[www.v2nodes.com] vless-JP-1... 4
+  - 美国 136
+  - A🟢🇺🇸res[🎬🤖📺🎭]_dokng.com_268806b6
+  - 🇵🇱_波兰_199
+  - 🇹🇼 🇨🇳 台湾 | TWN 1
+  - 🇭🇰 香港 | HKG 6
+  - 🇭🇰 香港 | HKG 4
+  - 🇭🇰 香港 | HKG 1
+- name: 🏳️ 其他
+  type: url-test
+  proxies:
+  - shadowsocks-1827146131
+  - shadowsocks-1827146556
+  - vless-1876223242
+  - 🏳️_未知_312
+  - EPODONIOS ·892
+  - 🏳️_未知_453
+  - 🏳️_未知_310
+  - shadowsocks-1827147700
+  - 🏁RELAY-104.21.7.133-1319
+  - 🏳️_未知_317
+  - 🇱🇹_立陶宛_235
+  - shadowsocks-1827146815
+  - shadowsocks-1827146549
+  - 🏳️_未知_320
+  - EPODONIOS ·361
+  - 🏳️_未知_308
+  - 🏳️_未知_224
+  - 🏳️_未知_315
+  - 🏳️_未知_234
+  - EPODONIOS ·366
+  - shadowsocks-1827964140
+  - shadowsocks-1827146051
+  - shadowsocks-1827146742
+  - hysteria2-1827145638
+  - vless-1828293979
+  - trojan-1832868058
+  - vless-1855707100
+  - vless-1853345420
+  - vless-1828293927
+  - vless-1827533156
+  - shadowsocks-1827147702
+  - shadowsocks-1827146122
+  - vless-1854108405
+  - vless-1853501628
+  - vless-1884855076
+  - shadowsocks-1827146529
+  - vless-1891858671
+  - vless-1923902918
+  - vless-1894628648
+  - trojan-1853487426
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+- name: 🇸🇬 新加坡
+  type: url-test
+  proxies:
+  - 🇸🇬[www.v2nodes.com] vless-SG 2
+  - 🇸🇬[www.v2nodes.com] vless-SG 6
+  - 🇸🇬[www.v2nodes.com] vless-SG-9... 2
+  - 🇸🇬 新加坡 | SGP 1
+  - 🇸🇬[www.v2nodes.com] vless-SG 3
+  - 🇸🇬[www.v2nodes.com] vless-SG
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+- name: 🇺🇸 美国
+  type: url-test
+  proxies:
+  - 美国+CloudFlare节点 ·2
+  - 美国 038
+  - 🇺🇸 美国 | USA 3 ·2
+  - 🏳️_未知_309
+  - 美国+CloudFlare节点
+  - EPODONIOS ·2359
+  - 🇺🇸US-37.19.198.160-0056
+  - EPODONIOS ·1122
+  - 🇺🇸_美国_79
+  - 美国 291
+  - 🇺🇸_美国_326
+  - 🏳️_未知_225
+  - 🇺🇸_美国_71
+  - 🇺🇸US_13|2.6MB/s
+  - 🏳️_未知_316
+  - A🟢🇺🇸res[📺🔍]_dokng.com_72dc0f38
+  - ProxyPool | 🇺🇸 美国 | USA
+  - 🇺🇸_美国_69
+  - 🇺🇸 美国 | USA 8
+  - 🇺🇸_美国_68
+  - 🇺🇸_美国_57
+  - 🇺🇸US-216.105.168.18-0150
+  - 🇺🇸_美国_36
+  - D🔴🇺🇸hos[🎬🤖📺🎭]_dokng.com_b3d9f61f
+  - 🇺🇸_美国_322
+  - 🇺🇸_美国_219
+  - 🇺🇸US-15.204.247.206-0161
+  - C🟠🇺🇸hos_dokng.com_878dc8bb
+  - 🇺🇸_US_美国
+  - 🇺🇸_美国_306
+  - 🇺🇸[www.v2nodes.com] ss-US-1603... 2
+  - 🇺🇸_美国_92
+  - 美国 389
+  - A🟢🇺🇸res[🎬🤖📺🎭]_dokng.com_d2459b08
+  - A🟢🇺🇸res[🎬🤖📺🎭]_dokng.com_80c240f2
+  - A🟢🇺🇸res[🎬🤖📺🎭]_dokng.com_d3d77fe8
+  - 美国 136
+  - A🟢🇺🇸res[🎬🤖📺🎭]_dokng.com_268806b6
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+- name: 🇯🇵 日本
+  type: url-test
+  proxies:
+  - 🇯🇵[www.v2nodes.com] vless-JP
+  - 🇯🇵[www.v2nodes.com] vless-JP-4
+  - 🇯🇵[www.v2nodes.com] ss-JP-1598
+  - C🟠🇯🇵hos[🤖📺🎭🎪]_dokng.com_19904362
+  - 🇯🇵_日本_283
+  - 🇯🇵_日本_328
+  - 🇯🇵[www.v2nodes.com] vless-JP-1... 7
+  - 🇯🇵_日本_16
+  - 🇯🇵[www.v2nodes.com] vless-JP-1... 4
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+- name: 🇨🇦 加拿大
+  type: url-test
+  proxies:
+  - 🇨🇦CA-155.138.138.2-5355
+  - 🇨🇦_加拿大_216
+  - C🟠🇨🇦hos[🎬🤖📺🎭]_dokng.com_9569ed11
+  - 🇨🇦_加拿大_72
+  - 🇨🇦[www.v2nodes.com] ss-CA-1559
+  - 🇨🇦_加拿大_67
+  - 🇨🇦[www.v2nodes.com] ss-CA-1545
+  - 🇨🇦CA-149.22.95.183-0103
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+- name: 🇧🇷 巴西
+  type: url-test
+  proxies:
+  - 巴西 009
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+- name: 🇳🇱 荷兰
+  type: url-test
+  proxies:
+  - 🇳🇱_荷兰_228
+  - 🇳🇱_荷兰_227
+  - 🇳🇱_荷兰_124
+  - 🇳🇱_荷兰_107
+  - 🇳🇱_荷兰_355
+  - 🇳🇱NL-109.201.152.181-0116
+  - 🇳🇱_荷兰_171
+  - 🇳🇱NL-109.104.153.43-0224
+  - 🇳🇱NL-193.29.139.151-0117
+  - 🇳🇱_荷兰_444
+  - 🇳🇱_荷兰_119
+  - 🇳🇱NL-193.29.139.168-0093
+  - 🇳🇱NL-193.29.139.147-0086
+  - 🇳🇱NL-158.173.20.171-5209
+  - 🇳🇱NL-193.29.139.223-0094
+  - 🇳🇱_荷兰_95
+  - 🇳🇱 荷兰 | NLD
+  - ProxyPool | 🇳🇱 荷兰 | NLD 3
+  - 🇳🇱_荷兰_203
+  - 🇳🇱_荷兰_155
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+- name: 🇬🇧 英国
+  type: url-test
+  proxies:
+  - 🇬🇧_英国_209
+  - 🇬🇧[www.v2nodes.com] ss-GB-1451
+  - 🇬🇧GB-82.38.31.35-0142
+  - 🇬🇧_英国_145
+  - 🇬🇧 英国 | GBR 3
+  - 🇬🇧GB-82.38.31.34-0144
+  - 🇬🇧GB-141.98.101.181-0119
+  - 🇬🇧GB-82.38.31.180-0071
+  - 🇬🇧GB-82.38.31.10-0118
+  - 🇬🇧GB-82.38.31.205-0075
+  - 🇬🇧GB-82.38.31.159-0122
+  - 🇬🇧GB-82.38.31.192-0079
+  - 🇬🇧GB-82.38.31.194-0068
+  - 🇬🇧GB-82.38.31.176-0148
+  - 🇬🇧GB-82.38.31.179-0102
+  - 🇬🇧GB-82.38.31.217-0100
+  - 🇬🇧GB-82.38.31.155-0138
+  - 🇬🇧GB-82.38.31.184-0073
+  - 🇬🇧GB-82.38.31.199-0165
+  - 🇬🇧GB-82.38.31.189-0095
+  - 🇬🇧GB-82.38.31.210-0069
+  - 🇬🇧GB-82.38.31.181-0088
+  - 🇬🇧_英国_150
+  - 🇬🇧GB-82.38.31.212-0081
+  - 🇬🇧GB-82.38.31.218-0162
+  - 🇬🇧 英国 | GBR 2
+  - 🇬🇧 英国 | GBR
+  - 🇬🇧GB-82.38.31.187-0097
+  - 🇬🇧_英国_179
+  - 🇬🇧_英国_165
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+- name: 🇫🇷 法国
+  type: url-test
+  proxies:
+  - C🟠🇫🇷hos[🎬🤖📺🎭]_dokng.com_24db847c
+  - 🇫🇷_法国_357
+  - 🇫🇷_法国_138
+  - 🇫🇷_法国_146
+  - 🇫🇷_法国_127
+  - 🇫🇷 法国 | FRA
+  - C🟠🇫🇷hos[🤖📺🎭🎪]_dokng.com_206791e2
+  - C🟠🇫🇷hos[🎬🤖📺🎭]_dokng.com_a610b01a
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+- name: 🇺🇦 乌克兰
+  type: url-test
+  proxies:
+  - 🇺🇦_乌克兰_94
+  - 🇺🇦[www.v2nodes.com] ss-UA-1603
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+- name: 🇷🇺 俄罗斯
+  type: url-test
+  proxies:
+  - D🔴🇷🇺hos[✈️🔍]_dokng.com_894f0e73
+  - D🔴🇷🇺hos[🎬📺🎪✨]_dokng.com_b4f7d757
+  - 🇷🇺_俄罗斯_108
+  - 🇷🇺_俄罗斯_48
+  - 🇷🇺 俄罗斯 | RUS 3
+  - D🔴🇷🇺hos[📺🎪✨🎞️]_dokng.com_51efbe70
+  - 🇷🇺_俄罗斯_104
+  - 🇷🇺_俄罗斯_130
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+- name: 🇨🇿 捷克
+  type: url-test
+  proxies:
+  - 🇨🇿_捷克_86
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+- name: 🇹🇷 土耳其
+  type: url-test
+  proxies:
+  - A🟢🇹🇷res[📺🎪✨🎞️]_dokng.com_d237c504
+  - A🟢🇹🇷res[📺🎪📦]_dokng.com_6aa93fc5
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+- name: 🇩🇪 德国
+  type: url-test
+  proxies:
+  - 🇩🇪_德国_134
+  - 🇩🇪_德国_147
+  - C🟠🇩🇪hos[🎬🤖📺🎭]_dokng.com_67f98718
+  - 🇩🇪_德国_148
+  - 🇩🇪_德国_139
+  - 🇩🇪_德国_154
+  - 🇩🇪_德国_449
+  - 🇩🇪 德国 | DEU 7
+  - 🇩🇪_德国_405
+  - 德国 058
+  - 🇩🇪_德国_163
+  - 🇩🇪_德国_151
+  - 🇩🇪 德国 | DEU 4
+  - D🔴🇩🇪hos[🎬🤖📺🎭]_dokng.com_886105d9
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+- name: 🇸🇪 瑞典
+  type: url-test
+  proxies:
+  - C🟠🇸🇪hos[🎬🤖📺🎭]_dokng.com_ff855081
+  - ProxyPool | 🇸🇪 瑞典 | SWE
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+- name: 🇨🇭 瑞士
+  type: url-test
+  proxies:
+  - 🇨🇭_瑞士_87
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+- name: 🇮🇳 印度
+  type: url-test
+  proxies:
+  - 印度 002
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+- name: 🇦🇹 奥地利
+  type: url-test
+  proxies:
+  - 🇦🇹 奥地利 | AUT
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+- name: 🇫🇮 芬兰
+  type: url-test
+  proxies:
+  - 🇫🇮_芬兰_440
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+- name: 🇪🇸 西班牙
+  type: url-test
+  proxies:
+  - 🇪🇸 西班牙 | ESP 3
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+- name: 🇷🇴 罗马尼亚
+  type: url-test
+  proxies:
+  - 🇷🇴[www.v2nodes.com] ss-RO-1298
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+- name: 🇵🇱 波兰
+  type: url-test
+  proxies:
+  - 🇵🇱_波兰_199
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+- name: 🇹🇼 台湾
+  type: url-test
+  proxies:
+  - 🇹🇼 🇨🇳 台湾 | TWN 1
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+- name: 🇭🇰 香港
+  type: url-test
+  proxies:
+  - 🇭🇰 香港 | HKG 6
+  - 🇭🇰 香港 | HKG 4
+  - 🇭🇰 香港 | HKG 1
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+- name: 🌍 国外媒体
+  type: select
+  proxies:
+  - 🚀 节点选择
+  - ♻️ 自动选择
+  - 🔁 故障转移
+- name: 🤖 AI服务
+  type: select
+  proxies:
+  - 🚀 节点选择
+  - ♻️ 自动选择
+  - 🔁 故障转移
+- name: 📲 电报消息
+  type: select
+  proxies:
+  - 🚀 节点选择
+  - ♻️ 自动选择
+  - 🔁 故障转移
+- name: 🎯 全球直连
+  type: select
+  proxies:
+  - DIRECT
+  - 🚀 节点选择
+- name: 🛑 广告拦截
+  type: select
+  proxies:
+  - REJECT
+  - DIRECT
+- name: 🐟 漏网之鱼
+  type: select
+  proxies:
+  - 🚀 节点选择
+  - DIRECT
+rules:
+- GEOSITE,category-ads-all,🛑 广告拦截
+- GEOIP,private,DIRECT,no-resolve
+- GEOSITE,private,DIRECT
+- GEOSITE,cn,DIRECT
+- GEOIP,cn,DIRECT
+- GEOSITE,openai,🤖 AI服务
+- GEOSITE,anthropic,🤖 AI服务
+- GEOSITE,google-gemini,🤖 AI服务
+- GEOSITE,category-ai-chat-!cn,🤖 AI服务
+- GEOSITE,youtube,🌍 国外媒体
+- GEOSITE,netflix,🌍 国外媒体
+- GEOSITE,disney,🌍 国外媒体
+- GEOSITE,hbo,🌍 国外媒体
+- GEOSITE,spotify,🌍 国外媒体
+- GEOSITE,bilibili,🎯 全球直连
+- GEOSITE,telegram,📲 电报消息
+- GEOSITE,twitter,🚀 节点选择
+- GEOSITE,google,🚀 节点选择
+- GEOSITE,github,🚀 节点选择
+- GEOSITE,geolocation-!cn,🚀 节点选择
+- GEOIP,telegram,📲 电报消息,no-resolve
+- MATCH,🐟 漏网之鱼
