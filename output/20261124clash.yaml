@@ -1,0 +1,2508 @@
+# FreeNodeMailer 每日可用节点 | 生成时间(北京时间) 2026-11-24 07:40:02
+mixed-port: 7890
+allow-lan: false
+bind-address: 127.0.0.1
+mode: rule
+log-level: info
+ipv6: true
+unified-delay: true
+tcp-concurrent: true
+find-process-mode: strict
+external-controller: 127.0.0.1:9097
+geodata-mode: true
+geodata-loader: standard
+geo-auto-update: true
+geo-update-interval: 168
+profile:
+  store-selected: true
+  store-fake-ip: true
+sniffer:
+  enable: true
+  sniff:
+    HTTP:
+      ports:
+      - 80
+      - 8080-8880
+      override-destination: true
+    TLS:
+      ports:
+      - 443
+      - 8443
+    QUIC:
+      ports:
+      - 443
+      - 8443
+  skip-domain:
+  - Mijia Cloud
+  - +.push.apple.com
+dns:
+  enable: true
+  listen: 127.0.0.1:1053
+  ipv6: true
+  respect-rules: true
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter:
+  - '*.lan'
+  - '*.local'
+  - +.msftconnecttest.com
+  - +.msftncsi.com
+  - localhost.ptlogin2.qq.com
+  - +.qq.com
+  - +.wechat.com
+  default-nameserver:
+  - 223.5.5.5
+  - 119.29.29.29
+  nameserver:
+  - https://223.5.5.5/dns-query
+  - https://1.12.12.12/dns-query
+  proxy-server-nameserver:
+  - https://223.5.5.5/dns-query
+  - 223.5.5.5
+  nameserver-policy:
+    geosite:cn,private:
+    - https://223.5.5.5/dns-query
+    - 223.5.5.5
+    geosite:geolocation-!cn:
+    - https://1.12.12.12/dns-query
+    - tls://8.8.8.8:853
+proxies:
+- name: 🏳[www.v2nodes.com] vless- 13
+  type: vless
+  server: 172.64.154.113
+  port: 8443
+  uuid: 53bbdad4-2f4e-45db-8df4-fa491a6a7227
+  tls: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: freeceshi6.frii.site
+    path: /proxyip=ProxyIP.JP.CMLiussss.net
+  servername: freeceshi6.frii.site
+  client-fingerprint: chrome
+- name: shadowsocks-1827147591
+  type: ss
+  server: 15.204.247.206
+  port: 4444
+  cipher: aes-256-gcm
+  password: pKEW8JPByTVTLtM
+  udp: true
+- name: shadowsocks-1827146742
+  type: ss
+  server: 37.19.198.244
+  port: 443
+  cipher: aes-128-gcm
+  password: shadowsocks
+  udp: true
+- name: 🇺🇸US-38.91.100.39-0164 | 47.486MB
+  type: ss
+  server: 38.91.100.39
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: shadowsocks-1827146248
+  type: ss
+  server: 37.19.198.160
+  port: 443
+  cipher: aes-128-gcm
+  password: shadowsocks
+  udp: true
+- name: shadowsocks-1827146122
+  type: ss
+  server: 37.19.198.236
+  port: 443
+  cipher: aes-128-gcm
+  password: shadowsocks
+  udp: true
+- name: shadowsocks-1827146051
+  type: ss
+  server: 37.19.198.243
+  port: 443
+  cipher: aes-128-gcm
+  password: shadowsocks
+  udp: true
+- name: vless-1853350171
+  type: vless
+  server: 159.89.87.21
+  port: 28190
+  uuid: 14c80e0e-f7ce-4991-94fc-99a1db4a9b1e
+  tls: true
+  udp: true
+  network: raw
+  reality-opts:
+    public-key: ZJRnFU-1s1JOnO8E9uZ7b00l1fPEh63fGRbdBANFRno
+    short-id: ''
+  servername: aws.amazon.com
+  client-fingerprint: firefox
+  flow: xtls-rprx-vision
+- name: vless-1854038780
+  type: vless
+  server: 185.95.231.156
+  port: 443
+  uuid: 1f8cf47a-b66a-4916-979f-26edfcf44eea
+  tls: true
+  udp: true
+  network: raw
+  reality-opts:
+    public-key: 8eXftARun6KH38UZhuqIfPR1VF2DLS9RMBZEnF5k6To
+    short-id: a3a578ab
+  servername: www.apple.com
+  client-fingerprint: chrome
+  flow: xtls-rprx-vision
+- name: vless-1853462750
+  type: vless
+  server: 169.40.42.229
+  port: 443
+  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
+  tls: true
+  udp: true
+  network: raw
+  reality-opts:
+    public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
+    short-id: c39cc7310a
+  servername: yahoo.com
+  client-fingerprint: chrome
+  flow: xtls-rprx-vision
+- name: 美国 380
+  type: vmess
+  server: 38.91.100.69
+  port: 1270
+  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
+  alterId: 0
+  cipher: auto
+  tls: true
+  network: tcp
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: vless-1827147089
+  type: vless
+  server: 169.40.42.35
+  port: 443
+  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
+  tls: true
+  udp: true
+  network: tcp
+  reality-opts:
+    public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
+    short-id: c39cc7310a
+  servername: yahoo.com
+  client-fingerprint: chrome
+  flow: xtls-rprx-vision
+- name: vless-1891839087
+  type: vless
+  server: 169.40.42.74
+  port: 443
+  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
+  tls: true
+  udp: true
+  network: tcp
+  reality-opts:
+    public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
+    short-id: c39cc7310a
+  servername: yahoo.com
+  client-fingerprint: random
+  flow: xtls-rprx-vision
+- name: vmess-1853361191
+  type: vmess
+  server: 67.220.85.46
+  port: 18000
+  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  alterId: 0
+  cipher: auto
+  udp: true
+  network: tcp
+  client-fingerprint: chrome
+- name: trojan-1827955817
+  type: trojan
+  server: 69.164.240.85
+  port: 50875
+  password: nwilryafgkyvuxauc8pz
+  udp: true
+  skip-cert-verify: true
+  servername: 69.164.240.85
+  client-fingerprint: chrome
+- name: vless-1854337870
+  type: vless
+  server: 45.138.100.248
+  port: 10443
+  uuid: ae908ff5-f749-402c-af25-e6e9aef4d6bb
+  udp: true
+  network: tcp
+  client-fingerprint: chrome
+- name: vless-1827162772
+  type: vless
+  server: 169.40.42.231
+  port: 443
+  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
+  tls: true
+  udp: true
+  network: tcp
+  reality-opts:
+    public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
+    short-id: c39cc7310a
+  servername: yahoo.com
+  client-fingerprint: chrome
+  flow: xtls-rprx-vision
+- name: vless-1828293988
+  type: vless
+  server: 169.40.42.90
+  port: 443
+  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
+  tls: true
+  udp: true
+  network: tcp
+  reality-opts:
+    public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
+    short-id: c39cc7310a
+  servername: yahoo.com
+  client-fingerprint: ios
+  flow: xtls-rprx-vision
+- name: vless-1827319616
+  type: vless
+  server: 169.40.42.163
+  port: 443
+  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
+  tls: true
+  udp: true
+  network: tcp
+  reality-opts:
+    public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
+    short-id: c39cc7310a
+  servername: yahoo.com
+  client-fingerprint: chrome
+  flow: xtls-rprx-vision
+- name: vless-1828293967
+  type: vless
+  server: 169.40.42.202
+  port: 443
+  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
+  tls: true
+  udp: true
+  network: raw
+  reality-opts:
+    public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
+    short-id: c39cc7310a
+  servername: yahoo.com
+  client-fingerprint: ios
+  flow: xtls-rprx-vision
+- name: vless-1883549617
+  type: vless
+  server: 195.123.235.183
+  port: 443
+  uuid: c14ec728-3eca-4750-87fc-fd1e6aeb81d5
+  tls: true
+  udp: true
+  network: tcp
+  reality-opts:
+    public-key: H3R3BUAl7thrIZsznTbb-eRREIjQOH2f3WO0oTN7OGY
+    short-id: a0e2a6074c6456b0
+  servername: gateway.icloud.com
+  client-fingerprint: chrome
+  flow: xtls-rprx-vision
+- name: vless-1828373732
+  type: vless
+  server: 169.40.42.89
+  port: 443
+  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
+  tls: true
+  udp: true
+  network: raw
+  reality-opts:
+    public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
+    short-id: c39cc7310a
+  servername: yahoo.com
+  client-fingerprint: chrome
+  flow: xtls-rprx-vision
+- name: vless-1879373946
+  type: vless
+  server: 169.40.42.168
+  port: 443
+  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
+  tls: true
+  udp: true
+  network: tcp
+  reality-opts:
+    public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
+    short-id: c39cc7310a
+  servername: yahoo.com
+  client-fingerprint: firefox
+  flow: xtls-rprx-vision
+- name: shadowsocks-1827146529
+  type: ss
+  server: 198.98.53.130
+  port: 443
+  cipher: chacha20-ietf-poly1305
+  password: eDfN7SODQceIOmIAbtJJtK
+  udp: true
+- name: 西班牙 003
+  type: vless
+  server: 185.18.250.2
+  port: 443
+  uuid: 10997f19-2951-4a9b-a26f-611a6bd72d02
+  tls: true
+  udp: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: worker3.sicoro1729.workers.dev
+    path: /
+  servername: worker3.sicoro1729.workers.dev
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  tfo: false
+- name: vmess-1837386222
+  type: vmess
+  server: 67.220.95.3
+  port: 18000
+  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  alterId: 0
+  cipher: aes-128-gcm
+  udp: true
+  network: raw
+  client-fingerprint: chrome
+- name: 🇺🇸US-172.111.38.72-0176 | 35.043MB
+  type: ss
+  server: 172.111.38.72
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: 🇨🇦[www.v2nodes.com] ss-CA-1558
+  type: ss
+  server: 51.222.200.165
+  port: 5000
+  cipher: aes-256-gcm
+  password: Y6R9pAtvxxzmGC
+- name: 🇺🇸US-149.40.57.138-0153 | 72.456MB
+  type: ss
+  server: 149.40.57.138
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: 🏳[www.v2nodes.com] ss
+  type: ss
+  server: 51.222.141.125
+  port: 445
+  cipher: aes-256-gcm
+  password: zDNVedRFPQexG9v
+- name: 🇺🇸US-149.40.57.134-0152 | 73.655MB
+  type: ss
+  server: 149.40.57.134
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: shadowsocks-1875023024
+  type: ss
+  server: 193.151.163.18
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  udp: true
+- name: vless-1828036218
+  type: vless
+  server: 209.200.246.148
+  port: 443
+  uuid: ca52e2b6-fb9f-4dac-b6dc-49da9923f251
+  tls: true
+  udp: true
+  network: raw
+  reality-opts:
+    public-key: uTmb-ytXsx8p0fkBz7A76SHpWk7_oVutIA4LGTE8BQk
+    short-id: f98843107912e782
+  servername: www.cloudflare.com
+  client-fingerprint: firefox
+  flow: xtls-rprx-vision
+- name: 🇺🇸US-149.40.57.133-0200 | 51.963MB
+  type: ss
+  server: 149.40.57.133
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: trojan-1943754366
+  type: trojan
+  server: 216.152.155.131
+  port: 443
+  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
+  udp: true
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: trojan-1931858183
+  type: trojan
+  server: 216.152.155.176
+  port: 443
+  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
+  udp: true
+  skip-cert-verify: true
+  servername: blog.nextjobopportunityandclaimyouridealrole.com
+  client-fingerprint: chrome
+- name: 🇺🇸US-216.106.178.169-0155 | 79.036MB
+  type: ss
+  server: 216.106.178.169
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: 🇺🇸US-38.128.66.32-0143 | 70.278MB
+  type: ss
+  server: 38.128.66.32
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: vless-1883103905
+  type: vless
+  server: 195.211.98.43
+  port: 443
+  uuid: 1b4b11d5-4c2d-4533-9a55-636757cdee94
+  tls: true
+  udp: true
+  network: raw
+  reality-opts:
+    public-key: xPnpkXu5qfwIArlHKvJsqKJnGdGbJK1tT2GzWMyLohA
+    short-id: 9c56fddf237e8eaf
+  servername: www.cloudflare.com
+  client-fingerprint: chrome
+  flow: xtls-rprx-vision
+- name: vmess-1828338235
+  type: vmess
+  server: 134.195.196.211
+  port: 18000
+  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  alterId: 0
+  cipher: auto
+  udp: true
+  network: tcp
+  client-fingerprint: chrome
+- name: shadowsocks-1827147700
+  type: ss
+  server: 138.199.42.68
+  port: 8080
+  cipher: rc4-md5
+  password: 14fFPrbezE3HDZzsMOr6
+  udp: true
+- name: 美国 389
+  type: vmess
+  server: 134.195.196.154
+  port: 1270
+  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
+  alterId: 0
+  cipher: auto
+  tls: true
+  network: tcp
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: vmess-1871753999
+  type: vmess
+  server: 23.162.200.198
+  port: 18000
+  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  alterId: 0
+  cipher: auto
+  udp: true
+  network: tcp
+  client-fingerprint: chrome
+- name: trojan-1935796418
+  type: trojan
+  server: 216.152.155.54
+  port: 443
+  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
+  udp: true
+  skip-cert-verify: true
+  servername: 216.152.155.54
+  client-fingerprint: chrome
+- name: 美国 391
+  type: vmess
+  server: 158.51.121.246
+  port: 1270
+  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
+  alterId: 0
+  cipher: auto
+  tls: true
+  network: tcp
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: shadowsocks-1827964140
+  type: ss
+  server: 138.197.141.58
+  port: 8080
+  cipher: rc4-md5
+  password: 14fFPrbezE3HDZzsMOr6
+  udp: true
+- name: shadowsocks-1827147479
+  type: ss
+  server: 137.184.174.93
+  port: 8080
+  cipher: rc4-md5
+  password: 14fFPrbezE3HDZzsMOr6
+  udp: true
+- name: shadowsocks-1875022945
+  type: ss
+  server: 45.86.51.18
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  udp: true
+- name: shadowsocks-1875023016
+  type: ss
+  server: 185.230.230.18
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  udp: true
+- name: shadowsocks-1827146815
+  type: ss
+  server: 156.146.38.168
+  port: 443
+  cipher: aes-128-gcm
+  password: shadowsocks
+  udp: true
+- name: shadowsocks-1827146131
+  type: ss
+  server: 156.146.38.169
+  port: 443
+  cipher: aes-128-gcm
+  password: shadowsocks
+  udp: true
+- name: shadowsocks-1827146549
+  type: ss
+  server: 156.146.38.170
+  port: 443
+  cipher: aes-128-gcm
+  password: shadowsocks
+  udp: true
+- name: shadowsocks-1827963043
+  type: ss
+  server: 107.151.182.253
+  port: 8080
+  cipher: rc4-md5
+  password: 14fFPrbezE3HDZzsMOr6
+  udp: true
+- name: 🇺🇸US-38.121.43.18-0114 | 83.063MB
+  type: ss
+  server: 38.121.43.18
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: 🇺🇸 美国 | USA ·2
+  type: ss
+  server: 129.146.200.42
+  port: 50356
+  cipher: 2022-blake3-chacha20-poly1305
+  password: 1KRWYoNOBU1OXV+dLChiRageSP9uIRY2wsJPieRC7kY=
+  udp: true
+- name: 美国 378
+  type: vmess
+  server: 38.22.17.64
+  port: 1270
+  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
+  alterId: 0
+  cipher: auto
+  tls: true
+  network: tcp
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: 🇺🇸US-38.121.43.225-0112 | 94.411MB
+  type: ss
+  server: 38.121.43.225
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: 🇺🇸US-38.121.43.231-0119 | 92.303MB
+  type: ss
+  server: 38.121.43.231
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: 🇺🇸US-38.22.17.129-0110 | 82.825MB
+  type: ss
+  server: 38.22.17.129
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: 美国 377
+  type: vmess
+  server: 172.111.36.253
+  port: 1270
+  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
+  alterId: 0
+  cipher: auto
+  tls: true
+  network: tcp
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: 美国 393
+  type: vmess
+  server: 172.111.36.126
+  port: 1270
+  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
+  alterId: 0
+  cipher: auto
+  tls: true
+  network: tcp
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: 🇺🇸US-167.88.63.99-0108 | 92.933MB
+  type: ss
+  server: 167.88.63.99
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: 🇺🇸US-172.111.36.123-0107 | 83.302MB
+  type: ss
+  server: 172.111.36.123
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: 🇺🇸US-23.150.152.38-0163 | 70.3MB
+  type: ss
+  server: 23.150.152.38
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: 🇺🇸US-38.22.17.219-0147 | 70.236MB
+  type: ss
+  server: 38.22.17.219
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: US7
+  type: vmess
+  server: 162.251.62.44
+  port: 1270
+  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
+  alterId: 0
+  cipher: auto
+  tls: true
+  network: tcp
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: 🇺🇸US-169.197.142.68-0113 | 63.668MB
+  type: ss
+  server: 169.197.142.68
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: US8
+  type: vmess
+  server: 67.220.74.188
+  port: 1270
+  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
+  alterId: 0
+  cipher: auto
+  tls: true
+  network: tcp
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: US11
+  type: vmess
+  server: 38.91.107.188
+  port: 1270
+  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
+  alterId: 0
+  cipher: auto
+  tls: true
+  network: tcp
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: US13
+  type: vmess
+  server: 162.251.62.35
+  port: 1270
+  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
+  alterId: 0
+  cipher: auto
+  tls: true
+  network: tcp
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: 美国 374
+  type: vmess
+  server: 162.251.62.31
+  port: 1270
+  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
+  alterId: 0
+  cipher: auto
+  tls: true
+  network: tcp
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: 美国 379
+  type: vmess
+  server: 38.91.107.84
+  port: 1270
+  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
+  alterId: 0
+  cipher: auto
+  tls: true
+  network: tcp
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: 美国 410
+  type: vless
+  server: 216.106.185.158
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  tls: true
+  udp: true
+  network: tcp
+  servername: kuruish.org
+  skip-cert-verify: false
+  tfo: false
+  client-fingerprint: chrome
+- name: '@DeltaKroneckerGithub_3021_IPV4'
+  type: vmess
+  server: 172.64.145.93
+  port: 443
+  uuid: 6a89a215-22bf-4bd7-9642-b95b2e09583a
+  alterId: 0
+  cipher: auto
+  tls: true
+  network: ws
+  ws-opts:
+    path: /hls/cctv5phd.m3u8
+    headers:
+      Host: guanwang.awsno.com
+  servername: guanwang.awsno.com
+  sni: guanwang.awsno.com
+  client-fingerprint: chrome
+- name: 🏁RELAY-172.67.137.158-1222
+  type: vmess
+  server: 172.67.137.158
+  port: 443
+  uuid: 6a89a215-22bf-4bd7-9642-b95b2e09583a
+  alterId: 0
+  cipher: auto
+  tls: true
+  network: ws
+  ws-opts:
+    path: /guanwang.awsno.com/hls/cctv5phd.m3u8
+    headers:
+      Host: nomino.11hi8itbaf.workers.dev
+  servername: nomino.11hi8itbaf.workers.dev
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: 🇺🇸US-38.91.107.188-0157 | 59.115MB
+  type: ss
+  server: 38.91.107.188
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: 🇺🇸US_14|2.0MB/s
+  type: vless
+  server: ws.liuzedong.ltd
+  port: 443
+  uuid: FCEAD694-2E27-4EEB-8836-9D4ACF3E028B
+  tls: true
+  udp: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: ws.liuzedong.ltd
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36
+    path: /ws
+  servername: ws.liuzedong.ltd
+  client-fingerprint: chrome
+- name: 美国 750
+  type: vmess
+  server: 104.18.42.163
+  port: 443
+  uuid: 6a89a215-22bf-4bd7-9642-b95b2e09583a
+  alterId: 0
+  cipher: auto
+  tls: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: guanwang.awsno.com
+    path: /hls/cctv5phd.m3u8
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: 🇺🇸US-162.251.62.31-0151 | 61.568MB
+  type: ss
+  server: 162.251.62.31
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: 🇺🇸 机场推荐:dafei.de 美国 89_IPV4
+  type: vmess
+  server: 188.114.99.137
+  port: 443
+  uuid: 6a89a215-22bf-4bd7-9642-b95b2e09583a
+  alterId: 0
+  cipher: auto
+  tls: true
+  network: ws
+  ws-opts:
+    path: /hls/cctv5phd.m3u8
+    headers:
+      Host: guanwang.awsno.com
+  servername: guanwang.awsno.com
+  sni: guanwang.awsno.com
+  client-fingerprint: chrome
+- name: 🇬🇧[www.v2nodes.com] ss-GB-1616
+  type: ss
+  server: 198.244.201.129
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: 🇪🇸ES-5.188.181.201-0227
+  type: ss
+  server: 5.188.181.201
+  port: 9030
+  cipher: aes-256-cfb
+  password: GeregetR8cvQHzYr
+- name: 🇪🇸ES-5.188.181.201-0226 | 2.981MB
+  type: ss
+  server: 5.188.181.201
+  port: 9011
+  cipher: aes-256-cfb
+  password: M3t2ZEQcMGRWBjRa
+- name: 🇪🇸ES-5.188.181.201-0230 | 2.882MB
+  type: ss
+  server: 5.188.181.201
+  port: 9041
+  cipher: aes-256-cfb
+  password: U6qnYRhfyDmn8sgn
+- name: 美国 251
+  type: vless
+  server: 38.107.236.166
+  port: 8443
+  uuid: 48572af1-d091-457b-a86e-4a457e99927f
+  tls: true
+  udp: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: 3h-unitedstates3.09vpn.com
+    path: /vless/
+  servername: 3h-unitedstates3.09vpn.com
+  skip-cert-verify: true
+  packet-encoding: xudp
+  client-fingerprint: chrome
+- name: 🇳🇱[www.v2nodes.com] ss-NL-1614
+  type: ss
+  server: 151.241.19.36
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: 🇬🇧[www.v2nodes.com] ss-GB-1451
+  type: ss
+  server: 158.173.24.73
+  port: 443
+  cipher: aes-128-gcm
+  password: shadowsocks
+- name: 🇳🇱[www.v2nodes.com] ss-NL-1614... 1
+  type: ss
+  server: 151.241.19.29
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: 🇳🇱 荷兰 | NLD
+  type: vless
+  server: 193.111.248.54
+  port: 443
+  uuid: a8e5585a-6020-4649-a364-c1ebf3a40548
+  tls: true
+  udp: true
+  network: tcp
+  reality-opts:
+    public-key: 0KDql59THS-DXg30wMR0QGgFB6rXARDhr8WoWyfVA2M
+    short-id: 6f0091ebe3029ebb
+  servername: tagderdeutscheneinheit.de
+  client-fingerprint: firefox
+  flow: xtls-rprx-vision
+- name: 🇳🇱NL-158.173.20.171-0191 | 23.828MB
+  type: ss
+  server: 158.173.20.171
+  port: 443
+  cipher: aes-128-gcm
+  password: shadowsocks
+- name: 🇺🇸 机场推荐:dafei.de 美国 15_IPV4
+  type: vmess
+  server: 172.67.190.164
+  port: 443
+  uuid: 6a89a215-22bf-4bd7-9642-b95b2e09583a
+  alterId: 0
+  cipher: auto
+  tls: true
+  network: ws
+  ws-opts:
+    path: /hls/cctv5phd.m3u8
+    headers:
+      Host: guanwang.awsno.com
+  servername: guanwang.awsno.com
+  sni: guanwang.awsno.com
+  client-fingerprint: chrome
+- name: 法国 010
+  type: vmess
+  server: 91.134.35.72
+  port: 1270
+  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
+  alterId: 0
+  cipher: auto
+  tls: true
+  network: tcp
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: 德国 009
+  type: vmess
+  server: 141.95.65.9
+  port: 1234
+  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
+  alterId: 0
+  cipher: aes-128-gcm
+  tls: true
+  udp: true
+  network: tcp
+  servername: supervpn.super.com
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: 🇩🇪[www.v2nodes.com] ss-DE-1616
+  type: ss
+  server: 57.129.83.85
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: 🇫🇷[www.v2nodes.com] ss-FR-1615... 2
+  type: ss
+  server: 167.17.64.175
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: 🇩🇪 德国 | DEU 2
+  type: ss
+  server: 47.85.227.36
+  port: 443
+  cipher: 2022-blake3-chacha20-poly1305
+  password: 3NBsnBLanPfG6i3S2GTHineswr6EeSJPb0PCeMQoGoA=
+  udp: true
+- name: 🇬🇧GB-82.38.31.205-0123 | 82.618MB
+  type: ss
+  server: 82.38.31.205
+  port: 8080
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+- name: 🇬🇧GB-82.38.31.203-0150 | 79.992MB
+  type: ss
+  server: 82.38.31.203
+  port: 8080
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+- name: 🇬🇧GB-82.38.31.207-0139 | 72.207MB
+  type: ss
+  server: 82.38.31.207
+  port: 8080
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+- name: 🇫🇷[www.v2nodes.com] ss-FR-1615
+  type: ss
+  server: 38.109.228.110
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: 🇫🇷[www.v2nodes.com] ss-FR-1615... 1
+  type: ss
+  server: 167.17.64.27
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: 🇬🇧GB-82.38.31.181-0131 | 78.5MB
+  type: ss
+  server: 82.38.31.181
+  port: 8080
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+- name: 🇬🇧GB-82.38.31.35-0202 | 17.0MB
+  type: ss
+  server: 82.38.31.35
+  port: 8080
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+- name: 德国 056
+  type: vless
+  server: 94.103.168.62
+  port: 2087
+  uuid: 92a188aa-2e86-4557-bd30-b2079a70f824
+  tls: true
+  udp: true
+  network: tcp
+  servername: uuyjnfbv.localip.ir
+  skip-cert-verify: false
+  tfo: false
+  client-fingerprint: chrome
+- name: 🇬🇧GB-82.38.31.191-0149 | 82.237MB
+  type: ss
+  server: 82.38.31.191
+  port: 8080
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+- name: 德国 002
+  type: vless
+  server: 176.65.151.85
+  port: 8880
+  uuid: c828eb74-d586-4ffc-8075-9f03949cb54c
+  tls: false
+  udp: true
+  network: tcp
+  ws-opts:
+    path: /
+  client-fingerprint: chrome
+- name: 🇬🇧GB-82.38.31.199-0255 | 4.839MB
+  type: ss
+  server: 82.38.31.199
+  port: 8080
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+- name: 🇬🇧GB-82.38.31.212-0124 | 77.269MB
+  type: ss
+  server: 82.38.31.212
+  port: 8080
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+- name: 🇬🇧GB-82.38.31.180-0134 | 73.351MB
+  type: ss
+  server: 82.38.31.180
+  port: 8080
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+- name: 🇬🇧GB-82.38.31.216-0133 | 71.582MB
+  type: ss
+  server: 82.38.31.216
+  port: 8080
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+- name: 🇬🇧GB-82.38.31.217-0128 | 68.612MB
+  type: ss
+  server: 82.38.31.217
+  port: 8080
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+- name: 🇵🇱PL-217.30.10.70-0254 | 8.821MB
+  type: ss
+  server: 217.30.10.70
+  port: 9044
+  cipher: aes-256-cfb
+  password: KBGjZYcy4SyRShmA
+- name: 🇵🇱PL-217.30.10.70-5813 | 1.486MB
+  type: ss
+  server: 217.30.10.70
+  port: 9059
+  cipher: aes-256-cfb
+  password: 9XwYyZsK8SNzQDtY
+- name: 🇵🇱PL-217.30.10.70-5806 | 1.102MB
+  type: ss
+  server: 217.30.10.70
+  port: 9084
+  cipher: aes-256-cfb
+  password: c3NtHJ5ujV2tGDfj
+- name: 法国 009
+  type: vmess
+  server: 46.105.222.157
+  port: 1270
+  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
+  alterId: 0
+  cipher: auto
+  tls: true
+  network: tcp
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: 🇬🇧GB-82.38.31.194-0125 | 76.96MB
+  type: ss
+  server: 82.38.31.194
+  port: 8080
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+- name: 🇳🇱NL-193.29.139.147-0137 | 71.12MB
+  type: ss
+  server: 193.29.139.147
+  port: 8080
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+- name: 🇬🇧GB-82.38.31.186-0120 | 73.282MB
+  type: ss
+  server: 82.38.31.186
+  port: 8080
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+- name: 🇨🇭[www.v2nodes.com] ss-CH-1615
+  type: ss
+  server: 186.190.215.251
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: 🇬🇧GB-82.38.31.210-5781 | 82.53MB
+  type: ss
+  server: 82.38.31.210
+  port: 8080
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+- name: 瑞士 009
+  type: vless
+  server: 179.43.187.67
+  port: 443
+  uuid: 9dd38d60-e683-47c6-bd53-d71bdfee78f3
+  tls: true
+  udp: true
+  network: tcp
+  servername: portal.mavexa.ir
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  tfo: false
+- name: 乌克兰 003
+  type: vless
+  server: 85.90.217.42
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  tls: true
+  udp: true
+  network: tcp
+  servername: 85.90.217.42
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: 🇳🇱[www.v2nodes.com] ss-NL-1616
+  type: ss
+  server: 77.221.132.206
+  port: 24759
+  cipher: chacha20-ietf-poly1305
+  password: hCgbUnMaoAfSgvE8IKdnGu
+- name: 西班牙 002
+  type: vmess
+  server: 62.93.166.184
+  port: 1270
+  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
+  alterId: 0
+  cipher: auto
+  tls: true
+  network: tcp
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: 🇸🇪[www.v2nodes.com] vless-SE-1
+  type: vless
+  server: 138.124.86.230
+  port: 48115
+  uuid: b2fe1fa4-6a79-4938-a3f4-63b54ae7f16b
+  tls: true
+  udp: true
+  network: grpc
+  grpc-opts:
+    grpc-service-name: 138-124-86-230-sslip-io
+  servername: 138-124-86-230.sslip.io
+  client-fingerprint: firefox
+- name: 🇸🇪[www.v2nodes.com] ss-SE-1615
+  type: ss
+  server: 138.199.55.243
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: 🇪🇸[www.v2nodes.com] ss-ES-1615
+  type: ss
+  server: 66.163.118.103
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: 🇮🇹[www.v2nodes.com] ss-IT-1623
+  type: ss
+  server: 57.131.27.21
+  port: 8388
+  cipher: aes-256-gcm
+  password: itzvpn@321
+- name: 🇦🇹 奥地利 | AUT
+  type: vless
+  server: 152.53.1.170
+  port: 443
+  uuid: 4fddfe0e-fddc-4032-b4c8-09c6d811fed0
+  tls: true
+  udp: true
+  network: tcp
+  servername: node-au.neverlock.uk
+  alpn:
+  - h2
+  - http/1.1
+  client-fingerprint: chrome
+  flow: xtls-rprx-vision
+- name: 🇦🇹[www.v2nodes.com] ss-AT-1614
+  type: ss
+  server: 152.53.1.57
+  port: 8388
+  cipher: chacha20-ietf-poly1305
+  password: AdawffFMHymlasRb0VOP3HFf7sTG5sJx
+- name: 🇨🇭[www.v2nodes.com] ss-CH-1615... 1
+  type: ss
+  server: 79.127.184.104
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: 🇷🇺[www.v2nodes.com] ss-RU-1163
+  type: ss
+  server: 90.156.203.62
+  port: 5112
+  cipher: chacha20-ietf-poly1305
+  password: VVlAff77CnAU43Aoc5j15Y
+- name: 🇷🇺 俄罗斯 | RUS 4
+  type: vless
+  server: leviko-ru4448.shopingggg.ir
+  port: 443
+  uuid: 38308ff1-5aa9-494f-a25a-0f2870d56b3e
+  tls: true
+  udp: true
+  network: grpc
+  grpc-opts:
+    grpc-mode: gun
+    grpc-service-name: mobile.api.Event
+  servername: vps3.nemnogogo.com
+  alpn:
+  - h2
+  client-fingerprint: chrome
+- name: 🇯🇵JP-168.138.205.100-0252 | 2.461MB
+  type: ss
+  server: jpa.123069.xyz
+  port: 53758
+  cipher: aes-128-gcm
+  password: Bwlqh7GcFB
+- name: 🇷🇺 俄罗斯 | RUS 3
+  type: vless
+  server: vps3.nemnogogo.com
+  port: 443
+  uuid: 38308ff1-5aa9-494f-a25a-0f2870d56b3e
+  tls: true
+  udp: true
+  network: grpc
+  grpc-opts:
+    grpc-mode: gun
+    grpc-service-name: mobile.api.Event
+  servername: vps3.nemnogogo.com
+  alpn:
+  - h2
+  client-fingerprint: firefox
+- name: 🇷🇺 俄罗斯 | RUS
+  type: vless
+  server: 201.51.12.98
+  port: 443
+  uuid: 38308ff1-5aa9-494f-a25a-0f2870d56b3e
+  tls: true
+  udp: true
+  network: grpc
+  grpc-opts:
+    grpc-mode: gun
+    grpc-service-name: mobile.api.Event
+  servername: vps3.nemnogogo.com
+  client-fingerprint: firefox
+- name: 🇷🇺 俄罗斯 | RUS 2
+  type: vless
+  server: 201.24.116.192
+  port: 443
+  uuid: 38308ff1-5aa9-494f-a25a-0f2870d56b3e
+  tls: true
+  udp: true
+  network: grpc
+  grpc-opts:
+    grpc-mode: gun
+    grpc-service-name: mobile.api.Event
+  servername: vps3.nemnogogo.com
+  client-fingerprint: firefox
+- name: 俄罗斯 027
+  type: vless
+  server: 147.45.175.81
+  port: 443
+  uuid: c90395e6-2140-47ad-a54d-9b166729d3ef
+  tls: true
+  udp: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: xsru2.freeddns.org
+    path: wsru
+  servername: xsru2.freeddns.org
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  tfo: false
+- name: 🇯🇵JP-168.138.205.100-0247 | 2.211MB
+  type: ss
+  server: 168.138.205.100
+  port: 53758
+  cipher: aes-128-gcm
+  password: Bwlqh7GcFB
+- name: C🟠🇯🇵hos[💬🎮✈️📚]_dokng.com_bd5beb5b
+  type: vless
+  server: 155.248.175.201
+  port: 23169
+  uuid: f67b1159-a61f-4ae4-9844-0701b716a290
+  tls: true
+  network: tcp
+  servername: djj.zjlo.top
+  client-fingerprint: firefox
+  flow: xtls-rprx-vision
+  packet-encoding: xudp
+- name: 🇬🇧 英国 | GBR 3
+  type: vless
+  server: 136.148.83.70
+  port: 443
+  uuid: 00000000-0000-0001-0000-000000000000
+  tls: true
+  udp: true
+  network: tcp
+  servername: aszbk-ru-78dc.my-fade.cloud
+  client-fingerprint: qq
+- name: 🇬🇧 英国 | GBR 5
+  type: hysteria2
+  server: 136.148.83.69
+  port: 443
+  password: 87bb2ac4-b7a1-0001-b11d-2107709ea6cb
+  udp: true
+  skip-cert-verify: true
+  auth: 87bb2ac4-b7a1-0001-b11d-2107709ea6cb
+  servername: szqbx-ru-77dc.my-fade.cloud
+- name: 🇩🇪 德国 | DEU 16 ·2
+  type: vless
+  server: ws3.falmero.store
+  port: 443
+  uuid: 0b6a7fe0-206b-4071-9f96-cd397d1ec01a
+  tls: true
+  udp: true
+  network: ws
+  ws-opts:
+    path: /api/de1/stream
+    headers:
+      Host: paperbirch.merlano.monster
+  servername: paperbirch.merlano.monster
+  client-fingerprint: firefox
+- name: 🇭🇰 香港 | HKG 3
+  type: vmess
+  server: 47.86.90.31
+  port: 443
+  uuid: 234a8041-2b4d-44a3-a8d8-523cbfd58dc4
+  alterId: 0
+  cipher: auto
+  tls: true
+  udp: true
+  network: ws
+  ws-opts:
+    path: /ws-vmess
+    headers:
+      Host: bywxdhirqkjj8xaz.v.3dns.vip
+  servername: bywxdhirqkjj8xaz.v.3dns.vip
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: 🇭🇰 香港 | HKG 3 ·2
+  type: vmess
+  server: 47.244.120.197
+  port: 23026
+  uuid: b9de1bc9-baa7-41ac-86f7-ccd59695cb21
+  alterId: 0
+  cipher: auto
+  tls: false
+  udp: true
+  network: ws
+  ws-opts:
+    path: /arki
+    headers:
+      Host: 47.244.120.197
+  servername: 47.244.120.197
+  skip-cert-verify: true
+  alpn:
+  - ''
+  client-fingerprint: chrome
+- name: C🟠🇮🇹hos[🤖💬🔮🧩]_dokng.com_e0e3bc52
+  type: ss
+  server: 202.50.253.45
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  tls: false
+  udp: true
+  skip-cert-verify: false
+- name: C🟠🇮🇹hos[🤖💬📺🎵]_dokng.com_ed9e5a0d
+  type: ss
+  server: 202.50.253.27
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  tls: false
+  udp: true
+  skip-cert-verify: false
+- name: 🇷🇺_俄罗斯 (7)
+  type: vless
+  server: cabinet.filnex.baby
+  port: 443
+  uuid: 0b6a7fe0-206b-4071-9f96-cd397d1ec01a
+  tls: true
+  udp: true
+  network: ws
+  ws-opts:
+    path: /api/de7/stream
+  servername: claywick.elvano.website
+  sni: claywick.elvano.website
+  skip-cert-verify: true
+  alpn:
+  - http/1.1
+  client-fingerprint: firefox
+- name: 🇬🇧 英国 | GBR
+  type: vless
+  server: 136.148.83.71
+  port: 443
+  uuid: 00000000-0000-0001-0000-000000000000
+  tls: true
+  udp: true
+  network: tcp
+  servername: wccfu-ru-79dc.my-fade.cloud
+  client-fingerprint: qq
+- name: 🇮🇹_意大利 (9)
+  type: ss
+  server: 202.50.253.63
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  tls: false
+  udp: true
+  skip-cert-verify: true
+- name: 🇮🇹_意大利 (2)
+  type: ss
+  server: 202.50.253.72
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  tls: false
+  udp: true
+  skip-cert-verify: true
+- name: 🇹🇼_TW_台湾_IPV4
+  type: anytls
+  server: rtifgjdr.df6h451rh.xin
+  port: 443
+  password: 2902c46c8493
+  tls: true
+  servername: docs.microsoft.com
+  sni: docs.microsoft.com
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: C🟠🇮🇹hos[🤖💬🔮🧩]_dokng.com_9f940a28
+  type: ss
+  server: 202.50.253.99
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  tls: false
+  udp: true
+  skip-cert-verify: false
+- name: D🔴🇮🇹hos[🤖💬🔮🎵]_dokng.com_ed4de7bb
+  type: ss
+  server: 202.50.253.90
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  tls: false
+  udp: true
+  skip-cert-verify: false
+- name: 🇭🇰HK-156.245.232.239-5875 | 0.019MB
+  type: vmess
+  server: 156.245.232.239
+  port: 35043
+  uuid: b15e481d-17e4-41a8-84c2-23d4f0514d9a
+  alterId: 0
+  cipher: auto
+  tls: false
+  network: ws
+  ws-opts:
+    path: /
+  skip-cert-verify: false
+  client-fingerprint: chrome
+- name: D🔴🇭🇰hos[🔮🧩📺🎭]_dokng.com_5283af7f
+  type: ss
+  server: 27.124.5.86
+  port: 8388
+  cipher: 2022-blake3-aes-256-gcm
+  password: j4DddfVh3zON1s3Wfbmdn2WWhLCWAaOJyKqdeKvxh4A=
+  udp: true
+- name: 🇸🇬[www.v2nodes.com] ss-SG-1615
+  type: ss
+  server: 149.88.107.74
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: C🟠🇮🇹hos[🤖💬🔮📺]_dokng.com_79faec8a
+  type: ss
+  server: 202.50.253.18
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  tls: false
+  udp: true
+  skip-cert-verify: false
+- name: 🇮🇹_意大利 (7)
+  type: ss
+  server: 202.50.253.54
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  tls: false
+  udp: true
+  skip-cert-verify: true
+- name: 🇸🇬SG-149.88.106.73-0174 | 44.45MB
+  type: ss
+  server: 149.88.106.73
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: 🇸🇬[www.v2nodes.com] ss-SG-1615... 1
+  type: ss
+  server: 149.88.107.47
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: 🇸🇬[www.v2nodes.com] ss-SG-1616
+  type: ss
+  server: 15.235.182.183
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: 🇮🇹_意大利 (11)
+  type: ss
+  server: 202.50.253.36
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  tls: false
+  udp: true
+  skip-cert-verify: true
+- name: 🇸🇬_新加坡 (11)
+  type: trojan
+  server: atrsg1.hikigo.com
+  port: 443
+  password: 57beeeb0-03fc-4fc9-94da-7604488a7134
+  tls: true
+  udp: true
+  servername: atrsg1.hikigo.com
+  sni: atrsg1.hikigo.com
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: 🇮🇹_意大利 (3)
+  type: ss
+  server: 202.50.253.81
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  tls: false
+  udp: true
+  skip-cert-verify: true
+- name: 🇩🇪 德国 | DEU 11
+  type: vless
+  server: vellum.filnex.baby
+  port: 443
+  uuid: 0b6a7fe0-206b-4071-9f96-cd397d1ec01a
+  tls: true
+  udp: true
+  network: grpc
+  grpc-opts:
+    grpc-mode: gun
+    grpc-service-name: glush.de3.v1
+  servername: rookery.moltex.click
+  client-fingerprint: firefox
+- name: 🇷🇺_俄罗斯 (16)
+  type: vless
+  server: archive.filnex.baby
+  port: 443
+  uuid: 0b6a7fe0-206b-4071-9f96-cd397d1ec01a
+  tls: true
+  udp: true
+  network: grpc
+  grpc-opts:
+    grpc-service-name: glush.de7.v1
+  servername: elmharbor.gerqix.online
+  sni: elmharbor.gerqix.online
+  skip-cert-verify: true
+  alpn:
+  - h2
+  client-fingerprint: edge
+- name: D🔴🇸🇬hos[🎮✈️🐙🔍]_dokng.com_146ca5ea
+  type: vless
+  server: free.fugui.lol
+  port: 51283
+  uuid: ead3595f-4020-4e76-a3ec-c248e1a2f2f7
+  tls: true
+  network: tcp
+  reality-opts:
+    public-key: IjWYbHNrZb3UCQxsTJyekEOA3tHq42L6Jw3O8MmLYVQ
+    short-id: fa514b83
+  servername: swdist.apple.com
+  client-fingerprint: ios
+  flow: xtls-rprx-vision
+- name: 越南|@ripaojiedian
+  type: trojan
+  server: xvxn1hkzf.mateflora.com
+  port: 443
+  password: 57beeeb0-03fc-4fc9-94da-7604488a7134
+  udp: true
+  network: tcp
+  skip-cert-verify: true
+  servername: xvxn1hkzf.mateflora.com
+  client-fingerprint: chrome
+- name: 🇩🇪_德国 (5)
+  type: vless
+  server: 4935e4t.de25.h1clayd.click
+  port: 443
+  uuid: 4201786b-d99b-4147-a5f0-20d47acddb81
+  tls: true
+  udp: true
+  reality-opts:
+    public-key: MzgB17ZFbKqs8pbC3EscTzHid_ENc-k_Cp6nXl-2knw
+    short-id: 6976d670818644cc
+  servername: 4935e4t.de25.h1clayd.click
+  sni: 4935e4t.de25.h1clayd.click
+  skip-cert-verify: true
+  client-fingerprint: ios
+  flow: xtls-rprx-vision
+- name: 🇩🇪 德国 | DEU 6
+  type: vless
+  server: marina.gerqix.online
+  port: 443
+  uuid: 0b6a7fe0-206b-4071-9f96-cd397d1ec01a
+  tls: true
+  udp: true
+  network: ws
+  ws-opts:
+    path: /api/de3/stream
+    headers:
+      Host: marina.gerqix.online
+  servername: marina.gerqix.online
+  alpn:
+  - http/1.1
+  client-fingerprint: firefox
+- name: 🇭🇰_香港 (16)
+  type: trojan
+  server: hkzfsg1.mateflora.com
+  port: 443
+  password: 57beeeb0-03fc-4fc9-94da-7604488a7134
+  tls: true
+  udp: true
+  servername: hkzfsg1.mateflora.com
+  sni: hkzfsg1.mateflora.com
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: 🇸🇬[www.v2nodes.com] trojan-SG-... 1
+  type: trojan
+  server: 15.235.184.127
+  port: 443
+  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
+  tls: true
+  udp: true
+  servername: exploredigitaljobplatformandfindonlinework.com
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: 🇭🇰_香港 (18)
+  type: trojan
+  server: zzfxgcp.mateflora.com
+  port: 30178
+  password: 57beeeb0-03fc-4fc9-94da-7604488a7134
+  tls: true
+  udp: true
+  servername: usbg1hkzf.hikigo.com
+  sni: usbg1hkzf.hikigo.com
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: 🇭🇰_香港 (17)
+  type: trojan
+  server: usbg1hkzf.hikigo.com
+  port: 443
+  password: 57beeeb0-03fc-4fc9-94da-7604488a7134
+  tls: true
+  udp: true
+  servername: usbg1hkzf.hikigo.com
+  sni: usbg1hkzf.hikigo.com
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: 🇮🇳_印度
+  type: vless
+  server: xray-dmr3b3hy-calm-maple-7.cloady.io
+  port: 443
+  uuid: 06a5afa1-2bbc-a5d1-1770-becd1089c636
+  tls: true
+  udp: true
+  network: ws
+  ws-opts:
+    path: /0175469f14317d82
+  servername: xray-dmr3b3hy-calm-maple-7.cloady.io
+  sni: xray-dmr3b3hy-calm-maple-7.cloady.io
+  skip-cert-verify: true
+  client-fingerprint: chrome
+- name: 🇨🇿 捷克 | CZE
+  type: vless
+  server: 153.52.69.249
+  port: 443
+  uuid: 7ad63b26-bf70-4872-8fab-ebaf73a1e19d
+  tls: true
+  udp: true
+  network: tcp
+  reality-opts:
+    public-key: WVfpQqoeOrTtCq052_IOxvMv7RCWfLlAOxEfsH1aa2U
+    short-id: d5492c7a39515c65
+  servername: cache-78.topp-con.xyz
+  client-fingerprint: chrome
+  flow: xtls-rprx-vision
+- name: 🇩🇪_德国 (13)
+  type: ss
+  server: 47.254.167.157
+  port: 443
+  cipher: 2022-blake3-chacha20-poly1305
+  password: 8yO3ANWefuuGs1lRKXECQA1FEhxlWFV2ppQMcBaZo5Y=
+  tls: false
+  udp: true
+  skip-cert-verify: true
+proxy-groups:
+- name: ♻️ 自动选择
+  type: url-test
+  proxies: &id001
+  - 🏳[www.v2nodes.com] vless- 13
+  - shadowsocks-1827147591
+  - shadowsocks-1827146742
+  - 🇺🇸US-38.91.100.39-0164 | 47.486MB
+  - shadowsocks-1827146248
+  - shadowsocks-1827146122
+  - shadowsocks-1827146051
+  - vless-1853350171
+  - vless-1854038780
+  - vless-1853462750
+  - 美国 380
+  - vless-1827147089
+  - vless-1891839087
+  - vmess-1853361191
+  - trojan-1827955817
+  - vless-1854337870
+  - vless-1827162772
+  - vless-1828293988
+  - vless-1827319616
+  - vless-1828293967
+  - vless-1883549617
+  - vless-1828373732
+  - vless-1879373946
+  - shadowsocks-1827146529
+  - 西班牙 003
+  - vmess-1837386222
+  - 🇺🇸US-172.111.38.72-0176 | 35.043MB
+  - 🇨🇦[www.v2nodes.com] ss-CA-1558
+  - 🇺🇸US-149.40.57.138-0153 | 72.456MB
+  - 🏳[www.v2nodes.com] ss
+  - 🇺🇸US-149.40.57.134-0152 | 73.655MB
+  - shadowsocks-1875023024
+  - vless-1828036218
+  - 🇺🇸US-149.40.57.133-0200 | 51.963MB
+  - trojan-1943754366
+  - trojan-1931858183
+  - 🇺🇸US-216.106.178.169-0155 | 79.036MB
+  - 🇺🇸US-38.128.66.32-0143 | 70.278MB
+  - vless-1883103905
+  - vmess-1828338235
+  - shadowsocks-1827147700
+  - 美国 389
+  - vmess-1871753999
+  - trojan-1935796418
+  - 美国 391
+  - shadowsocks-1827964140
+  - shadowsocks-1827147479
+  - shadowsocks-1875022945
+  - shadowsocks-1875023016
+  - shadowsocks-1827146815
+  - shadowsocks-1827146131
+  - shadowsocks-1827146549
+  - shadowsocks-1827963043
+  - 🇺🇸US-38.121.43.18-0114 | 83.063MB
+  - 🇺🇸 美国 | USA ·2
+  - 美国 378
+  - 🇺🇸US-38.121.43.225-0112 | 94.411MB
+  - 🇺🇸US-38.121.43.231-0119 | 92.303MB
+  - 🇺🇸US-38.22.17.129-0110 | 82.825MB
+  - 美国 377
+  - 美国 393
+  - 🇺🇸US-167.88.63.99-0108 | 92.933MB
+  - 🇺🇸US-172.111.36.123-0107 | 83.302MB
+  - 🇺🇸US-23.150.152.38-0163 | 70.3MB
+  - 🇺🇸US-38.22.17.219-0147 | 70.236MB
+  - US7
+  - 🇺🇸US-169.197.142.68-0113 | 63.668MB
+  - US8
+  - US11
+  - US13
+  - 美国 374
+  - 美国 379
+  - 美国 410
+  - '@DeltaKroneckerGithub_3021_IPV4'
+  - 🏁RELAY-172.67.137.158-1222
+  - 🇺🇸US-38.91.107.188-0157 | 59.115MB
+  - 🇺🇸US_14|2.0MB/s
+  - 美国 750
+  - 🇺🇸US-162.251.62.31-0151 | 61.568MB
+  - 🇺🇸 机场推荐:dafei.de 美国 89_IPV4
+  - 🇬🇧[www.v2nodes.com] ss-GB-1616
+  - 🇪🇸ES-5.188.181.201-0227
+  - 🇪🇸ES-5.188.181.201-0226 | 2.981MB
+  - 🇪🇸ES-5.188.181.201-0230 | 2.882MB
+  - 美国 251
+  - 🇳🇱[www.v2nodes.com] ss-NL-1614
+  - 🇬🇧[www.v2nodes.com] ss-GB-1451
+  - 🇳🇱[www.v2nodes.com] ss-NL-1614... 1
+  - 🇳🇱 荷兰 | NLD
+  - 🇳🇱NL-158.173.20.171-0191 | 23.828MB
+  - 🇺🇸 机场推荐:dafei.de 美国 15_IPV4
+  - 法国 010
+  - 德国 009
+  - 🇩🇪[www.v2nodes.com] ss-DE-1616
+  - 🇫🇷[www.v2nodes.com] ss-FR-1615... 2
+  - 🇩🇪 德国 | DEU 2
+  - 🇬🇧GB-82.38.31.205-0123 | 82.618MB
+  - 🇬🇧GB-82.38.31.203-0150 | 79.992MB
+  - 🇬🇧GB-82.38.31.207-0139 | 72.207MB
+  - 🇫🇷[www.v2nodes.com] ss-FR-1615
+  - 🇫🇷[www.v2nodes.com] ss-FR-1615... 1
+  - 🇬🇧GB-82.38.31.181-0131 | 78.5MB
+  - 🇬🇧GB-82.38.31.35-0202 | 17.0MB
+  - 德国 056
+  - 🇬🇧GB-82.38.31.191-0149 | 82.237MB
+  - 德国 002
+  - 🇬🇧GB-82.38.31.199-0255 | 4.839MB
+  - 🇬🇧GB-82.38.31.212-0124 | 77.269MB
+  - 🇬🇧GB-82.38.31.180-0134 | 73.351MB
+  - 🇬🇧GB-82.38.31.216-0133 | 71.582MB
+  - 🇬🇧GB-82.38.31.217-0128 | 68.612MB
+  - 🇵🇱PL-217.30.10.70-0254 | 8.821MB
+  - 🇵🇱PL-217.30.10.70-5813 | 1.486MB
+  - 🇵🇱PL-217.30.10.70-5806 | 1.102MB
+  - 法国 009
+  - 🇬🇧GB-82.38.31.194-0125 | 76.96MB
+  - 🇳🇱NL-193.29.139.147-0137 | 71.12MB
+  - 🇬🇧GB-82.38.31.186-0120 | 73.282MB
+  - 🇨🇭[www.v2nodes.com] ss-CH-1615
+  - 🇬🇧GB-82.38.31.210-5781 | 82.53MB
+  - 瑞士 009
+  - 乌克兰 003
+  - 🇳🇱[www.v2nodes.com] ss-NL-1616
+  - 西班牙 002
+  - 🇸🇪[www.v2nodes.com] vless-SE-1
+  - 🇸🇪[www.v2nodes.com] ss-SE-1615
+  - 🇪🇸[www.v2nodes.com] ss-ES-1615
+  - 🇮🇹[www.v2nodes.com] ss-IT-1623
+  - 🇦🇹 奥地利 | AUT
+  - 🇦🇹[www.v2nodes.com] ss-AT-1614
+  - 🇨🇭[www.v2nodes.com] ss-CH-1615... 1
+  - 🇷🇺[www.v2nodes.com] ss-RU-1163
+  - 🇷🇺 俄罗斯 | RUS 4
+  - 🇯🇵JP-168.138.205.100-0252 | 2.461MB
+  - 🇷🇺 俄罗斯 | RUS 3
+  - 🇷🇺 俄罗斯 | RUS
+  - 🇷🇺 俄罗斯 | RUS 2
+  - 俄罗斯 027
+  - 🇯🇵JP-168.138.205.100-0247 | 2.211MB
+  - C🟠🇯🇵hos[💬🎮✈️📚]_dokng.com_bd5beb5b
+  - 🇬🇧 英国 | GBR 3
+  - 🇬🇧 英国 | GBR 5
+  - 🇩🇪 德国 | DEU 16 ·2
+  - 🇭🇰 香港 | HKG 3
+  - 🇭🇰 香港 | HKG 3 ·2
+  - C🟠🇮🇹hos[🤖💬🔮🧩]_dokng.com_e0e3bc52
+  - C🟠🇮🇹hos[🤖💬📺🎵]_dokng.com_ed9e5a0d
+  - 🇷🇺_俄罗斯 (7)
+  - 🇬🇧 英国 | GBR
+  - 🇮🇹_意大利 (9)
+  - 🇮🇹_意大利 (2)
+  - 🇹🇼_TW_台湾_IPV4
+  - C🟠🇮🇹hos[🤖💬🔮🧩]_dokng.com_9f940a28
+  - D🔴🇮🇹hos[🤖💬🔮🎵]_dokng.com_ed4de7bb
+  - 🇭🇰HK-156.245.232.239-5875 | 0.019MB
+  - D🔴🇭🇰hos[🔮🧩📺🎭]_dokng.com_5283af7f
+  - 🇸🇬[www.v2nodes.com] ss-SG-1615
+  - C🟠🇮🇹hos[🤖💬🔮📺]_dokng.com_79faec8a
+  - 🇮🇹_意大利 (7)
+  - 🇸🇬SG-149.88.106.73-0174 | 44.45MB
+  - 🇸🇬[www.v2nodes.com] ss-SG-1615... 1
+  - 🇸🇬[www.v2nodes.com] ss-SG-1616
+  - 🇮🇹_意大利 (11)
+  - 🇸🇬_新加坡 (11)
+  - 🇮🇹_意大利 (3)
+  - 🇩🇪 德国 | DEU 11
+  - 🇷🇺_俄罗斯 (16)
+  - D🔴🇸🇬hos[🎮✈️🐙🔍]_dokng.com_146ca5ea
+  - 越南|@ripaojiedian
+  - 🇩🇪_德国 (5)
+  - 🇩🇪 德国 | DEU 6
+  - 🇭🇰_香港 (16)
+  - 🇸🇬[www.v2nodes.com] trojan-SG-... 1
+  - 🇭🇰_香港 (18)
+  - 🇭🇰_香港 (17)
+  - 🇮🇳_印度
+  - 🇨🇿 捷克 | CZE
+  - 🇩🇪_德国 (13)
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+  lazy: false
+- name: 🔁 故障转移
+  type: fallback
+  proxies: *id001
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+- name: 🚀 节点选择
+  type: select
+  proxies:
+  - DIRECT
+  - ♻️ 自动选择
+  - 🔁 故障转移
+  - 🇺🇸 美国
+  - 🏳️ 其他
+  - 🇪🇸 西班牙
+  - 🇨🇦 加拿大
+  - 🇬🇧 英国
+  - 🇳🇱 荷兰
+  - 🇫🇷 法国
+  - 🇩🇪 德国
+  - 🇵🇱 波兰
+  - 🇨🇭 瑞士
+  - 🇺🇦 乌克兰
+  - 🇸🇪 瑞典
+  - 🇮🇹 意大利
+  - 🇦🇹 奥地利
+  - 🇷🇺 俄罗斯
+  - 🇯🇵 日本
+  - 🇭🇰 香港
+  - 🇹🇼 台湾
+  - 🇸🇬 新加坡
+  - 🇻🇳 越南
+  - 🇮🇳 印度
+  - 🇨🇿 捷克
+  - 🏳[www.v2nodes.com] vless- 13
+  - shadowsocks-1827147591
+  - shadowsocks-1827146742
+  - 🇺🇸US-38.91.100.39-0164 | 47.486MB
+  - shadowsocks-1827146248
+  - shadowsocks-1827146122
+  - shadowsocks-1827146051
+  - vless-1853350171
+  - vless-1854038780
+  - vless-1853462750
+  - 美国 380
+  - vless-1827147089
+  - vless-1891839087
+  - vmess-1853361191
+  - trojan-1827955817
+  - vless-1854337870
+  - vless-1827162772
+  - vless-1828293988
+  - vless-1827319616
+  - vless-1828293967
+  - vless-1883549617
+  - vless-1828373732
+  - vless-1879373946
+  - shadowsocks-1827146529
+  - 西班牙 003
+  - vmess-1837386222
+  - 🇺🇸US-172.111.38.72-0176 | 35.043MB
+  - 🇨🇦[www.v2nodes.com] ss-CA-1558
+  - 🇺🇸US-149.40.57.138-0153 | 72.456MB
+  - 🏳[www.v2nodes.com] ss
+  - 🇺🇸US-149.40.57.134-0152 | 73.655MB
+  - shadowsocks-1875023024
+  - vless-1828036218
+  - 🇺🇸US-149.40.57.133-0200 | 51.963MB
+  - trojan-1943754366
+  - trojan-1931858183
+  - 🇺🇸US-216.106.178.169-0155 | 79.036MB
+  - 🇺🇸US-38.128.66.32-0143 | 70.278MB
+  - vless-1883103905
+  - vmess-1828338235
+  - shadowsocks-1827147700
+  - 美国 389
+  - vmess-1871753999
+  - trojan-1935796418
+  - 美国 391
+  - shadowsocks-1827964140
+  - shadowsocks-1827147479
+  - shadowsocks-1875022945
+  - shadowsocks-1875023016
+  - shadowsocks-1827146815
+  - shadowsocks-1827146131
+  - shadowsocks-1827146549
+  - shadowsocks-1827963043
+  - 🇺🇸US-38.121.43.18-0114 | 83.063MB
+  - 🇺🇸 美国 | USA ·2
+  - 美国 378
+  - 🇺🇸US-38.121.43.225-0112 | 94.411MB
+  - 🇺🇸US-38.121.43.231-0119 | 92.303MB
+  - 🇺🇸US-38.22.17.129-0110 | 82.825MB
+  - 美国 377
+  - 美国 393
+  - 🇺🇸US-167.88.63.99-0108 | 92.933MB
+  - 🇺🇸US-172.111.36.123-0107 | 83.302MB
+  - 🇺🇸US-23.150.152.38-0163 | 70.3MB
+  - 🇺🇸US-38.22.17.219-0147 | 70.236MB
+  - US7
+  - 🇺🇸US-169.197.142.68-0113 | 63.668MB
+  - US8
+  - US11
+  - US13
+  - 美国 374
+  - 美国 379
+  - 美国 410
+  - '@DeltaKroneckerGithub_3021_IPV4'
+  - 🏁RELAY-172.67.137.158-1222
+  - 🇺🇸US-38.91.107.188-0157 | 59.115MB
+  - 🇺🇸US_14|2.0MB/s
+  - 美国 750
+  - 🇺🇸US-162.251.62.31-0151 | 61.568MB
+  - 🇺🇸 机场推荐:dafei.de 美国 89_IPV4
+  - 🇬🇧[www.v2nodes.com] ss-GB-1616
+  - 🇪🇸ES-5.188.181.201-0227
+  - 🇪🇸ES-5.188.181.201-0226 | 2.981MB
+  - 🇪🇸ES-5.188.181.201-0230 | 2.882MB
+  - 美国 251
+  - 🇳🇱[www.v2nodes.com] ss-NL-1614
+  - 🇬🇧[www.v2nodes.com] ss-GB-1451
+  - 🇳🇱[www.v2nodes.com] ss-NL-1614... 1
+  - 🇳🇱 荷兰 | NLD
+  - 🇳🇱NL-158.173.20.171-0191 | 23.828MB
+  - 🇺🇸 机场推荐:dafei.de 美国 15_IPV4
+  - 法国 010
+  - 德国 009
+  - 🇩🇪[www.v2nodes.com] ss-DE-1616
+  - 🇫🇷[www.v2nodes.com] ss-FR-1615... 2
+  - 🇩🇪 德国 | DEU 2
+  - 🇬🇧GB-82.38.31.205-0123 | 82.618MB
+  - 🇬🇧GB-82.38.31.203-0150 | 79.992MB
+  - 🇬🇧GB-82.38.31.207-0139 | 72.207MB
+  - 🇫🇷[www.v2nodes.com] ss-FR-1615
+  - 🇫🇷[www.v2nodes.com] ss-FR-1615... 1
+  - 🇬🇧GB-82.38.31.181-0131 | 78.5MB
+  - 🇬🇧GB-82.38.31.35-0202 | 17.0MB
+  - 德国 056
+  - 🇬🇧GB-82.38.31.191-0149 | 82.237MB
+  - 德国 002
+  - 🇬🇧GB-82.38.31.199-0255 | 4.839MB
+  - 🇬🇧GB-82.38.31.212-0124 | 77.269MB
+  - 🇬🇧GB-82.38.31.180-0134 | 73.351MB
+  - 🇬🇧GB-82.38.31.216-0133 | 71.582MB
+  - 🇬🇧GB-82.38.31.217-0128 | 68.612MB
+  - 🇵🇱PL-217.30.10.70-0254 | 8.821MB
+  - 🇵🇱PL-217.30.10.70-5813 | 1.486MB
+  - 🇵🇱PL-217.30.10.70-5806 | 1.102MB
+  - 法国 009
+  - 🇬🇧GB-82.38.31.194-0125 | 76.96MB
+  - 🇳🇱NL-193.29.139.147-0137 | 71.12MB
+  - 🇬🇧GB-82.38.31.186-0120 | 73.282MB
+  - 🇨🇭[www.v2nodes.com] ss-CH-1615
+  - 🇬🇧GB-82.38.31.210-5781 | 82.53MB
+  - 瑞士 009
+  - 乌克兰 003
+  - 🇳🇱[www.v2nodes.com] ss-NL-1616
+  - 西班牙 002
+  - 🇸🇪[www.v2nodes.com] vless-SE-1
+  - 🇸🇪[www.v2nodes.com] ss-SE-1615
+  - 🇪🇸[www.v2nodes.com] ss-ES-1615
+  - 🇮🇹[www.v2nodes.com] ss-IT-1623
+  - 🇦🇹 奥地利 | AUT
+  - 🇦🇹[www.v2nodes.com] ss-AT-1614
+  - 🇨🇭[www.v2nodes.com] ss-CH-1615... 1
+  - 🇷🇺[www.v2nodes.com] ss-RU-1163
+  - 🇷🇺 俄罗斯 | RUS 4
+  - 🇯🇵JP-168.138.205.100-0252 | 2.461MB
+  - 🇷🇺 俄罗斯 | RUS 3
+  - 🇷🇺 俄罗斯 | RUS
+  - 🇷🇺 俄罗斯 | RUS 2
+  - 俄罗斯 027
+  - 🇯🇵JP-168.138.205.100-0247 | 2.211MB
+  - C🟠🇯🇵hos[💬🎮✈️📚]_dokng.com_bd5beb5b
+  - 🇬🇧 英国 | GBR 3
+  - 🇬🇧 英国 | GBR 5
+  - 🇩🇪 德国 | DEU 16 ·2
+  - 🇭🇰 香港 | HKG 3
+  - 🇭🇰 香港 | HKG 3 ·2
+  - C🟠🇮🇹hos[🤖💬🔮🧩]_dokng.com_e0e3bc52
+  - C🟠🇮🇹hos[🤖💬📺🎵]_dokng.com_ed9e5a0d
+  - 🇷🇺_俄罗斯 (7)
+  - 🇬🇧 英国 | GBR
+  - 🇮🇹_意大利 (9)
+  - 🇮🇹_意大利 (2)
+  - 🇹🇼_TW_台湾_IPV4
+  - C🟠🇮🇹hos[🤖💬🔮🧩]_dokng.com_9f940a28
+  - D🔴🇮🇹hos[🤖💬🔮🎵]_dokng.com_ed4de7bb
+  - 🇭🇰HK-156.245.232.239-5875 | 0.019MB
+  - D🔴🇭🇰hos[🔮🧩📺🎭]_dokng.com_5283af7f
+  - 🇸🇬[www.v2nodes.com] ss-SG-1615
+  - C🟠🇮🇹hos[🤖💬🔮📺]_dokng.com_79faec8a
+  - 🇮🇹_意大利 (7)
+  - 🇸🇬SG-149.88.106.73-0174 | 44.45MB
+  - 🇸🇬[www.v2nodes.com] ss-SG-1615... 1
+  - 🇸🇬[www.v2nodes.com] ss-SG-1616
+  - 🇮🇹_意大利 (11)
+  - 🇸🇬_新加坡 (11)
+  - 🇮🇹_意大利 (3)
+  - 🇩🇪 德国 | DEU 11
+  - 🇷🇺_俄罗斯 (16)
+  - D🔴🇸🇬hos[🎮✈️🐙🔍]_dokng.com_146ca5ea
+  - 越南|@ripaojiedian
+  - 🇩🇪_德国 (5)
+  - 🇩🇪 德国 | DEU 6
+  - 🇭🇰_香港 (16)
+  - 🇸🇬[www.v2nodes.com] trojan-SG-... 1
+  - 🇭🇰_香港 (18)
+  - 🇭🇰_香港 (17)
+  - 🇮🇳_印度
+  - 🇨🇿 捷克 | CZE
+  - 🇩🇪_德国 (13)
+- name: 🇺🇸 美国
+  type: url-test
+  proxies:
+  - 🏳[www.v2nodes.com] vless- 13
+  - 🇺🇸US-38.91.100.39-0164 | 47.486MB
+  - 美国 380
+  - 🇺🇸US-172.111.38.72-0176 | 35.043MB
+  - 🇺🇸US-149.40.57.138-0153 | 72.456MB
+  - 🇺🇸US-149.40.57.134-0152 | 73.655MB
+  - 🇺🇸US-149.40.57.133-0200 | 51.963MB
+  - 🇺🇸US-216.106.178.169-0155 | 79.036MB
+  - 🇺🇸US-38.128.66.32-0143 | 70.278MB
+  - 美国 389
+  - 美国 391
+  - 🇺🇸US-38.121.43.18-0114 | 83.063MB
+  - 🇺🇸 美国 | USA ·2
+  - 美国 378
+  - 🇺🇸US-38.121.43.225-0112 | 94.411MB
+  - 🇺🇸US-38.121.43.231-0119 | 92.303MB
+  - 🇺🇸US-38.22.17.129-0110 | 82.825MB
+  - 美国 377
+  - 美国 393
+  - 🇺🇸US-167.88.63.99-0108 | 92.933MB
+  - 🇺🇸US-172.111.36.123-0107 | 83.302MB
+  - 🇺🇸US-23.150.152.38-0163 | 70.3MB
+  - 🇺🇸US-38.22.17.219-0147 | 70.236MB
+  - US7
+  - 🇺🇸US-169.197.142.68-0113 | 63.668MB
+  - US8
+  - US11
+  - US13
+  - 美国 374
+  - 美国 379
+  - 美国 410
+  - '@DeltaKroneckerGithub_3021_IPV4'
+  - 🏁RELAY-172.67.137.158-1222
+  - 🇺🇸US-38.91.107.188-0157 | 59.115MB
+  - 🇺🇸US_14|2.0MB/s
+  - 美国 750
+  - 🇺🇸US-162.251.62.31-0151 | 61.568MB
+  - 🇺🇸 机场推荐:dafei.de 美国 89_IPV4
+  - 美国 251
+  - 🇺🇸 机场推荐:dafei.de 美国 15_IPV4
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+- name: 🏳️ 其他
+  type: url-test
+  proxies:
+  - shadowsocks-1827147591
+  - shadowsocks-1827146742
+  - shadowsocks-1827146248
+  - shadowsocks-1827146122
+  - shadowsocks-1827146051
+  - vless-1853350171
+  - vless-1854038780
+  - vless-1853462750
+  - vless-1827147089
+  - vless-1891839087
+  - vmess-1853361191
+  - trojan-1827955817
+  - vless-1854337870
+  - vless-1827162772
+  - vless-1828293988
+  - vless-1827319616
+  - vless-1828293967
+  - vless-1883549617
+  - vless-1828373732
+  - vless-1879373946
+  - shadowsocks-1827146529
+  - vmess-1837386222
+  - 🏳[www.v2nodes.com] ss
+  - shadowsocks-1875023024
+  - vless-1828036218
+  - trojan-1943754366
+  - trojan-1931858183
+  - vless-1883103905
+  - vmess-1828338235
+  - shadowsocks-1827147700
+  - vmess-1871753999
+  - trojan-1935796418
+  - shadowsocks-1827964140
+  - shadowsocks-1827147479
+  - shadowsocks-1875022945
+  - shadowsocks-1875023016
+  - shadowsocks-1827146815
+  - shadowsocks-1827146131
+  - shadowsocks-1827146549
+  - shadowsocks-1827963043
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+- name: 🇪🇸 西班牙
+  type: url-test
+  proxies:
+  - 西班牙 003
+  - 🇪🇸ES-5.188.181.201-0227
+  - 🇪🇸ES-5.188.181.201-0226 | 2.981MB
+  - 🇪🇸ES-5.188.181.201-0230 | 2.882MB
+  - 西班牙 002
+  - 🇪🇸[www.v2nodes.com] ss-ES-1615
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+- name: 🇨🇦 加拿大
+  type: url-test
+  proxies:
+  - 🇨🇦[www.v2nodes.com] ss-CA-1558
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+- name: 🇬🇧 英国
+  type: url-test
+  proxies:
+  - 🇬🇧[www.v2nodes.com] ss-GB-1616
+  - 🇬🇧[www.v2nodes.com] ss-GB-1451
+  - 🇬🇧GB-82.38.31.205-0123 | 82.618MB
+  - 🇬🇧GB-82.38.31.203-0150 | 79.992MB
+  - 🇬🇧GB-82.38.31.207-0139 | 72.207MB
+  - 🇬🇧GB-82.38.31.181-0131 | 78.5MB
+  - 🇬🇧GB-82.38.31.35-0202 | 17.0MB
+  - 🇬🇧GB-82.38.31.191-0149 | 82.237MB
+  - 🇬🇧GB-82.38.31.199-0255 | 4.839MB
+  - 🇬🇧GB-82.38.31.212-0124 | 77.269MB
+  - 🇬🇧GB-82.38.31.180-0134 | 73.351MB
+  - 🇬🇧GB-82.38.31.216-0133 | 71.582MB
+  - 🇬🇧GB-82.38.31.217-0128 | 68.612MB
+  - 🇬🇧GB-82.38.31.194-0125 | 76.96MB
+  - 🇬🇧GB-82.38.31.186-0120 | 73.282MB
+  - 🇬🇧GB-82.38.31.210-5781 | 82.53MB
+  - 🇬🇧 英国 | GBR 3
+  - 🇬🇧 英国 | GBR 5
+  - 🇬🇧 英国 | GBR
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+- name: 🇳🇱 荷兰
+  type: url-test
+  proxies:
+  - 🇳🇱[www.v2nodes.com] ss-NL-1614
+  - 🇳🇱[www.v2nodes.com] ss-NL-1614... 1
+  - 🇳🇱 荷兰 | NLD
+  - 🇳🇱NL-158.173.20.171-0191 | 23.828MB
+  - 🇳🇱NL-193.29.139.147-0137 | 71.12MB
+  - 🇳🇱[www.v2nodes.com] ss-NL-1616
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+- name: 🇫🇷 法国
+  type: url-test
+  proxies:
+  - 法国 010
+  - 🇫🇷[www.v2nodes.com] ss-FR-1615... 2
+  - 🇫🇷[www.v2nodes.com] ss-FR-1615
+  - 🇫🇷[www.v2nodes.com] ss-FR-1615... 1
+  - 法国 009
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+- name: 🇩🇪 德国
+  type: url-test
+  proxies:
+  - 德国 009
+  - 🇩🇪[www.v2nodes.com] ss-DE-1616
+  - 🇩🇪 德国 | DEU 2
+  - 德国 056
+  - 德国 002
+  - 🇩🇪 德国 | DEU 16 ·2
+  - D🔴🇮🇹hos[🤖💬🔮🎵]_dokng.com_ed4de7bb
+  - 🇩🇪 德国 | DEU 11
+  - 🇩🇪_德国 (5)
+  - 🇩🇪 德国 | DEU 6
+  - 🇩🇪_德国 (13)
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+- name: 🇵🇱 波兰
+  type: url-test
+  proxies:
+  - 🇵🇱PL-217.30.10.70-0254 | 8.821MB
+  - 🇵🇱PL-217.30.10.70-5813 | 1.486MB
+  - 🇵🇱PL-217.30.10.70-5806 | 1.102MB
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+- name: 🇨🇭 瑞士
+  type: url-test
+  proxies:
+  - 🇨🇭[www.v2nodes.com] ss-CH-1615
+  - 瑞士 009
+  - 🇨🇭[www.v2nodes.com] ss-CH-1615... 1
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+- name: 🇺🇦 乌克兰
+  type: url-test
+  proxies:
+  - 乌克兰 003
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+- name: 🇸🇪 瑞典
+  type: url-test
+  proxies:
+  - 🇸🇪[www.v2nodes.com] vless-SE-1
+  - 🇸🇪[www.v2nodes.com] ss-SE-1615
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+- name: 🇮🇹 意大利
+  type: url-test
+  proxies:
+  - 🇮🇹[www.v2nodes.com] ss-IT-1623
+  - C🟠🇮🇹hos[🤖💬🔮🧩]_dokng.com_e0e3bc52
+  - C🟠🇮🇹hos[🤖💬📺🎵]_dokng.com_ed9e5a0d
+  - 🇮🇹_意大利 (9)
+  - 🇮🇹_意大利 (2)
+  - C🟠🇮🇹hos[🤖💬🔮🧩]_dokng.com_9f940a28
+  - C🟠🇮🇹hos[🤖💬🔮📺]_dokng.com_79faec8a
+  - 🇮🇹_意大利 (7)
+  - 🇮🇹_意大利 (11)
+  - 🇮🇹_意大利 (3)
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+- name: 🇦🇹 奥地利
+  type: url-test
+  proxies:
+  - 🇦🇹 奥地利 | AUT
+  - 🇦🇹[www.v2nodes.com] ss-AT-1614
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+- name: 🇷🇺 俄罗斯
+  type: url-test
+  proxies:
+  - 🇷🇺[www.v2nodes.com] ss-RU-1163
+  - 🇷🇺 俄罗斯 | RUS 4
+  - 🇷🇺 俄罗斯 | RUS 3
+  - 🇷🇺 俄罗斯 | RUS
+  - 🇷🇺 俄罗斯 | RUS 2
+  - 俄罗斯 027
+  - 🇷🇺_俄罗斯 (7)
+  - 🇷🇺_俄罗斯 (16)
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+- name: 🇯🇵 日本
+  type: url-test
+  proxies:
+  - 🇯🇵JP-168.138.205.100-0252 | 2.461MB
+  - 🇯🇵JP-168.138.205.100-0247 | 2.211MB
+  - C🟠🇯🇵hos[💬🎮✈️📚]_dokng.com_bd5beb5b
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+- name: 🇭🇰 香港
+  type: url-test
+  proxies:
+  - 🇭🇰 香港 | HKG 3
+  - 🇭🇰 香港 | HKG 3 ·2
+  - 🇭🇰HK-156.245.232.239-5875 | 0.019MB
+  - D🔴🇭🇰hos[🔮🧩📺🎭]_dokng.com_5283af7f
+  - 🇭🇰_香港 (16)
+  - 🇭🇰_香港 (18)
+  - 🇭🇰_香港 (17)
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+- name: 🇹🇼 台湾
+  type: url-test
+  proxies:
+  - 🇹🇼_TW_台湾_IPV4
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+- name: 🇸🇬 新加坡
+  type: url-test
+  proxies:
+  - 🇸🇬[www.v2nodes.com] ss-SG-1615
+  - 🇸🇬SG-149.88.106.73-0174 | 44.45MB
+  - 🇸🇬[www.v2nodes.com] ss-SG-1615... 1
+  - 🇸🇬[www.v2nodes.com] ss-SG-1616
+  - 🇸🇬_新加坡 (11)
+  - D🔴🇸🇬hos[🎮✈️🐙🔍]_dokng.com_146ca5ea
+  - 🇸🇬[www.v2nodes.com] trojan-SG-... 1
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+- name: 🇻🇳 越南
+  type: url-test
+  proxies:
+  - 越南|@ripaojiedian
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+- name: 🇮🇳 印度
+  type: url-test
+  proxies:
+  - 🇮🇳_印度
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+- name: 🇨🇿 捷克
+  type: url-test
+  proxies:
+  - 🇨🇿 捷克 | CZE
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+- name: 🌍 国外媒体
+  type: select
+  proxies:
+  - 🚀 节点选择
+  - ♻️ 自动选择
+  - 🔁 故障转移
+- name: 🤖 AI服务
+  type: select
+  proxies:
+  - 🚀 节点选择
+  - ♻️ 自动选择
+  - 🔁 故障转移
+- name: 📲 电报消息
+  type: select
+  proxies:
+  - 🚀 节点选择
+  - ♻️ 自动选择
+  - 🔁 故障转移
+- name: 🎯 全球直连
+  type: select
+  proxies:
+  - DIRECT
+  - 🚀 节点选择
+- name: 🛑 广告拦截
+  type: select
+  proxies:
+  - REJECT
+  - DIRECT
+- name: 🐟 漏网之鱼
+  type: select
+  proxies:
+  - 🚀 节点选择
+  - DIRECT
+rules:
+- GEOSITE,category-ads-all,🛑 广告拦截
+- GEOIP,private,DIRECT,no-resolve
+- GEOSITE,private,DIRECT
+- GEOSITE,cn,DIRECT
+- GEOIP,cn,DIRECT
+- GEOSITE,openai,🤖 AI服务
+- GEOSITE,anthropic,🤖 AI服务
+- GEOSITE,google-gemini,🤖 AI服务
+- GEOSITE,category-ai-chat-!cn,🤖 AI服务
+- GEOSITE,youtube,🌍 国外媒体
+- GEOSITE,netflix,🌍 国外媒体
+- GEOSITE,disney,🌍 国外媒体
+- GEOSITE,hbo,🌍 国外媒体
+- GEOSITE,spotify,🌍 国外媒体
+- GEOSITE,bilibili,🎯 全球直连
+- GEOSITE,telegram,📲 电报消息
+- GEOSITE,twitter,🚀 节点选择
+- GEOSITE,google,🚀 节点选择
+- GEOSITE,github,🚀 节点选择
+- GEOSITE,geolocation-!cn,🚀 节点选择
+- GEOIP,telegram,📲 电报消息,no-resolve
+- MATCH,🐟 漏网之鱼
